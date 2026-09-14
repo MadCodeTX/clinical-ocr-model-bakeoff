@@ -2,7 +2,7 @@
 
 Open-weights OCR / document-VLM evaluation on **real-artifact clinical scanned documents**, plus a routing study and a distillation experiment. All data is public or synthetic (no PHI).
 
-_Generated 2026-09-14T06:11Z from `make_report.py`; 13 scored models, 5 experiment runs._
+_Generated 2026-09-14T06:20Z from `make_report.py`; 14 scored models, 6 experiment runs._
 
 ## TL;DR
 
@@ -40,6 +40,7 @@ _Generated 2026-09-14T06:11Z from `make_report.py`; 13 scored models, 5 experime
 | qwen25vl3b-base | 3B | Apache-2.0 | 0.2919 | 0.0616 | 0.18 | 0.036 | 0.325 | 0.047 | 0.436 | 0.080 | 0.916 |
 | paddleocr-vl | 0.9B | Apache-2.0 | 0.4298 | 0.1005 | 1.70 | 0.071 | 0.502 | 0.164 | 0.502 | 0.183 | 1.278 |
 | tesseract | n/a | Apache-2.0 | 0.4744 | 0.4440 | 1.41 | 0.081 | 0.533 | 0.531 | 0.665 | 0.237 | 0.853 |
+| deepseek-ocr | 3B MoE | MIT | 0.7717 | 0.3007 | 0.88 | 0.153 | 0.765 | 0.053 | 1.835 | 0.447 | 1.477 |
 | paddleocr-vl-pipeline | 0.9B + PP-DocLayoutV2 | Apache-2.0 | 0.8235 | 0.4455 | 0.27 | 0.453 | 0.304 | 0.409 | 0.521 | 2.000 | 1.326 |
 | chandra-2 | 5B | OpenRAIL-M (research/personal/<$2M only) | 0.8641 | 0.7134 | 0.40 | 0.826 | 0.897 | 0.839 | 0.770 | 0.625 | 1.289 |
 | granite-docling | 0.26B | Apache-2.0 | 0.8665 | 0.8710 | 1.11 | 0.261 | 1.460 | 0.503 | 1.422 | 0.503 | 1.081 |
@@ -58,6 +59,7 @@ _Generated 2026-09-14T06:11Z from `make_report.py`; 13 scored models, 5 experime
 |---|---|---|---|---|---|
 | paddleocr-vl | 1.70 | 146,534 | $1.62 | $1,465 | 905x |
 | granite-docling | 1.11 | 96,336 | $1.62 | $963 | 595x |
+| deepseek-ocr | 0.88 | 76,118 | $1.62 | $761 | 470x |
 | teacher-labels | 0.85 | 73,267 | $1.62 | $733 | 452x |
 | dots-mocr | 0.67 | 57,542 | $1.62 | $575 | 355x |
 | dots-ocr | 0.61 | 52,445 | $1.62 | $524 | 324x |
@@ -97,6 +99,7 @@ Assumes one 450 W 4090 at $0.15/kWh (~$1.62/day); Azure Layout OCR at $0.01/page
 | e03_eval_students | ok | 53.5 |
 | e04_models_a | ok | 16.4 |
 | e05_models_b | ok | 30.0 |
+| e06_models_c | ok | 8.7 |
 
 ## 9. Conclusions
 
