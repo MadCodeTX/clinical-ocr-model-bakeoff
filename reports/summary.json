@@ -691,6 +691,10 @@
   "e08_concurrency": {
    "rc": 0,
    "seconds": 2575.0
+  },
+  "e12_analysis": {
+   "rc": 1,
+   "seconds": 0.0
   }
  },
  "teacher": {

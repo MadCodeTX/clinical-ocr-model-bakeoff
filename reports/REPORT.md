@@ -2,7 +2,7 @@
 
 Open-weights OCR / document-VLM evaluation on **real-artifact clinical scanned documents**, plus a routing study and a distillation experiment. All data is public or synthetic (no PHI).
 
-_Generated 2026-09-14T07:14Z from `make_report.py`; 19 scored models, 8 experiment runs._
+_Generated 2026-09-14T07:14Z from `make_report.py`; 19 scored models, 9 experiment runs._
 
 ## TL;DR
 
@@ -112,6 +112,7 @@ Assumes one 450 W 4090 at $0.15/kWh (~$1.62/day); Azure Layout OCR at $0.01/page
 | e06_models_c | ok | 8.7 |
 | e07_prompt_variants | ok | 9.9 |
 | e08_concurrency | ok | 42.9 |
+| e12_analysis | rc=1 | ? |
 
 ## 9. Conclusions
 
