@@ -2,11 +2,11 @@
 
 Open-weights OCR / document-VLM evaluation on **real-artifact clinical scanned documents**, plus a routing study and a distillation experiment. All data is public or synthetic (no PHI).
 
-_Generated 2026-09-14T05:24Z from `make_report.py`; 9 scored models, 3 experiment runs._
+_Generated 2026-09-14T05:41Z from `make_report.py`; 11 scored models, 4 experiment runs._
 
 ## TL;DR
 
-- **Best accuracy: `olmocr-2`** (mean CER 0.208, median 0.080).
+- **Best accuracy: `qwen25vl7b`** (mean CER 0.199, median 0.051).
 - **Best value: `dots-mocr` (3B, MIT)** — CER 0.213 vs olmOCR-2's 0.208 at 1.4x the throughput.
 - **Incumbent Tesseract**: mean CER 0.474, median 0.444 — the gap is worst on the degraded artifacts that dominate inbound faxes.
 - **Distillation**: LoRA on synthetic degraded docs: overall CER 0.292 -> 0.278 (+0.014); handwriting +0.110; rotated +0.053
@@ -32,8 +32,10 @@ _Generated 2026-09-14T05:24Z from `make_report.py`; 9 scored models, 3 experimen
 
 | model | params | license | mean CER | median CER | pages/s | normal | handwriting | poor | rotated | tables | mixed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
+| qwen25vl7b | 7B | Apache-2.0 | 0.1994 | 0.0513 | 0.54 | 0.026 | 0.103 | 0.076 | 0.265 | 0.071 | 0.732 |
 | olmocr-2 | 8B | Apache-2.0 | 0.2076 | 0.0796 | 0.48 | 0.067 | 0.103 | 0.112 | 0.196 | 0.081 | 0.767 |
 | dots-mocr | 3B | MIT | 0.2126 | 0.0747 | 0.67 | 0.085 | 0.126 | 0.085 | 0.241 | 0.058 | 0.759 |
+| dots-ocr | 3B | MIT | 0.2613 | 0.0761 | 0.61 | 0.051 | 0.165 | 0.083 | 0.314 | 0.061 | 0.999 |
 | qwen25vl3b-lora | 3B + LoRA (37M) | Apache-2.0 | 0.2783 | 0.1003 | 0.10 | 0.039 | 0.215 | 0.046 | 0.383 | 0.164 | 0.914 |
 | qwen25vl3b-base | 3B | Apache-2.0 | 0.2919 | 0.0616 | 0.18 | 0.036 | 0.325 | 0.047 | 0.436 | 0.080 | 0.916 |
 | paddleocr-vl | 0.9B | Apache-2.0 | 0.4298 | 0.1005 | 1.70 | 0.071 | 0.502 | 0.164 | 0.502 | 0.183 | 1.278 |
@@ -56,6 +58,8 @@ _Generated 2026-09-14T05:24Z from `make_report.py`; 9 scored models, 3 experimen
 | granite-docling | 1.11 | 96,336 | $1.62 | $963 | 595x |
 | teacher-labels | 0.85 | 73,267 | $1.62 | $733 | 452x |
 | dots-mocr | 0.67 | 57,542 | $1.62 | $575 | 355x |
+| dots-ocr | 0.61 | 52,445 | $1.62 | $524 | 324x |
+| qwen25vl7b | 0.54 | 46,483 | $1.62 | $465 | 287x |
 | olmocr-2 | 0.48 | 41,213 | $1.62 | $412 | 254x |
 | paddleocr-vl-pipeline | 0.27 | 23,414 | $1.62 | $234 | 145x |
 | qwen25vl3b-base | 0.18 | 15,898 | $1.62 | $159 | 98x |
@@ -87,6 +91,7 @@ Assumes one 450 W 4090 at $0.15/kWh (~$1.62/day); Azure Layout OCR at $0.01/page
 | e01_paddle_pipeline | ok | 21.6 |
 | e02_train_lora | ok | ? |
 | e03_eval_students | ok | 53.5 |
+| e04_models_a | ok | 16.4 |
 
 ## 9. Conclusions
 

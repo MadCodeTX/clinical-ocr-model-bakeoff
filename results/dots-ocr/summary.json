@@ -1,0 +1,36 @@
+{
+ "model": "dots-ocr",
+ "n_docs": 328,
+ "n_errors": 10,
+ "mean_cer": 0.2613,
+ "median_cer": 0.0761,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.1653,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 0.9988,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.0515,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.0831,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.3135,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.0611,
+   "n": 56
+  }
+ },
+ "wall_time_s": 540.2,
+ "pages_per_sec": 0.607,
+ "avg_latency_s": 12.91
+}

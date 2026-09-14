@@ -1,0 +1,36 @@
+{
+ "model": "qwen25vl7b",
+ "n_docs": 328,
+ "n_errors": 10,
+ "mean_cer": 0.1994,
+ "median_cer": 0.0513,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.1026,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 0.7321,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.026,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.0762,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.2653,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.0707,
+   "n": 56
+  }
+ },
+ "wall_time_s": 609.7,
+ "pages_per_sec": 0.538,
+ "avg_latency_s": 14.04
+}
