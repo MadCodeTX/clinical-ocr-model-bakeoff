@@ -2,7 +2,7 @@
 
 Open-weights OCR / document-VLM evaluation on **real-artifact clinical scanned documents**, plus a routing study and a distillation experiment. All data is public or synthetic (no PHI).
 
-_Generated 2026-09-14T06:20Z from `make_report.py`; 14 scored models, 6 experiment runs._
+_Generated 2026-09-14T06:31Z from `make_report.py`; 16 scored models, 7 experiment runs._
 
 ## TL;DR
 
@@ -35,10 +35,12 @@ _Generated 2026-09-14T06:20Z from `make_report.py`; 14 scored models, 6 experime
 | qwen25vl7b | 7B | Apache-2.0 | 0.1994 | 0.0513 | 0.54 | 0.026 | 0.103 | 0.076 | 0.265 | 0.071 | 0.732 |
 | olmocr-2 | 8B | Apache-2.0 | 0.2076 | 0.0796 | 0.48 | 0.067 | 0.103 | 0.112 | 0.196 | 0.081 | 0.767 |
 | dots-mocr | 3B | MIT | 0.2126 | 0.0747 | 0.67 | 0.085 | 0.126 | 0.085 | 0.241 | 0.058 | 0.759 |
+| dots-mocr-promptocr | ? | ? | 0.2213 | 0.0675 | 0.65 | 0.082 | 0.119 | 0.088 | 0.244 | 0.045 | 0.837 |
 | dots-ocr | 3B | MIT | 0.2613 | 0.0761 | 0.61 | 0.051 | 0.165 | 0.083 | 0.314 | 0.061 | 0.999 |
 | qwen25vl3b-lora | 3B + LoRA (37M) | Apache-2.0 | 0.2783 | 0.1003 | 0.10 | 0.039 | 0.215 | 0.046 | 0.383 | 0.164 | 0.914 |
 | qwen25vl3b-base | 3B | Apache-2.0 | 0.2919 | 0.0616 | 0.18 | 0.036 | 0.325 | 0.047 | 0.436 | 0.080 | 0.916 |
 | paddleocr-vl | 0.9B | Apache-2.0 | 0.4298 | 0.1005 | 1.70 | 0.071 | 0.502 | 0.164 | 0.502 | 0.183 | 1.278 |
+| paddleocr-vl-promptb | ? | ? | 0.4453 | 0.0949 | 1.69 | 0.066 | 0.418 | 0.167 | 0.588 | 0.184 | 1.385 |
 | tesseract | n/a | Apache-2.0 | 0.4744 | 0.4440 | 1.41 | 0.081 | 0.533 | 0.531 | 0.665 | 0.237 | 0.853 |
 | deepseek-ocr | 3B MoE | MIT | 0.7717 | 0.3007 | 0.88 | 0.153 | 0.765 | 0.053 | 1.835 | 0.447 | 1.477 |
 | paddleocr-vl-pipeline | 0.9B + PP-DocLayoutV2 | Apache-2.0 | 0.8235 | 0.4455 | 0.27 | 0.453 | 0.304 | 0.409 | 0.521 | 2.000 | 1.326 |
@@ -58,10 +60,12 @@ _Generated 2026-09-14T06:20Z from `make_report.py`; 14 scored models, 6 experime
 | model | pages/s (1 GPU, c=8) | pages/day (1 GPU) | electricity/day | Azure Layout/day | saving |
 |---|---|---|---|---|---|
 | paddleocr-vl | 1.70 | 146,534 | $1.62 | $1,465 | 905x |
+| paddleocr-vl-promptb | 1.69 | 146,189 | $1.62 | $1,462 | 902x |
 | granite-docling | 1.11 | 96,336 | $1.62 | $963 | 595x |
 | deepseek-ocr | 0.88 | 76,118 | $1.62 | $761 | 470x |
 | teacher-labels | 0.85 | 73,267 | $1.62 | $733 | 452x |
 | dots-mocr | 0.67 | 57,542 | $1.62 | $575 | 355x |
+| dots-mocr-promptocr | 0.65 | 56,246 | $1.62 | $562 | 347x |
 | dots-ocr | 0.61 | 52,445 | $1.62 | $524 | 324x |
 | qwen25vl7b | 0.54 | 46,483 | $1.62 | $465 | 287x |
 | olmocr-2 | 0.48 | 41,213 | $1.62 | $412 | 254x |
@@ -100,6 +104,7 @@ Assumes one 450 W 4090 at $0.15/kWh (~$1.62/day); Azure Layout OCR at $0.01/page
 | e04_models_a | ok | 16.4 |
 | e05_models_b | ok | 30.0 |
 | e06_models_c | ok | 8.7 |
+| e07_prompt_variants | ok | 9.9 |
 
 ## 9. Conclusions
 
