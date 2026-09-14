@@ -22,6 +22,17 @@ HF_CACHE="${HF_CACHE:-$HOME/.cache/huggingface}"
 ADAPTER_ABS=$(readlink -f "$ADAPTER")
 RANK=$(python3 -c "import json;print(json.load(open('$ADAPTER_ABS/adapter_config.json'))['r'])")
 
+# By default vLLM applies LoRA to the language model only and silently ignores
+# adapter weights on the visual tower. Our adapters have them, so LORA_TOWER=1
+# is what makes a vLLM run represent the same model HF generates with.
+TOWER_ARG=""
+[ "${LORA_TOWER:-0}" = "1" ] && TOWER_ARG="--enable-tower-connector-lora"
+
+# eval_hf.py caps images at 1024*28*28; vLLM otherwise uses the model default,
+# which is far higher. Set MAX_PIXELS to compare like with like.
+PIXELS_ARG=""
+[ -n "${MAX_PIXELS:-}" ] && PIXELS_ARG="--mm-processor-kwargs {\"max_pixels\":${MAX_PIXELS}}"
+
 echo "=== [$NAME] serving $BASE + LoRA $ADAPTER_ABS (rank $RANK) on GPU$GPU ==="
 docker rm -f "$CTR" >/dev/null 2>&1 || true
 docker run -d --name "$CTR" \
@@ -38,7 +49,8 @@ docker run -d --name "$CTR" \
   --enable-lora \
   --lora-modules "student=/adapter" \
   --max-lora-rank "$RANK" \
-  --max-loras 1 > /dev/null
+  --max-loras 1 \
+  ${TOWER_ARG} ${PIXELS_ARG} > /dev/null
 
 echo "=== [$NAME] waiting for model load ==="
 ready=0

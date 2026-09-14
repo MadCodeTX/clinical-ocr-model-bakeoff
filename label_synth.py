@@ -23,6 +23,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--endpoint", required=True)
     ap.add_argument("--model", default="ocr")
+    ap.add_argument("--teacher-name", default=None,
+                    help="label for the summary; defaults to --model")
     ap.add_argument("--prompt", required=True)
     ap.add_argument("--data", default=os.path.join(ROOT, "data", "synth", "labels.jsonl"))
     ap.add_argument("--out", required=True)
@@ -64,7 +66,7 @@ def main():
             (hw_cers if it["handwriting"] else print_cers).append(c)
 
     summary = {
-        "teacher": "olmOCR-2-7B",
+        "teacher": args.teacher_name or args.model,
         "n": len(preds),
         "label_noise_cer_vs_exact_gt": round(sum(cers) / len(cers), 4),
         "median": round(sorted(cers)[len(cers) // 2], 4),

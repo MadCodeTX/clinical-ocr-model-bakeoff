@@ -1,0 +1,36 @@
+{
+ "model": "qwen25vl3b-lora-vllm",
+ "n_docs": 328,
+ "n_errors": 10,
+ "mean_cer": 0.2474,
+ "median_cer": 0.0596,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.0889,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 0.9303,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.033,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.0767,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.3498,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.1035,
+   "n": 56
+  }
+ },
+ "wall_time_s": 462.2,
+ "pages_per_sec": 0.71,
+ "avg_latency_s": 10.7
+}

@@ -1,0 +1,10 @@
+{
+ "teacher": "Qwen/Qwen3.8-27B-FP8",
+ "n": 800,
+ "label_noise_cer_vs_exact_gt": 0.0121,
+ "median": 0.0,
+ "printed_cer": 0.0056,
+ "handwriting_font_cer": 0.0255,
+ "wall_time_s": 1636.1,
+ "pages_per_sec": 0.489
+}

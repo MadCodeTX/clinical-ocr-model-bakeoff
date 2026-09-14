@@ -20,13 +20,21 @@ TOL=${TOL:-0.010}
 
 [ -f "$REF" ] || { echo "missing reference $REF"; exit 1; }
 
-bash run_lora_model.sh qwen25vl3b-lora-vllm checkpoints/qwen25vl3b-lora "$GPU"
+# Equivalence only holds with both knobs controlled, and finding that out was
+# the point of the first run of this gate:
+#   LORA_TOWER=1 -- vLLM otherwise ignores the vision-tower LoRA entirely
+#                   (133 "no matching PunicaWrapper" warnings, 192 of 696 tensors)
+#   MAX_PIXELS   -- eval_hf.py caps images at 1024*28*28; vLLM's default is ~16x
+#                   higher, which alone moved mean CER by ~0.03
+# Uncontrolled, the two paths differed by -0.0309. Controlled, by +0.0061.
+LORA_TOWER=1 MAX_PIXELS=802816 \
+  bash run_lora_model.sh qwen25vl3b-lora-vllm-matched checkpoints/qwen25vl3b-lora "$GPU"
 
 .venv/bin/python3 - "$REF" "$TOL" <<'PY'
 import json, sys
 
 ref = json.load(open(sys.argv[1]))
-new = json.load(open("results/qwen25vl3b-lora-vllm/summary.json"))
+new = json.load(open("results/qwen25vl3b-lora-vllm-matched/summary.json"))
 tol = float(sys.argv[2])
 
 d = new["mean_cer"] - ref["mean_cer"]
@@ -50,8 +58,8 @@ if abs(d) <= tol:
     print("\nPASS: the two paths agree. Use vLLM serving for the matrix.")
 else:
     print("\nFAIL: the paths disagree beyond tolerance.")
-    print("Most likely vLLM is not applying the vision-tower LoRA weights that")
-    print("HF applies. Keep the matrix on eval_hf.py, or retrain with")
-    print("target_modules restricted to the language model so both agree.")
+    print("Check the container log for 'no matching PunicaWrapper' (vision-tower")
+    print("LoRA being dropped) and confirm MAX_PIXELS matches eval_hf.py's cap.")
+    print("If both are controlled and it still fails, keep the matrix on eval_hf.py.")
     sys.exit(1)
 PY
