@@ -12,8 +12,11 @@ import glob
 import json
 import os
 import re
+import sys
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, ROOT)
+from eval_cli import normalize  # noqa: E402  — same markup handling as CER
 
 PATTERNS = {
     "dates": re.compile(r"\b\d{1,2}/\d{1,2}/\d{2,4}\b"),
@@ -21,14 +24,19 @@ PATTERNS = {
     "decimals": re.compile(r"\b\d+\.\d+\b"),
     "codes": re.compile(r"\b[A-Z]{1,4}\d{2,}[-A-Z0-9]*\b"),
     "phones": re.compile(r"\(?\d{3}\)?[ \-]?\d{3}[- ]\d{4}"),
-    "mrn_prefix": re.compile(r"\b[A-Z]{2}\d{2}[- ]?\d{2}[- ]?\d{2}[A-Z]?\b"),
+    # The record identifier as an extractor must find it: anchored to its label.
+    # (A bare digit-run is already covered by ids_5to8; what matters downstream
+    # is that the MRN survives *and* stays attached to the field that names it.)
+    "mrn_labeled": re.compile(
+        r"\b(?:MRN|MEDICAL RECORD (?:NUMBER|NO\.?)|PATIENT ID)\b[:\s#]*([A-Z0-9][A-Z0-9-]{3,19})"),
 }
 
 
 def toks(text):
-    """Lowercased, whitespace-collapsed so spacing differences don't count."""
-    t = re.sub(r"\s+", " ", text or "")
-    return t
+    """Normalise exactly as CER does: markdown/DocTags markup stripped and
+    whitespace collapsed. Without this a model is penalised for formatting --
+    dots-mocr writes "**MRN:** 789012", which is a correct read of the field."""
+    return normalize(text or "").upper()
 
 
 def extract(text):
@@ -72,12 +80,15 @@ def main():
                 agg[k]["tp"] += tp
                 agg[k]["ref"] += rt
                 agg[k]["hyp"] += ht
+        if not n_docs:
+            continue  # predictions for a different corpus (synthetic/teacher runs)
         stats = {}
         for k, v in agg.items():
             rec = v["tp"] / v["ref"] if v["ref"] else float("nan")
             prec = v["tp"] / v["hyp"] if v["hyp"] else float("nan")
             f1 = (2 * rec * prec / (rec + prec)) if rec and prec and (rec + prec) else 0.0
-            stats[k] = {"recall": round(rec, 4), "precision": round(prec, 4) if prec == prec else None,
+            stats[k] = {"recall": round(rec, 4) if rec == rec else None,
+                        "precision": round(prec, 4) if prec == prec else None,
                         "f1": round(f1, 4), "n_ref": v["ref"]}
         overall_tp = sum(v["tp"] for v in agg.values())
         overall_ref = sum(v["ref"] for v in agg.values())
@@ -97,9 +108,12 @@ def main():
     order = list(PATTERNS)
     print(f"{'model':<26}{'fields':>8}" + "".join(f"{k:>10}" for k in order))
     print("-" * 90)
+    def num(x):
+        return f"{x:.3f}" if isinstance(x, float) and x == x else "-"
+
     for m, s in sorted(out.items(), key=lambda kv: -(kv[1]["overall_fields"]["recall"] or 0)):
-        print(f"{m:<26}{s['overall_fields']['recall']:>8.3f}"
-              + "".join(f"{s['by_type'][k]['recall']:>10.3f}" for k in order))
+        print(f"{m:<26}{num(s['overall_fields']['recall']):>8}"
+              + "".join(f"{num(s['by_type'][k]['recall']):>10}" for k in order))
     print("\n(recall of ground-truth field tokens; higher is better)")
 
 

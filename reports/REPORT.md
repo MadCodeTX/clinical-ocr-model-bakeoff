@@ -2,13 +2,14 @@
 
 Open-weights OCR / document-VLM evaluation on **real-artifact clinical scanned documents**, plus a routing study and a distillation experiment. All data is public or synthetic (no PHI).
 
-_Generated 2026-09-14T07:14Z from `make_report.py`; 19 scored models, 9 experiment runs._
+_Generated 2026-09-14T17:43Z from `make_report.py`; 23 scored models, 14 experiment runs._
 
 ## TL;DR
 
 - **Best accuracy: `qwen25vl7b`** (mean CER 0.199, median 0.051).
 - **Best value: `dots-mocr` (3B, MIT)** — CER 0.213 vs olmOCR-2's 0.208 at 1.4x the throughput.
 - **Incumbent Tesseract**: mean CER 0.474, median 0.444 — the gap is worst on the degraded artifacts that dominate inbound faxes.
+- **Router**: escalating only 20% of pages to Layout-class OCR reaches CER 0.209 at $0.00198/page (80% cheaper than escalating everything).
 - **Distillation**: LoRA on synthetic degraded docs: overall CER 0.292 -> 0.278 (+0.014); handwriting +0.110; rotated +0.053
 - **Teacher labels**: olmOCR-2 output matches exact ground truth at CER 0.060 (median 0.0007) on 200 synthetic degraded clinical docs — cheap to mint training labels for unlabeled scans.
 
@@ -50,6 +51,10 @@ _Generated 2026-09-14T07:14Z from `make_report.py`; 19 scored models, 9 experime
 | chandra-2 | 5B | OpenRAIL-M (research/personal/<$2M only) | 0.8641 | 0.7134 | 0.40 | 0.826 | 0.897 | 0.839 | 0.770 | 0.625 | 1.289 |
 | granite-docling | 0.26B | Apache-2.0 | 0.8665 | 0.8710 | 1.11 | 0.261 | 1.460 | 0.503 | 1.422 | 0.503 | 1.081 |
 | nanonets-ocr2-3b | 3B | Apache-2.0 | 1.8010 | 2.0000 | 0.21 | 1.786 | 1.550 | 1.850 | 1.744 | 1.976 | 1.916 |
+| router-dots-olmocr | ? | ? | nan | nan | 0.00 | nan | nan | nan | nan | nan | nan |
+| router-paddle-olmocr | ? | ? | nan | nan | 0.00 | nan | nan | nan | nan | nan | nan |
+| router | ? | ? | nan | nan | 0.00 | nan | nan | nan | nan | nan | nan |
+| teacher-labels-full | ? | ? | nan | nan | 0.86 | nan | nan | nan | nan | nan | nan |
 | teacher-labels | ? | ? | nan | nan | 0.85 | nan | nan | nan | nan | nan | nan |
 
 ![leaderboard](cer_leaderboard.png)
@@ -57,6 +62,30 @@ _Generated 2026-09-14T07:14Z from `make_report.py`; 19 scored models, 9 experime
 ## 3. Where models fail
 
 ![heatmap](cer_by_subset.png)
+
+**Field-level recall** — whether clinically load-bearing tokens survive (dates, MRNs/IDs, lab decimals, accession codes, phone numbers):
+
+| model | all fields | dates | ids 5–8d | decimals | codes | phones | labeled MRN |
+|---|---|---|---|---|---|---|---|
+| chandra-2 | 0.859 | 0.850 | 0.873 | 0.881 | 0.812 | 0.858 | 0.830 |
+| dots-mocr-c16 | 0.831 | 0.845 | 0.804 | 0.876 | 0.825 | 0.797 | 0.766 |
+| dots-mocr-c4 | 0.829 | 0.841 | 0.804 | 0.876 | 0.825 | 0.797 | 0.763 |
+| qwen25vl7b | 0.828 | 0.831 | 0.824 | 0.844 | 0.786 | 0.856 | 0.769 |
+| dots-mocr-c1 | 0.827 | 0.838 | 0.801 | 0.876 | 0.825 | 0.793 | 0.763 |
+| dots-mocr | 0.827 | 0.838 | 0.806 | 0.873 | 0.808 | 0.799 | 0.766 |
+| dots-mocr-promptocr | 0.827 | 0.837 | 0.800 | 0.877 | 0.812 | 0.801 | 0.756 |
+| dots-ocr | 0.826 | 0.835 | 0.800 | 0.881 | 0.764 | 0.811 | 0.763 |
+| olmocr-2 | 0.785 | 0.812 | 0.721 | 0.886 | 0.742 | 0.742 | 0.644 |
+| qwen25vl3b-lora | 0.762 | 0.765 | 0.726 | 0.857 | 0.703 | 0.708 | 0.689 |
+| qwen25vl3b-base | 0.760 | 0.755 | 0.744 | 0.840 | 0.659 | 0.744 | 0.673 |
+| qwen25vl3b-lora-teacher ⚠️ *(partial, 235/328)* | 0.755 | 0.755 | 0.716 | 0.884 | 0.747 | 0.771 | 0.646 |
+| paddleocr-vl | 0.754 | 0.715 | 0.806 | 0.775 | 0.703 | 0.750 | 0.737 |
+| paddleocr-vl-promptb | 0.733 | 0.714 | 0.780 | 0.729 | 0.677 | 0.728 | 0.747 |
+| paddleocr-vl-pipeline | 0.676 | 0.683 | 0.580 | 0.849 | 0.638 | 0.661 | 0.413 |
+| deepseek-ocr | 0.606 | 0.588 | 0.557 | 0.742 | 0.502 | 0.590 | 0.471 |
+| tesseract | 0.538 | 0.577 | 0.523 | 0.561 | 0.489 | 0.501 | 0.481 |
+| granite-docling | 0.308 | 0.287 | 0.460 | 0.113 | 0.367 | 0.432 | 0.372 |
+| nanonets-ocr2-3b | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 |
 
 ## 4. Throughput & cost
 
@@ -66,6 +95,7 @@ _Generated 2026-09-14T07:14Z from `make_report.py`; 19 scored models, 9 experime
 | paddleocr-vl-promptb | 1.69 | 146,189 | $1.62 | $1,462 | 902x |
 | granite-docling | 1.11 | 96,336 | $1.62 | $963 | 595x |
 | deepseek-ocr | 0.88 | 76,118 | $1.62 | $761 | 470x |
+| teacher-labels-full | 0.86 | 74,736 | $1.62 | $747 | 461x |
 | teacher-labels | 0.85 | 73,267 | $1.62 | $733 | 452x |
 | dots-mocr-c16 | 0.77 | 66,096 | $1.62 | $661 | 408x |
 | dots-mocr | 0.67 | 57,542 | $1.62 | $575 | 355x |
@@ -82,6 +112,39 @@ _Generated 2026-09-14T07:14Z from `make_report.py`; 19 scored models, 9 experime
 | qwen25vl3b-lora | 0.10 | 8,899 | $1.62 | $89 | 55x |
 
 Assumes one 450 W 4090 at $0.15/kWh (~$1.62/day); Azure Layout OCR at $0.01/page. Self-hosting is 3–4 orders of magnitude cheaper per page *before* counting GPU amortisation.*
+
+## 5. Router: cheap model + escalate the hard tail
+
+Cheap model = **paddleocr-vl**, escalate to **dots-mocr** (proxy for Azure Layout at $0.01/page).
+
+| escalation budget | blended CER | cost/page | cost / 1M pages | failures caught |
+|---|---|---|---|---|
+| 5% | 0.3792 | $0.00049 | $488 | 16/97 |
+| 10% | 0.3102 | $0.00098 | $976 | 32/97 |
+| 15% | 0.2351 | $0.00149 | $1,494 | 49/97 |
+| 20% | 0.2089 | $0.00198 | $1,982 | 61/97 |
+| 30% | 0.2014 | $0.00299 | $2,988 | 74/97 |
+| 40% | 0.2004 | $0.00399 | $3,994 | 82/97 |
+| 50% | 0.2030 | $0.00500 | $5,000 | 83/97 |
+| oracle | 0.1849 | $0.00296 | $2,957 | 97/97 |
+
+| classifier | AUC | accuracy | precision | recall |
+|---|---|---|---|---|
+| logreg | 0.865 | 0.823 | 0.714 | 0.670 |
+| gboost | 0.887 | 0.884 | 0.904 | 0.680 |
+
+Failure rate by subset (cheap model): **mixed** 85%, **handwriting** 41%, **rotated** 41%, **tables** 7%, **normal** 5%, **poor** 5%
+
+Top predictive features: `pred_len` 0.66, `skewness` 0.07, `height` 0.05, `ink` 0.05, `avg_tok_len` 0.03, `blockiness` 0.02
+
+![router tradeoff](router_tradeoff.png)
+
+**Other cheap -> expensive pairings** (20% escalation budget):
+
+| pair | always cheap | always expensive | router CER | cost/page | AUC |
+|---|---|---|---|---|---|
+| dots-mocr -> olmocr-2 | 0.213 | 0.208 | 0.191 | $0.00198 | 0.911 |
+| paddleocr-vl -> olmocr-2 | 0.430 | 0.208 | 0.206 | $0.00198 | 0.887 |
 
 ## 6. Distillation: can a cheap model learn the hard cases?
 
@@ -112,7 +175,12 @@ Assumes one 450 W 4090 at $0.15/kWh (~$1.62/day); Azure Layout OCR at $0.01/page
 | e06_models_c | ok | 8.7 |
 | e07_prompt_variants | ok | 9.9 |
 | e08_concurrency | ok | 42.9 |
+| e10_field_fidelity | rc=1 | 0.0 |
+| e11_router | ok | 0.1 |
 | e12_analysis | rc=1 | ? |
+| e13_distill_teacher | rc=124 | 60.0 |
+| e14_router_v2 | ok | 0.3 |
+| e99_restore_service | ok | 0.5 |
 
 ## 9. Conclusions
 

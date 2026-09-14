@@ -139,12 +139,17 @@ def chart_router(path):
     sims = r["routing"].get(thr, {})
     if not sims:
         return
-    budgets = sorted((float(k) for k in sims))
+    # "oracle" is a non-numeric budget key: a perfect-routing lower bound, not a
+    # point on the budget sweep.
+    budgets = sorted(float(k) for k in sims if k != "oracle")
     cers = [sims[f"{b:g}"]["blended_cer"] for b in budgets]
     fig, ax = plt.subplots(figsize=(6.5, 4))
     ax.plot([b * 100 for b in budgets], cers, "o-", label="router (cheap + escalate)")
     ax.axhline(r["always_cheap_cer"], ls="--", color="#c53030", label="always cheap")
     ax.axhline(r["always_strong_cer"], ls="--", color="#2f855a", label="always expensive")
+    if "oracle" in sims:
+        ax.axhline(sims["oracle"]["blended_cer"], ls=":", color="#2b6cb0",
+                   label="oracle routing (lower bound)")
     ax.set_xlabel("% pages escalated to expensive model")
     ax.set_ylabel("mean CER")
     ax.set_title("Escalation trade-off")
@@ -153,6 +158,21 @@ def chart_router(path):
     plt.tight_layout()
     plt.savefig(path, dpi=140)
     plt.close(fig)
+
+
+def budget_sort(kv):
+    """Escalation budgets are string keys ("0.05"...), plus a non-numeric "oracle"."""
+    try:
+        return (0, float(kv[0]))
+    except ValueError:
+        return (1, 0.0)
+
+
+def budget_label(b):
+    try:
+        return f"{float(b)*100:.0f}%"
+    except ValueError:
+        return b
 
 
 def report_router():
@@ -165,9 +185,9 @@ def report_router():
                  f"(proxy for Azure Layout at ${AZURE_PER_PAGE}/page).\n")
     lines.append(md_table(
         ["escalation budget", "blended CER", "cost/page", "cost / 1M pages", "failures caught"],
-        [[f"{int(b*100)}%", f"{v['blended_cer']:.4f}", f"${v['cost_per_page']:.5f}",
+        [[budget_label(b), f"{v['blended_cer']:.4f}", f"${v['cost_per_page']:.5f}",
           f"${v['cost_per_page']*1e6:,.0f}", f"{v['caught']}/{v['failures']}"]
-         for b, v in sorted(r["routing"][str(r["threshold"])].items(), key=lambda kv: float(kv[0]))]))
+         for b, v in sorted(r["routing"][str(r["threshold"])].items(), key=budget_sort)]))
     lines.append("")
     lines.append(md_table(["classifier", "AUC", "accuracy", "precision", "recall"],
                           [[k, f"{v['auc']:.3f}", f"{v['acc']:.3f}",
@@ -296,13 +316,21 @@ def main():
                           f"${0.45*24*0.15:.2f}", f"${per_day*AZURE_PER_PAGE:,.0f}",
                           f"{per_day*AZURE_PER_PAGE/(0.45*24*0.15):,.0f}x"])
 
-    # field fidelity rows
+    # field fidelity rows. recall is None for a category with no ground-truth
+    # tokens), so render those as "-".
+    def ff_num(x):
+        return f"{x:.3f}" if isinstance(x, float) and x == x else "-"
+
     ff_rows = []
     if ff:
-        keys = ["dates", "ids_5to8", "decimals", "codes", "phones", "mrn_prefix"]
+        keys = ["dates", "ids_5to8", "decimals", "codes", "phones", "mrn_labeled"]
+        full_n = max(v["n_docs"] for v in ff.values())
         for m, s in sorted(ff.items(), key=lambda kv: -(kv[1]["overall_fields"]["recall"] or 0)):
-            ff_rows.append([m, f"{s['overall_fields']['recall']:.3f}"] +
-                           [f"{s['by_type'].get(k, {}).get('recall', float('nan')):.3f}"
+            # a run cut short by its time budget is scored on a biased slice of
+            # the eval set; label it so it isn't read as comparable.
+            label = m if s["n_docs"] >= full_n else f"{m} ⚠️ *(partial, {s['n_docs']}/{full_n})*"
+            ff_rows.append([label, ff_num(s["overall_fields"]["recall"])] +
+                           [ff_num(s["by_type"].get(k, {}).get("recall"))
                             for k in keys])
 
     gen = load_json(os.path.join(ROOT, "data", "synth", "gen_summary.json"), {})
@@ -391,7 +419,7 @@ def main():
         L.append("**Field-level recall** — whether clinically load-bearing tokens survive "
                  "(dates, MRNs/IDs, lab decimals, accession codes, phone numbers):\n")
         L.append(md_table(["model", "all fields", "dates", "ids 5–8d", "decimals",
-                           "codes", "phones", "MRN-like"], ff_rows))
+                           "codes", "phones", "labeled MRN"], ff_rows))
         L.append("")
 
     if cost_rows:

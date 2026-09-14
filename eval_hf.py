@@ -36,6 +36,8 @@ def main():
     ap.add_argument("--data", default=os.path.join(ROOT, "data", "clinocr", "eval.jsonl"))
     ap.add_argument("--prompt", default=PROMPT)
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--resume", action="store_true",
+                    help="append to an existing predictions.jsonl, skipping finished docs")
     ap.add_argument("--max-new-tokens", type=int, default=1536)
     ap.add_argument("--max-pixels", type=int, default=1024 * 28 * 28)
     args = ap.parse_args()
@@ -57,8 +59,28 @@ def main():
         items = items[:args.limit]
     os.makedirs(args.out, exist_ok=True)
 
+    # A run killed by its time budget leaves a valid partial file (one flushed
+    # JSON line per doc); --resume picks up the docs it never reached.
+    preds_path = os.path.join(args.out, "predictions.jsonl")
+    done = set()
+    if args.resume and os.path.exists(preds_path):
+        with open(preds_path) as fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    done.add(json.loads(line)["doc_id"])
+                except (json.JSONDecodeError, KeyError):
+                    pass  # drop a torn final line rather than trusting it
+        items = [it for it in items if it["doc_id"] not in done]
+        print(f"resume: {len(done)} done, {len(items)} remaining", flush=True)
+        if not items:
+            print("nothing to do")
+            return
+
     t0 = time.time()
-    with open(os.path.join(args.out, "predictions.jsonl"), "w") as f:
+    with open(preds_path, "a" if args.resume else "w") as f:
         for i, it in enumerate(items):
             img = Image.open(os.path.join(ROOT, it["image"])).convert("RGB")
             msgs = [{"role": "user", "content": [

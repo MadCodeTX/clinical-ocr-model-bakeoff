@@ -53,6 +53,8 @@ summary = {
     "avg_latency_s": round(sum(r["latency_s"] for r in rows)/len(rows), 2),
 }
 json.dump(summary, open(f"{out_dir}/summary.json", "w"), indent=1)
-json.dump(rows, open(f"{out_dir}/per_doc.json", "w"), indent=1)
+per_doc = [{"doc_id": r["doc_id"], "subset": r["subset"], "error": r["error"],
+            "cer": round(c, 4)} for r, c in zip(rows, cers)]
+json.dump(per_doc, open(f"{out_dir}/per_doc.json", "w"), indent=1)
 print(json.dumps(summary, indent=2))
 EOF

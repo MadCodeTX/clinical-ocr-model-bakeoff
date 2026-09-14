@@ -18,14 +18,21 @@ d=$!
     https://github.com/Yuliang-Liu/MonkeyOCRv2 MonkeyOCRv2
   cd MonkeyOCRv2
   ls -la
-  python3 -m venv .venv
+  [ -d .venv ] || python3 -m venv .venv
   .venv/bin/pip install -q --upgrade pip
-  if [ -f requirements.txt ]; then .venv/bin/pip install -q -r requirements.txt; fi
+  # MonkeyOCRv2 has no root requirements.txt; deps live per-component, and
+  # download_model.py needs huggingface_hub regardless.
+  .venv/bin/pip install -q huggingface_hub
+  [ -f parsing/requirements.txt ] && .venv/bin/pip install -q -r parsing/requirements.txt
   echo "--- entry points:"
   find . -maxdepth 3 -name "*.py" | head -30
-  echo "--- model download script:"
-  [ -f download_model.py ] && .venv/bin/python download_model.py -n MonkeyOCRv2-B-Parsing || true
-  exit 1   # integration requires a bespoke runner; recorded as a probe, not a score
+  echo "--- model download:"
+  if [ -d model_weight/MonkeyOCRv2-B-Parsing ]; then
+    echo "weights already present"
+  else
+    .venv/bin/python download_model.py -n MonkeyOCRv2-B-Parsing
+  fi
+  exit 1   # weights fetch OK; scoring still needs a bespoke runner (see PLAN.md)
 ) > logs/monkeyocrv2.log 2>&1 &
 m=$!
 

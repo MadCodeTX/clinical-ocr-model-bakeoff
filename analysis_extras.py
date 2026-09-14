@@ -25,7 +25,10 @@ def main():
     models = {}
     for p in sorted(glob.glob(os.path.join(ROOT, "results", "*", "per_doc.json"))):
         name = os.path.basename(os.path.dirname(p))
-        models[name] = {d["doc_id"]: d["cer"] for d in json.load(open(p))}
+        # tesseract's per_doc.json is the pre-scoring dump (no "cer" key yet)
+        scored = {d["doc_id"]: d["cer"] for d in json.load(open(p)) if "cer" in d}
+        if scored:
+            models[name] = scored
     if not models:
         print("no per_doc.json yet")
         return
