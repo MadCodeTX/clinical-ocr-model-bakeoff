@@ -88,5 +88,11 @@
     "license": "Apache-2.0",
     "prompt": "native pipeline",
     "notes": "claims open-source SOTA on MDPBench"
+  },
+  "qwen38-27b": {
+    "params": "27B (FP8)",
+    "license": "UNVERIFIED \u2014 confirm before any deployment decision",
+    "prompt": "Extract the text content from this image.",
+    "notes": "bigbox's resident vLLM deployment; TP=2 across both 4090s, FP8 weights + KV cache, reasoning enabled. Accuracy is comparable to the other vLLM runs (same harness/prompt/scorer); throughput is NOT (2 GPUs vs 1, and reasoning tokens never reach the transcript). Evaluated as a teacher candidate, not as a production engine."
   }
 }

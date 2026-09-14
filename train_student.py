@@ -85,6 +85,8 @@ class VLMCollator:
 
 def main():
     ap = argparse.ArgumentParser()
+    ap.add_argument("--model", default=MODEL,
+                    help="student base model (HF id); default Qwen2.5-VL-3B-Instruct")
     ap.add_argument("--data", default=os.path.join(ROOT, "data", "synth", "labels.jsonl"))
     ap.add_argument("--out", default=os.path.join(ROOT, "checkpoints", "qwen25vl3b-lora"))
     ap.add_argument("--epochs", type=float, default=1.0)
@@ -95,13 +97,14 @@ def main():
     ap.add_argument("--max-pixels", type=int, default=1024 * 28 * 28)
     args = ap.parse_args()
 
-    processor = AutoProcessor.from_pretrained(MODEL)
+    print(f"student base: {args.model}")
+    processor = AutoProcessor.from_pretrained(args.model)
     processor.image_processor.max_pixels = args.max_pixels
     processor.image_processor.min_pixels = 4 * 28 * 28
     processor.tokenizer.padding_side = "right"
 
     model = VLModel.from_pretrained(
-        MODEL, torch_dtype=torch.bfloat16, attn_implementation="sdpa", **_LOAD_KW)
+        args.model, torch_dtype=torch.bfloat16, attn_implementation="sdpa", **_LOAD_KW)
     model.config.use_cache = False
     model.gradient_checkpointing_enable()
     model.enable_input_require_grads()

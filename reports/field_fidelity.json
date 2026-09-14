@@ -809,6 +809,51 @@
    }
   }
  },
+ "qwen38-27b": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.9099,
+   "n_ref": 3650
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.9085,
+    "precision": 0.9112,
+    "f1": 0.9098,
+    "n_ref": 994
+   },
+   "ids_5to8": {
+    "recall": 0.92,
+    "precision": 0.9388,
+    "f1": 0.9293,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.9262,
+    "precision": 0.9104,
+    "f1": 0.9183,
+    "n_ref": 922
+   },
+   "codes": {
+    "recall": 0.8472,
+    "precision": 0.8818,
+    "f1": 0.8641,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.9047,
+    "precision": 0.9215,
+    "f1": 0.913,
+    "n_ref": 493
+   },
+   "mrn_labeled": {
+    "recall": 0.8974,
+    "precision": 0.9121,
+    "f1": 0.9047,
+    "n_ref": 312
+   }
+  }
+ },
  "tesseract": {
   "n_docs": 328,
   "overall_fields": {
