@@ -1,0 +1,282 @@
+[
+ {
+  "doc_id": "mixed_t6_s5",
+  "subset": "mixed",
+  "prob_fail": 0.997,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.6935
+ },
+ {
+  "doc_id": "mixed_t8_s7",
+  "subset": "mixed",
+  "prob_fail": 0.997,
+  "cer_cheap": 0.9944,
+  "cer_strong": 0.9915
+ },
+ {
+  "doc_id": "mixed_t11_s6",
+  "subset": "mixed",
+  "prob_fail": 0.997,
+  "cer_cheap": 2.0,
+  "cer_strong": 2.0
+ },
+ {
+  "doc_id": "mixed_t6_s2",
+  "subset": "mixed",
+  "prob_fail": 0.996,
+  "cer_cheap": 0.9593,
+  "cer_strong": 1.0
+ },
+ {
+  "doc_id": "mixed_t14_s6",
+  "subset": "mixed",
+  "prob_fail": 0.996,
+  "cer_cheap": 2.0,
+  "cer_strong": 1.2729
+ },
+ {
+  "doc_id": "poor_t8_s4",
+  "subset": "poor",
+  "prob_fail": 0.996,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.0
+ },
+ {
+  "doc_id": "mixed_t14_s8",
+  "subset": "mixed",
+  "prob_fail": 0.996,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.2599
+ },
+ {
+  "doc_id": "mixed_t11_s8",
+  "subset": "mixed",
+  "prob_fail": 0.996,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.1448
+ },
+ {
+  "doc_id": "mixed_t4_s6",
+  "subset": "mixed",
+  "prob_fail": 0.996,
+  "cer_cheap": 2.0,
+  "cer_strong": 2.0
+ },
+ {
+  "doc_id": "mixed_t13_s4",
+  "subset": "mixed",
+  "prob_fail": 0.996,
+  "cer_cheap": 2.0,
+  "cer_strong": 1.1128
+ },
+ {
+  "doc_id": "mixed_t8_s5",
+  "subset": "mixed",
+  "prob_fail": 0.996,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.6064
+ },
+ {
+  "doc_id": "handwriting_t4_s2",
+  "subset": "handwriting",
+  "prob_fail": 0.996,
+  "cer_cheap": 1.5889,
+  "cer_strong": 0.0731
+ },
+ {
+  "doc_id": "mixed_t2_s4",
+  "subset": "mixed",
+  "prob_fail": 0.996,
+  "cer_cheap": 2.0,
+  "cer_strong": 2.0
+ },
+ {
+  "doc_id": "mixed_t7_s8",
+  "subset": "mixed",
+  "prob_fail": 0.996,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.7097
+ },
+ {
+  "doc_id": "handwriting_t4_s5",
+  "subset": "handwriting",
+  "prob_fail": 0.995,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.103
+ },
+ {
+  "doc_id": "rotated_t1_s8",
+  "subset": "rotated",
+  "prob_fail": 0.995,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.0
+ },
+ {
+  "doc_id": "mixed_t5_s5",
+  "subset": "mixed",
+  "prob_fail": 0.995,
+  "cer_cheap": 0.3625,
+  "cer_strong": 0.4618
+ },
+ {
+  "doc_id": "handwriting_t4_s3",
+  "subset": "handwriting",
+  "prob_fail": 0.994,
+  "cer_cheap": 1.5125,
+  "cer_strong": 0.1185
+ },
+ {
+  "doc_id": "mixed_t12_s3",
+  "subset": "mixed",
+  "prob_fail": 0.994,
+  "cer_cheap": 2.0,
+  "cer_strong": 1.1568
+ },
+ {
+  "doc_id": "mixed_t13_s5",
+  "subset": "mixed",
+  "prob_fail": 0.994,
+  "cer_cheap": 0.2452,
+  "cer_strong": 0.0608
+ },
+ {
+  "doc_id": "mixed_t10_s6",
+  "subset": "mixed",
+  "prob_fail": 0.994,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.0656
+ },
+ {
+  "doc_id": "handwriting_t7_s8",
+  "subset": "handwriting",
+  "prob_fail": 0.993,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.1822
+ },
+ {
+  "doc_id": "handwriting_t5_s8",
+  "subset": "handwriting",
+  "prob_fail": 0.993,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.1056
+ },
+ {
+  "doc_id": "rotated_t5_s6",
+  "subset": "rotated",
+  "prob_fail": 0.993,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.0
+ },
+ {
+  "doc_id": "mixed_t15_s7",
+  "subset": "mixed",
+  "prob_fail": 0.993,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.5519
+ },
+ {
+  "doc_id": "handwriting_t8_s7",
+  "subset": "handwriting",
+  "prob_fail": 0.992,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.0437
+ },
+ {
+  "doc_id": "mixed_t16_s7",
+  "subset": "mixed",
+  "prob_fail": 0.992,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.6728
+ },
+ {
+  "doc_id": "rotated_t8_s8",
+  "subset": "rotated",
+  "prob_fail": 0.991,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.0068
+ },
+ {
+  "doc_id": "rotated_t8_s6",
+  "subset": "rotated",
+  "prob_fail": 0.991,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.0062
+ },
+ {
+  "doc_id": "mixed_t7_s4",
+  "subset": "mixed",
+  "prob_fail": 0.99,
+  "cer_cheap": 2.0,
+  "cer_strong": 1.0
+ },
+ {
+  "doc_id": "rotated_t1_s4",
+  "subset": "rotated",
+  "prob_fail": 0.99,
+  "cer_cheap": 2.0,
+  "cer_strong": 1.0
+ },
+ {
+  "doc_id": "rotated_t3_s8",
+  "subset": "rotated",
+  "prob_fail": 0.99,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.0275
+ },
+ {
+  "doc_id": "mixed_t9_s2",
+  "subset": "mixed",
+  "prob_fail": 0.988,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.2317
+ },
+ {
+  "doc_id": "tables_t12_s6",
+  "subset": "tables",
+  "prob_fail": 0.987,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.1758
+ },
+ {
+  "doc_id": "poor_t2_s2",
+  "subset": "poor",
+  "prob_fail": 0.987,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.2219
+ },
+ {
+  "doc_id": "handwriting_t2_s6",
+  "subset": "handwriting",
+  "prob_fail": 0.985,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.1626
+ },
+ {
+  "doc_id": "mixed_t5_s4",
+  "subset": "mixed",
+  "prob_fail": 0.984,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.6484
+ },
+ {
+  "doc_id": "mixed_t16_s8",
+  "subset": "mixed",
+  "prob_fail": 0.984,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.668
+ },
+ {
+  "doc_id": "tables_t12_s5",
+  "subset": "tables",
+  "prob_fail": 0.982,
+  "cer_cheap": 2.0,
+  "cer_strong": 0.1386
+ },
+ {
+  "doc_id": "mixed_t14_s7",
+  "subset": "mixed",
+  "prob_fail": 0.981,
+  "cer_cheap": 0.9727,
+  "cer_strong": 1.0
+ }
+]
