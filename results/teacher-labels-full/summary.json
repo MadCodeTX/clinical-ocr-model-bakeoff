@@ -1,0 +1,10 @@
+{
+ "teacher": "olmOCR-2-7B",
+ "n": 800,
+ "label_noise_cer_vs_exact_gt": 0.0621,
+ "median": 0.0016,
+ "printed_cer": 0.0561,
+ "handwriting_font_cer": 0.0742,
+ "wall_time_s": 925.1,
+ "pages_per_sec": 0.865
+}
