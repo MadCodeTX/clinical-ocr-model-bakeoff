@@ -231,6 +231,10 @@
   "e01_paddle_pipeline": {
    "rc": 0,
    "seconds": 1296.0
+  },
+  "e02_train_lora": {
+   "rc": 0,
+   "seconds": 0.0
   }
  },
  "teacher": {
