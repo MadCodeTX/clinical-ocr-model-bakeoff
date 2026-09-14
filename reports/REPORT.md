@@ -2,13 +2,14 @@
 
 Open-weights OCR / document-VLM evaluation on **real-artifact clinical scanned documents**, plus a routing study and a distillation experiment. All data is public or synthetic (no PHI).
 
-_Generated 2026-09-14T04:31Z from `make_report.py`; 7 scored models, 2 experiment runs._
+_Generated 2026-09-14T05:24Z from `make_report.py`; 9 scored models, 3 experiment runs._
 
 ## TL;DR
 
 - **Best accuracy: `olmocr-2`** (mean CER 0.208, median 0.080).
 - **Best value: `dots-mocr` (3B, MIT)** — CER 0.213 vs olmOCR-2's 0.208 at 1.4x the throughput.
 - **Incumbent Tesseract**: mean CER 0.474, median 0.444 — the gap is worst on the degraded artifacts that dominate inbound faxes.
+- **Distillation**: LoRA on synthetic degraded docs: overall CER 0.292 -> 0.278 (+0.014); handwriting +0.110; rotated +0.053
 - **Teacher labels**: olmOCR-2 output matches exact ground truth at CER 0.060 (median 0.0007) on 200 synthetic degraded clinical docs — cheap to mint training labels for unlabeled scans.
 
 ## 1. Setup
@@ -33,6 +34,8 @@ _Generated 2026-09-14T04:31Z from `make_report.py`; 7 scored models, 2 experimen
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | olmocr-2 | 8B | Apache-2.0 | 0.2076 | 0.0796 | 0.48 | 0.067 | 0.103 | 0.112 | 0.196 | 0.081 | 0.767 |
 | dots-mocr | 3B | MIT | 0.2126 | 0.0747 | 0.67 | 0.085 | 0.126 | 0.085 | 0.241 | 0.058 | 0.759 |
+| qwen25vl3b-lora | 3B + LoRA (37M) | Apache-2.0 | 0.2783 | 0.1003 | 0.10 | 0.039 | 0.215 | 0.046 | 0.383 | 0.164 | 0.914 |
+| qwen25vl3b-base | 3B | Apache-2.0 | 0.2919 | 0.0616 | 0.18 | 0.036 | 0.325 | 0.047 | 0.436 | 0.080 | 0.916 |
 | paddleocr-vl | 0.9B | Apache-2.0 | 0.4298 | 0.1005 | 1.70 | 0.071 | 0.502 | 0.164 | 0.502 | 0.183 | 1.278 |
 | tesseract | n/a | Apache-2.0 | 0.4744 | 0.4440 | 1.41 | 0.081 | 0.533 | 0.531 | 0.665 | 0.237 | 0.853 |
 | paddleocr-vl-pipeline | 0.9B + PP-DocLayoutV2 | Apache-2.0 | 0.8235 | 0.4455 | 0.27 | 0.453 | 0.304 | 0.409 | 0.521 | 2.000 | 1.326 |
@@ -55,8 +58,21 @@ _Generated 2026-09-14T04:31Z from `make_report.py`; 7 scored models, 2 experimen
 | dots-mocr | 0.67 | 57,542 | $1.62 | $575 | 355x |
 | olmocr-2 | 0.48 | 41,213 | $1.62 | $412 | 254x |
 | paddleocr-vl-pipeline | 0.27 | 23,414 | $1.62 | $234 | 145x |
+| qwen25vl3b-base | 0.18 | 15,898 | $1.62 | $159 | 98x |
+| qwen25vl3b-lora | 0.10 | 8,899 | $1.62 | $89 | 55x |
 
 Assumes one 450 W 4090 at $0.15/kWh (~$1.62/day); Azure Layout OCR at $0.01/page. Self-hosting is 3–4 orders of magnitude cheaper per page *before* counting GPU amortisation.*
+
+## 6. Distillation: can a cheap model learn the hard cases?
+
+| student | mean CER | median CER | normal | handwriting | poor | rotated | tables | mixed |
+|---|---|---|---|---|---|---|---|---|
+| base Qwen2.5-VL-3B | 0.2919 | 0.0616 | 0.036 | 0.325 | 0.047 | 0.436 | 0.080 | 0.916 |
+| + LoRA (exact GT labels) | 0.2783 | 0.1003 | 0.039 | 0.215 | 0.046 | 0.383 | 0.164 | 0.914 |
+
+- LoRA on synthetic degraded docs: overall CER 0.292 -> 0.278 (+0.014); handwriting +0.110; rotated +0.053
+
+![distillation](distill_delta.png)
 
 ## 7. Teacher label quality
 
@@ -70,6 +86,7 @@ Assumes one 450 W 4090 at $0.15/kWh (~$1.62/day); Azure Layout OCR at $0.01/page
 |---|---|---|
 | e01_paddle_pipeline | ok | 21.6 |
 | e02_train_lora | ok | ? |
+| e03_eval_students | ok | 53.5 |
 
 ## 9. Conclusions
 

@@ -180,6 +180,78 @@
    "pages_per_sec": 1.696,
    "avg_latency_s": 4.63
   },
+  "qwen25vl3b-base": {
+   "model": "qwen25vl3b-base",
+   "n_docs": 328,
+   "n_errors": 0,
+   "mean_cer": 0.2919,
+   "median_cer": 0.0616,
+   "per_subset": {
+    "handwriting": {
+     "mean_cer": 0.3248,
+     "n": 56
+    },
+    "mixed": {
+     "mean_cer": 0.9165,
+     "n": 48
+    },
+    "normal": {
+     "mean_cer": 0.0365,
+     "n": 56
+    },
+    "poor": {
+     "mean_cer": 0.0467,
+     "n": 56
+    },
+    "rotated": {
+     "mean_cer": 0.4358,
+     "n": 56
+    },
+    "tables": {
+     "mean_cer": 0.0804,
+     "n": 56
+    }
+   },
+   "wall_time_s": 1786.8,
+   "pages_per_sec": 0.184,
+   "avg_latency_s": 5.45
+  },
+  "qwen25vl3b-lora": {
+   "model": "qwen25vl3b-lora",
+   "n_docs": 328,
+   "n_errors": 0,
+   "mean_cer": 0.2783,
+   "median_cer": 0.1003,
+   "per_subset": {
+    "handwriting": {
+     "mean_cer": 0.2149,
+     "n": 56
+    },
+    "mixed": {
+     "mean_cer": 0.9136,
+     "n": 48
+    },
+    "normal": {
+     "mean_cer": 0.0386,
+     "n": 56
+    },
+    "poor": {
+     "mean_cer": 0.0464,
+     "n": 56
+    },
+    "rotated": {
+     "mean_cer": 0.383,
+     "n": 56
+    },
+    "tables": {
+     "mean_cer": 0.164,
+     "n": 56
+    }
+   },
+   "wall_time_s": 3193.8,
+   "pages_per_sec": 0.103,
+   "avg_latency_s": 9.74
+  },
   "teacher-labels": {
    "teacher": "olmOCR-2-7B",
    "n": 200,
@@ -235,6 +307,10 @@
   "e02_train_lora": {
    "rc": 0,
    "seconds": 0.0
+  },
+  "e03_eval_students": {
+   "rc": 0,
+   "seconds": 3208.0
   }
  },
  "teacher": {
