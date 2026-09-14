@@ -29,10 +29,18 @@ def load_json(p, default=None):
 
 
 def load_summaries():
+    """Scored model runs only.
+
+    results/ also holds study outputs that carry a summary.json but are not
+    models evaluated on ClinOCR-Bench -- the router sweeps and the teacher
+    label-minting runs. They have no mean_cer, and listing them on the
+    leaderboard as "nan" (or as 0.0000 in leaderboard.csv, which sorts to the
+    top) invites misreading.
+    """
     out = {}
     for p in sorted(glob.glob(os.path.join(ROOT, "results", "*", "summary.json"))):
         s = load_json(p)
-        if s:
+        if s and s.get("mean_cer") is not None:
             out[os.path.basename(os.path.dirname(p))] = s
     return out
 
@@ -262,6 +270,21 @@ def report_distill(sums):
                        f"exact labels still lead by {-gap:.3f} CER, so teacher labels "
                        f"trade some accuracy for not needing ground truth")
             notes.append(f"Teacher vs exact-GT labels: {gap:+.3f} CER — {verdict}.")
+            # CER and field recall disagree here; say so rather than let the
+            # headline number stand alone (see conclusion 5).
+            ffj = load_json(os.path.join(REPORTS, "field_fidelity.json"))
+            gt_ff = (ffj.get("qwen25vl3b-lora") or {}).get("overall_fields", {}).get("recall")
+            tf_ff = (ffj.get("qwen25vl3b-lora-teacher") or {}).get("overall_fields", {}).get("recall")
+            if gt_ff and tf_ff and tf_ff < gt_ff:
+                notes.append(
+                    f"**But the two metrics disagree.** The teacher student is worse on "
+                    f"field-level recall ({tf_ff:.3f} vs {gt_ff:.3f}; labelled MRN "
+                    f"{ffj['qwen25vl3b-lora-teacher']['by_type']['mrn_labeled']['recall']:.3f} vs "
+                    f"{ffj['qwen25vl3b-lora']['by_type']['mrn_labeled']['recall']:.3f}). It "
+                    f"reproduces the *page* better and the *identifiers* worse — it inherits "
+                    f"the teacher's errors on exactly the tokens extraction depends on. "
+                    f"By conclusion 5, that makes it the weaker candidate for production "
+                    f"despite the better CER.")
     return md, notes
 
 
@@ -424,6 +447,25 @@ def main():
     L.append("## 2. Leaderboard\n")
     L.append(md_table(["model", "params", "license", "mean CER", "median CER", "pages/s"] +
                       SUBSETS, rows))
+
+    # Degenerate generation is a harness failure, not a model score. Flag any run
+    # whose output collapsed to a repeated character so nobody cites it as a
+    # quality result for that model.
+    degen = []
+    for name in sorted(sums):
+        pth = os.path.join(ROOT, "results", name, "predictions.jsonl")
+        if not os.path.exists(pth):
+            continue
+        preds = [json.loads(l).get("prediction") or "" for l in open(pth)]
+        preds = [x for x in preds if x]
+        if preds and sum(len(set(x)) <= 2 for x in preds) / len(preds) > 0.9:
+            degen.append(name)
+    if degen:
+        L.append("\n> ⚠️ **Not a model-quality result:** " + ", ".join(f"`{d}`" for d in degen) +
+                 " produced degenerate output (a single repeated character) on effectively "
+                 "every document. That is an integration failure in this harness — wrong "
+                 "chat template or processor config — not evidence about the model. Its row "
+                 "is listed for completeness; do not cite it as a score.")
     if os.path.exists(os.path.join(REPORTS, "cer_leaderboard.png")):
         L.append("\n![leaderboard](cer_leaderboard.png)")
     L.append("")
@@ -488,12 +530,14 @@ def main():
              "3. **Routing is the real cost lever**: a classifier over cheap image + "
              "transcript features catches the failures, so you pay Layout prices on a small "
              "slice instead of every page.\n"
-             "4. **Distil from a teacher, not from ground truth**: see section 6 — labels "
-             "minted by running olmOCR-2 over unlabeled scans beat hand-exact labels "
-             "(CER 0.254 vs 0.278; base 0.292). Exact labels are flat text and regress "
-             "`tables` (0.080 -> 0.164); the teacher emits markdown, so table structure "
-             "survives (0.092). This removes ground truth from the critical path: pointing "
-             "the teacher at an unlabeled scan archive is enough.\n"
+             "4. **Distillation works, but pick the label source on field recall, not "
+             "CER**: see section 6. Teacher labels minted by olmOCR-2 over unlabeled scans "
+             "win on CER (0.254 vs 0.278 for hand-exact labels; base 0.292), because exact "
+             "labels are flat text and regress `tables` (0.080 -> 0.164) while the teacher "
+             "emits markdown that survives (0.092). But the teacher student is *worse* on "
+             "field recall (0.731 vs 0.762; labelled MRN 0.596 vs 0.689) — it inherits the "
+             "teacher's errors on the identifiers extraction depends on. Teacher labels "
+             "take ground truth off the critical path; they do not yet clear conclusion 5.\n"
              "5. **Field-level fidelity, not CER, should gate production**: see section 3.\n")
     L.append("\n## Appendix: reproduce\n")
     L.append("```bash\n"

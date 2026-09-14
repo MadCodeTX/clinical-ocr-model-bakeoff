@@ -2,7 +2,7 @@
 
 Open-weights OCR / document-VLM evaluation on **real-artifact clinical scanned documents**, plus a routing study and a distillation experiment. All data is public or synthetic (no PHI).
 
-_Generated 2026-09-14T18:26Z from `make_report.py`; 24 scored models, 14 experiment runs._
+_Generated 2026-09-14T19:08Z from `make_report.py`; 19 scored models, 14 experiment runs._
 
 ## TL;DR
 
@@ -13,6 +13,7 @@ _Generated 2026-09-14T18:26Z from `make_report.py`; 24 scored models, 14 experim
 - **Distillation**: LoRA on synthetic degraded docs: overall CER 0.292 -> 0.278 (+0.014); handwriting +0.110; rotated +0.053
 - **Distillation**: Teacher labels (olmOCR-2 output, no ground truth needed): 0.292 -> 0.254 (+0.038)
 - **Distillation**: Teacher vs exact-GT labels: +0.025 CER — teacher labels match or beat exact ground truth, so unlabeled scans are enough to specialise a cheap student.
+- **Distillation**: **But the two metrics disagree.** The teacher student is worse on field-level recall (0.731 vs 0.762; labelled MRN 0.596 vs 0.689). It reproduces the *page* better and the *identifiers* worse — it inherits the teacher's errors on exactly the tokens extraction depends on. By conclusion 5, that makes it the weaker candidate for production despite the better CER.
 - **Teacher labels**: olmOCR-2 output matches exact ground truth at CER 0.062 (median 0.0016) on 800 synthetic degraded clinical docs — cheap to mint training labels for unlabeled scans.
 
 ## 1. Setup
@@ -54,11 +55,8 @@ _Generated 2026-09-14T18:26Z from `make_report.py`; 24 scored models, 14 experim
 | chandra-2 | 5B | OpenRAIL-M (research/personal/<$2M only) | 0.8641 | 0.7134 | 0.40 | 0.826 | 0.897 | 0.839 | 0.770 | 0.625 | 1.289 |
 | granite-docling | 0.26B | Apache-2.0 | 0.8665 | 0.8710 | 1.11 | 0.261 | 1.460 | 0.503 | 1.422 | 0.503 | 1.081 |
 | nanonets-ocr2-3b | 3B | Apache-2.0 | 1.8010 | 2.0000 | 0.21 | 1.786 | 1.550 | 1.850 | 1.744 | 1.976 | 1.916 |
-| router-dots-olmocr | ? | ? | nan | nan | 0.00 | nan | nan | nan | nan | nan | nan |
-| router-paddle-olmocr | ? | ? | nan | nan | 0.00 | nan | nan | nan | nan | nan | nan |
-| router | ? | ? | nan | nan | 0.00 | nan | nan | nan | nan | nan | nan |
-| teacher-labels-full | ? | ? | nan | nan | 0.86 | nan | nan | nan | nan | nan | nan |
-| teacher-labels | ? | ? | nan | nan | 0.85 | nan | nan | nan | nan | nan | nan |
+
+> ⚠️ **Not a model-quality result:** `nanonets-ocr2-3b` produced degenerate output (a single repeated character) on effectively every document. That is an integration failure in this harness — wrong chat template or processor config — not evidence about the model. Its row is listed for completeness; do not cite it as a score.
 
 ![leaderboard](cer_leaderboard.png)
 
@@ -98,8 +96,6 @@ _Generated 2026-09-14T18:26Z from `make_report.py`; 24 scored models, 14 experim
 | paddleocr-vl-promptb | 1.69 | 146,189 | $1.62 | $1,462 | 902x |
 | granite-docling | 1.11 | 96,336 | $1.62 | $963 | 595x |
 | deepseek-ocr | 0.88 | 76,118 | $1.62 | $761 | 470x |
-| teacher-labels-full | 0.86 | 74,736 | $1.62 | $747 | 461x |
-| teacher-labels | 0.85 | 73,267 | $1.62 | $733 | 452x |
 | dots-mocr-c16 | 0.77 | 66,096 | $1.62 | $661 | 408x |
 | dots-mocr | 0.67 | 57,542 | $1.62 | $575 | 355x |
 | dots-mocr-promptocr | 0.65 | 56,246 | $1.62 | $562 | 347x |
@@ -161,6 +157,7 @@ Top predictive features: `pred_len` 0.66, `skewness` 0.07, `height` 0.05, `ink` 
 - LoRA on synthetic degraded docs: overall CER 0.292 -> 0.278 (+0.014); handwriting +0.110; rotated +0.053
 - Teacher labels (olmOCR-2 output, no ground truth needed): 0.292 -> 0.254 (+0.038)
 - Teacher vs exact-GT labels: +0.025 CER — teacher labels match or beat exact ground truth, so unlabeled scans are enough to specialise a cheap student.
+- **But the two metrics disagree.** The teacher student is worse on field-level recall (0.731 vs 0.762; labelled MRN 0.596 vs 0.689). It reproduces the *page* better and the *identifiers* worse — it inherits the teacher's errors on exactly the tokens extraction depends on. By conclusion 5, that makes it the weaker candidate for production despite the better CER.
 
 ![distillation](distill_delta.png)
 
@@ -194,7 +191,7 @@ Top predictive features: `pred_len` 0.66, `skewness` 0.07, `height` 0.05, `ink` 
 1. **Replace Tesseract for degraded scans.** Every VLM tested beats it on the artifacts that dominate inbound faxes; the median-doc gap is ~6x.
 2. **`dots-mocr` (3B, MIT) is the best default**: accuracy equal to the 8B olmOCR-2 at much higher throughput and a permissive licence.
 3. **Routing is the real cost lever**: a classifier over cheap image + transcript features catches the failures, so you pay Layout prices on a small slice instead of every page.
-4. **Distil from a teacher, not from ground truth**: see section 6 — labels minted by running olmOCR-2 over unlabeled scans beat hand-exact labels (CER 0.254 vs 0.278; base 0.292). Exact labels are flat text and regress `tables` (0.080 -> 0.164); the teacher emits markdown, so table structure survives (0.092). This removes ground truth from the critical path: pointing the teacher at an unlabeled scan archive is enough.
+4. **Distillation works, but pick the label source on field recall, not CER**: see section 6. Teacher labels minted by olmOCR-2 over unlabeled scans win on CER (0.254 vs 0.278 for hand-exact labels; base 0.292), because exact labels are flat text and regress `tables` (0.080 -> 0.164) while the teacher emits markdown that survives (0.092). But the teacher student is *worse* on field recall (0.731 vs 0.762; labelled MRN 0.596 vs 0.689) — it inherits the teacher's errors on the identifiers extraction depends on. Teacher labels take ground truth off the critical path; they do not yet clear conclusion 5.
 5. **Field-level fidelity, not CER, should gate production**: see section 3.
 
 
