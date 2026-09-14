@@ -1,0 +1,36 @@
+{
+ "model": "granite-docling",
+ "n_docs": 328,
+ "n_errors": 0,
+ "mean_cer": 0.8665,
+ "median_cer": 0.871,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 1.46,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 1.0809,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.2606,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.5026,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 1.4224,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.5034,
+   "n": 56
+  }
+ },
+ "wall_time_s": 294.3,
+ "pages_per_sec": 1.115,
+ "avg_latency_s": 7.01
+}

@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.venv/
+train-venv/
+paddle-venv/
+data/
+checkpoints/
+*-ckpt/
+logs/
+*.log
+.env

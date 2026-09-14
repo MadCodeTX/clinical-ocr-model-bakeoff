@@ -1,0 +1,36 @@
+{
+ "model": "olmocr-2",
+ "n_docs": 328,
+ "n_errors": 10,
+ "mean_cer": 0.2076,
+ "median_cer": 0.0796,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.1026,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 0.7671,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.0665,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.1121,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.1957,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.0814,
+   "n": 56
+  }
+ },
+ "wall_time_s": 688.1,
+ "pages_per_sec": 0.477,
+ "avg_latency_s": 16.09
+}

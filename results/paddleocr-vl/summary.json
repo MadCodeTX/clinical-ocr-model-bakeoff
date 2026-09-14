@@ -1,0 +1,36 @@
+{
+ "model": "paddleocr-vl",
+ "n_docs": 328,
+ "n_errors": 0,
+ "mean_cer": 0.4298,
+ "median_cer": 0.1005,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.5016,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 1.2784,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.0714,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.1635,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.5021,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.1829,
+   "n": 56
+  }
+ },
+ "wall_time_s": 193.4,
+ "pages_per_sec": 1.696,
+ "avg_latency_s": 4.63
+}

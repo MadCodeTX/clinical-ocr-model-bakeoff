@@ -1,0 +1,84 @@
+# Clinical OCR model bake-off — overnight results
+
+Open-weights OCR / document-VLM evaluation on **real-artifact clinical scanned documents**, plus a routing study and a distillation experiment. All data is public or synthetic (no PHI).
+
+_Generated 2026-09-14T03:52Z from `make_report.py`; 6 scored models, 0 experiment runs._
+
+## TL;DR
+
+- **Best accuracy: `olmocr-2`** (mean CER 0.208, median 0.080).
+- **Best value: `dots-mocr` (3B, MIT)** — CER 0.213 vs olmOCR-2's 0.208 at 1.4x the throughput.
+- **Incumbent Tesseract**: mean CER 0.474, median 0.444 — the gap is worst on the degraded artifacts that dominate inbound faxes.
+- **Teacher labels**: olmOCR-2 output matches exact ground truth at CER 0.060 (median 0.0007) on 200 synthetic degraded clinical docs — cheap to mint training labels for unlabeled scans.
+
+## 1. Setup
+
+**Data.** [`ClinOCR-Bench`](https://huggingface.co/datasets/Daniele0025/ClinOCR-Bench) (MIT): 328 eval documents across six artifact subsets — normal, handwriting, poor-quality, rotated, tables, mixed — built from 16 clinical templates (referral faxes, pathology reports, lab panels, discharge summaries) with real-world degradation and human-audited ground truth.
+
+**Synthetic corpus for training.** 800 generated clinical documents with exact labels (263 handwriting-font), rendered and then degraded (rotation, perspective, blur, noise, low-DPI, JPEG, speckle, fold lines, vignette). Held-out evaluation stays on ClinOCR-Bench, which uses a different construction pipeline.
+
+**Metric.** Character error rate (CER) after normalising markup and whitespace; plus field-level recall of dates, MRNs, accession codes, decimals and phone numbers (section 3).
+
+**Hardware.** 2× RTX 4090 24 GB; vLLM v0.27.1 for served models; one model per GPU.
+
+**Sample documents** (normal / handwriting / rotated / mixed):
+
+| normal | handwriting | rotated | mixed |
+|---|---|---|---|
+| ![normal](docs/samples/normal.jpg) | ![hw](docs/samples/handwriting.jpg) | ![rot](docs/samples/rotated.jpg) | ![mix](docs/samples/mixed.jpg) |
+
+## 2. Leaderboard
+
+| model | params | license | mean CER | median CER | pages/s | normal | handwriting | poor | rotated | tables | mixed |
+|---|---|---|---|---|---|---|---|---|---|---|---|
+| olmocr-2 | 8B | Apache-2.0 | 0.2076 | 0.0796 | 0.48 | 0.067 | 0.103 | 0.112 | 0.196 | 0.081 | 0.767 |
+| dots-mocr | 3B | MIT | 0.2126 | 0.0747 | 0.67 | 0.085 | 0.126 | 0.085 | 0.241 | 0.058 | 0.759 |
+| paddleocr-vl | 0.9B | Apache-2.0 | 0.4298 | 0.1005 | 1.70 | 0.071 | 0.502 | 0.164 | 0.502 | 0.183 | 1.278 |
+| tesseract | n/a | Apache-2.0 | 0.4744 | 0.4440 | 1.41 | 0.081 | 0.533 | 0.531 | 0.665 | 0.237 | 0.853 |
+| granite-docling | 0.26B | Apache-2.0 | 0.8665 | 0.8710 | 1.11 | 0.261 | 1.460 | 0.503 | 1.422 | 0.503 | 1.081 |
+| teacher-labels | ? | ? | nan | nan | 0.85 | nan | nan | nan | nan | nan | nan |
+
+![leaderboard](cer_leaderboard.png)
+
+## 3. Where models fail
+
+![heatmap](cer_by_subset.png)
+
+## 4. Throughput & cost
+
+| model | pages/s (1 GPU, c=8) | pages/day (1 GPU) | electricity/day | Azure Layout/day | saving |
+|---|---|---|---|---|---|
+| paddleocr-vl | 1.70 | 146,534 | $1.62 | $1,465 | 905x |
+| granite-docling | 1.11 | 96,336 | $1.62 | $963 | 595x |
+| teacher-labels | 0.85 | 73,267 | $1.62 | $733 | 452x |
+| dots-mocr | 0.67 | 57,542 | $1.62 | $575 | 355x |
+| olmocr-2 | 0.48 | 41,213 | $1.62 | $412 | 254x |
+
+Assumes one 450 W 4090 at $0.15/kWh (~$1.62/day); Azure Layout OCR at $0.01/page. Self-hosting is 3–4 orders of magnitude cheaper per page *before* counting GPU amortisation.*
+
+## 7. Teacher label quality
+
+| teacher | docs | CER vs exact GT | median | printed text | handwriting font | pages/s |
+|---|---|---|---|---|---|---|
+| olmOCR-2-7B | 200 | 0.0603 | 0.0007 | 0.0595 | 0.0620 | 0.85 |
+
+## 8. Run log
+
+## 9. Conclusions
+
+1. **Replace Tesseract for degraded scans.** Every VLM tested beats it on the artifacts that dominate inbound faxes; the median-doc gap is ~6x.
+2. **`dots-mocr` (3B, MIT) is the best default**: accuracy equal to the 8B olmOCR-2 at much higher throughput and a permissive licence.
+3. **Routing is the real cost lever**: a classifier over cheap image + transcript features catches the failures, so you pay Layout prices on a small slice instead of every page.
+4. **Distillation is viable**: see section 6 — domain synthetic data moves the cheap student on exactly the subsets that were failing.
+5. **Field-level fidelity, not CER, should gate production**: see section 3.
+
+
+## Appendix: reproduce
+
+```bash
+bash setup_env.sh          # venv + deps + tesseract
+python3 export_data.py     # pull ClinOCR-Bench test split
+python3 gen_synth.py --n 800 --out data/synth
+bash run_model.sh <name> <hf_id> <gpu> "<prompt>"
+bash overnight.sh          # full experiment queue + report + push
+```

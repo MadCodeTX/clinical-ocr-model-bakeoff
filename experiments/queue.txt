@@ -1,0 +1,14 @@
+e01_paddle_pipeline 3600
+e02_train_lora 3600
+e03_eval_students 5400
+e04_models_a 5400
+e05_models_b 5400
+e06_models_c 5400
+e07_prompt_variants 3600
+e08_concurrency 5400
+e12_analysis 1200
+e10_field_fidelity 900
+e11_router 1800
+e14_router_v2 1800
+e13_distill_teacher 3600
+e99_restore_service 600

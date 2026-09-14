@@ -1,0 +1,206 @@
+{
+ "models": {
+  "dots-mocr": {
+   "model": "dots-mocr",
+   "n_docs": 328,
+   "n_errors": 10,
+   "mean_cer": 0.2126,
+   "median_cer": 0.0747,
+   "per_subset": {
+    "handwriting": {
+     "mean_cer": 0.126,
+     "n": 56
+    },
+    "mixed": {
+     "mean_cer": 0.7594,
+     "n": 48
+    },
+    "normal": {
+     "mean_cer": 0.0851,
+     "n": 56
+    },
+    "poor": {
+     "mean_cer": 0.0846,
+     "n": 56
+    },
+    "rotated": {
+     "mean_cer": 0.2408,
+     "n": 56
+    },
+    "tables": {
+     "mean_cer": 0.0575,
+     "n": 56
+    }
+   },
+   "wall_time_s": 492.5,
+   "pages_per_sec": 0.666,
+   "avg_latency_s": 11.85
+  },
+  "granite-docling": {
+   "model": "granite-docling",
+   "n_docs": 328,
+   "n_errors": 0,
+   "mean_cer": 0.8665,
+   "median_cer": 0.871,
+   "per_subset": {
+    "handwriting": {
+     "mean_cer": 1.46,
+     "n": 56
+    },
+    "mixed": {
+     "mean_cer": 1.0809,
+     "n": 48
+    },
+    "normal": {
+     "mean_cer": 0.2606,
+     "n": 56
+    },
+    "poor": {
+     "mean_cer": 0.5026,
+     "n": 56
+    },
+    "rotated": {
+     "mean_cer": 1.4224,
+     "n": 56
+    },
+    "tables": {
+     "mean_cer": 0.5034,
+     "n": 56
+    }
+   },
+   "wall_time_s": 294.3,
+   "pages_per_sec": 1.115,
+   "avg_latency_s": 7.01
+  },
+  "olmocr-2": {
+   "model": "olmocr-2",
+   "n_docs": 328,
+   "n_errors": 10,
+   "mean_cer": 0.2076,
+   "median_cer": 0.0796,
+   "per_subset": {
+    "handwriting": {
+     "mean_cer": 0.1026,
+     "n": 56
+    },
+    "mixed": {
+     "mean_cer": 0.7671,
+     "n": 48
+    },
+    "normal": {
+     "mean_cer": 0.0665,
+     "n": 56
+    },
+    "poor": {
+     "mean_cer": 0.1121,
+     "n": 56
+    },
+    "rotated": {
+     "mean_cer": 0.1957,
+     "n": 56
+    },
+    "tables": {
+     "mean_cer": 0.0814,
+     "n": 56
+    }
+   },
+   "wall_time_s": 688.1,
+   "pages_per_sec": 0.477,
+   "avg_latency_s": 16.09
+  },
+  "paddleocr-vl": {
+   "model": "paddleocr-vl",
+   "n_docs": 328,
+   "n_errors": 0,
+   "mean_cer": 0.4298,
+   "median_cer": 0.1005,
+   "per_subset": {
+    "handwriting": {
+     "mean_cer": 0.5016,
+     "n": 56
+    },
+    "mixed": {
+     "mean_cer": 1.2784,
+     "n": 48
+    },
+    "normal": {
+     "mean_cer": 0.0714,
+     "n": 56
+    },
+    "poor": {
+     "mean_cer": 0.1635,
+     "n": 56
+    },
+    "rotated": {
+     "mean_cer": 0.5021,
+     "n": 56
+    },
+    "tables": {
+     "mean_cer": 0.1829,
+     "n": 56
+    }
+   },
+   "wall_time_s": 193.4,
+   "pages_per_sec": 1.696,
+   "avg_latency_s": 4.63
+  },
+  "teacher-labels": {
+   "teacher": "olmOCR-2-7B",
+   "n": 200,
+   "label_noise_cer_vs_exact_gt": 0.0603,
+   "median": 0.0007,
+   "printed_cer": 0.0595,
+   "handwriting_font_cer": 0.062,
+   "wall_time_s": 236.0,
+   "pages_per_sec": 0.848
+  },
+  "tesseract": {
+   "model": "tesseract",
+   "n_docs": 328,
+   "n_errors": 0,
+   "mean_cer": 0.4744,
+   "median_cer": 0.444,
+   "per_subset": {
+    "handwriting": {
+     "mean_cer": 0.5334,
+     "n": 56
+    },
+    "mixed": {
+     "mean_cer": 0.8527,
+     "n": 48
+    },
+    "normal": {
+     "mean_cer": 0.0807,
+     "n": 56
+    },
+    "poor": {
+     "mean_cer": 0.5315,
+     "n": 56
+    },
+    "rotated": {
+     "mean_cer": 0.6649,
+     "n": 56
+    },
+    "tables": {
+     "mean_cer": 0.2373,
+     "n": 56
+    }
+   },
+   "wall_time_s": 232.3,
+   "pages_per_sec": 1.412,
+   "avg_latency_s": 0.71
+  }
+ },
+ "status": {},
+ "teacher": {
+  "teacher": "olmOCR-2-7B",
+  "n": 200,
+  "label_noise_cer_vs_exact_gt": 0.0603,
+  "median": 0.0007,
+  "printed_cer": 0.0595,
+  "handwriting_font_cer": 0.062,
+  "wall_time_s": 236.0,
+  "pages_per_sec": 0.848
+ },
+ "field_fidelity": null
+}

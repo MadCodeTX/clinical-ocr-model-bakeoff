@@ -1,0 +1,92 @@
+{
+  "tesseract": {
+    "params": "n/a",
+    "license": "Apache-2.0",
+    "prompt": "tesseract --psm 3",
+    "notes": "incumbent baseline"
+  },
+  "granite-docling": {
+    "params": "0.26B",
+    "license": "Apache-2.0",
+    "prompt": "Convert this page to docling.",
+    "notes": "DocTags output"
+  },
+  "paddleocr-vl": {
+    "params": "0.9B",
+    "license": "Apache-2.0",
+    "prompt": "OCR:",
+    "notes": "single-VLM, element-level prompt"
+  },
+  "paddleocr-vl-pipeline": {
+    "params": "0.9B + PP-DocLayoutV2",
+    "license": "Apache-2.0",
+    "prompt": "full pipeline (layout + orientation + unwarp)",
+    "notes": "per-region VLM calls via vLLM server"
+  },
+  "dots-mocr": {
+    "params": "3B",
+    "license": "MIT",
+    "prompt": "Extract the text content from this image.",
+    "notes": "rednote-hilab"
+  },
+  "olmocr-2": {
+    "params": "8B",
+    "license": "Apache-2.0",
+    "prompt": "Extract the contents. [Markdown].",
+    "notes": "allenai, batch-optimised"
+  },
+  "qwen25vl3b-base": {
+    "params": "3B",
+    "license": "Apache-2.0",
+    "prompt": "Extract the text content from this image.",
+    "notes": "general-purpose VLM, no OCR fine-tune"
+  },
+  "qwen25vl3b-lora": {
+    "params": "3B + LoRA (37M)",
+    "license": "Apache-2.0",
+    "prompt": "Extract the text content from this image.",
+    "notes": "distilled on synthetic degraded clinical docs"
+  },
+  "qwen25vl3b-lora-teacher": {
+    "params": "3B + LoRA (37M)",
+    "license": "Apache-2.0",
+    "prompt": "Extract the text content from this image.",
+    "notes": "trained on olmOCR-2 teacher labels (200 docs)"
+  },
+  "dots-ocr": {
+    "params": "3B",
+    "license": "MIT",
+    "prompt": "Extract the text content from this image.",
+    "notes": "predecessor of dots.mocr"
+  },
+  "qwen25vl7b": {
+    "params": "7B",
+    "license": "Apache-2.0",
+    "prompt": "Extract the text content from this image.",
+    "notes": "mid-size general VLM reference"
+  },
+  "chandra-2": {
+    "params": "5B",
+    "license": "OpenRAIL-M (research/personal/<$2M only)",
+    "prompt": "ocr_layout",
+    "notes": "NOT production-viable for large orgs; quality reference only"
+  },
+  "deepseek-ocr": {
+    "params": "3B MoE",
+    "license": "MIT",
+    "prompt": "Free OCR.",
+    "notes": "throughput-oriented"
+  },
+  "nanonets-ocr2-3b": {
+    "params": "3B",
+    "license": "Apache-2.0",
+    "prompt": "Convert to Markdown.",
+    "notes": "form/signature tagging"
+  },
+  "monkeyocrv2-b-parsing": {
+    "params": "0.7B",
+    "license": "Apache-2.0",
+    "prompt": "native pipeline",
+    "notes": "claims open-source SOTA on MDPBench"
+  }
+}
