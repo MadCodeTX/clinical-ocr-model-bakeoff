@@ -42,18 +42,6 @@ def main():
     ap.add_argument("--max-pixels", type=int, default=1024 * 28 * 28)
     args = ap.parse_args()
 
-    processor = AutoProcessor.from_pretrained(args.model)
-    processor.image_processor.max_pixels = args.max_pixels
-    processor.image_processor.min_pixels = 4 * 28 * 28
-    model = VLModel.from_pretrained(
-        args.model, torch_dtype=torch.bfloat16, attn_implementation="sdpa",
-        device_map="cuda:0", **_KW)
-    if args.adapter:
-        from peft import PeftModel
-        model = PeftModel.from_pretrained(model, args.adapter)
-        print("loaded adapter", args.adapter)
-    model.eval()
-
     items = [json.loads(l) for l in open(args.data)]
     if args.limit:
         items = items[:args.limit]
@@ -78,6 +66,18 @@ def main():
         if not items:
             print("nothing to do")
             return
+
+    processor = AutoProcessor.from_pretrained(args.model)
+    processor.image_processor.max_pixels = args.max_pixels
+    processor.image_processor.min_pixels = 4 * 28 * 28
+    model = VLModel.from_pretrained(
+        args.model, torch_dtype=torch.bfloat16, attn_implementation="sdpa",
+        device_map="cuda:0", **_KW)
+    if args.adapter:
+        from peft import PeftModel
+        model = PeftModel.from_pretrained(model, args.adapter)
+        print("loaded adapter", args.adapter)
+    model.eval()
 
     t0 = time.time()
     with open(preds_path, "a" if args.resume else "w") as f:
