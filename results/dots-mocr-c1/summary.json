@@ -1,0 +1,36 @@
+{
+ "model": "dots-mocr-c1",
+ "n_docs": 328,
+ "n_errors": 10,
+ "mean_cer": 0.2209,
+ "median_cer": 0.0754,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.1205,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 0.8114,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.0845,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.0909,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.2437,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.0587,
+   "n": 56
+  }
+ },
+ "wall_time_s": 1256.7,
+ "pages_per_sec": 0.261,
+ "avg_latency_s": 3.83
+}

@@ -2,7 +2,7 @@
 
 Open-weights OCR / document-VLM evaluation on **real-artifact clinical scanned documents**, plus a routing study and a distillation experiment. All data is public or synthetic (no PHI).
 
-_Generated 2026-09-14T06:31Z from `make_report.py`; 16 scored models, 7 experiment runs._
+_Generated 2026-09-14T07:14Z from `make_report.py`; 19 scored models, 8 experiment runs._
 
 ## TL;DR
 
@@ -35,6 +35,9 @@ _Generated 2026-09-14T06:31Z from `make_report.py`; 16 scored models, 7 experime
 | qwen25vl7b | 7B | Apache-2.0 | 0.1994 | 0.0513 | 0.54 | 0.026 | 0.103 | 0.076 | 0.265 | 0.071 | 0.732 |
 | olmocr-2 | 8B | Apache-2.0 | 0.2076 | 0.0796 | 0.48 | 0.067 | 0.103 | 0.112 | 0.196 | 0.081 | 0.767 |
 | dots-mocr | 3B | MIT | 0.2126 | 0.0747 | 0.67 | 0.085 | 0.126 | 0.085 | 0.241 | 0.058 | 0.759 |
+| dots-mocr-c4 | ? | ? | 0.2161 | 0.0746 | 0.53 | 0.084 | 0.116 | 0.086 | 0.246 | 0.058 | 0.788 |
+| dots-mocr-c1 | ? | ? | 0.2209 | 0.0754 | 0.26 | 0.085 | 0.120 | 0.091 | 0.244 | 0.059 | 0.811 |
+| dots-mocr-c16 | ? | ? | 0.2210 | 0.0747 | 0.77 | 0.086 | 0.124 | 0.086 | 0.246 | 0.058 | 0.810 |
 | dots-mocr-promptocr | ? | ? | 0.2213 | 0.0675 | 0.65 | 0.082 | 0.119 | 0.088 | 0.244 | 0.045 | 0.837 |
 | dots-ocr | 3B | MIT | 0.2613 | 0.0761 | 0.61 | 0.051 | 0.165 | 0.083 | 0.314 | 0.061 | 0.999 |
 | qwen25vl3b-lora | 3B + LoRA (37M) | Apache-2.0 | 0.2783 | 0.1003 | 0.10 | 0.039 | 0.215 | 0.046 | 0.383 | 0.164 | 0.914 |
@@ -64,13 +67,16 @@ _Generated 2026-09-14T06:31Z from `make_report.py`; 16 scored models, 7 experime
 | granite-docling | 1.11 | 96,336 | $1.62 | $963 | 595x |
 | deepseek-ocr | 0.88 | 76,118 | $1.62 | $761 | 470x |
 | teacher-labels | 0.85 | 73,267 | $1.62 | $733 | 452x |
+| dots-mocr-c16 | 0.77 | 66,096 | $1.62 | $661 | 408x |
 | dots-mocr | 0.67 | 57,542 | $1.62 | $575 | 355x |
 | dots-mocr-promptocr | 0.65 | 56,246 | $1.62 | $562 | 347x |
 | dots-ocr | 0.61 | 52,445 | $1.62 | $524 | 324x |
 | qwen25vl7b | 0.54 | 46,483 | $1.62 | $465 | 287x |
+| dots-mocr-c4 | 0.53 | 45,965 | $1.62 | $460 | 284x |
 | olmocr-2 | 0.48 | 41,213 | $1.62 | $412 | 254x |
 | chandra-2 | 0.40 | 34,646 | $1.62 | $346 | 214x |
 | paddleocr-vl-pipeline | 0.27 | 23,414 | $1.62 | $234 | 145x |
+| dots-mocr-c1 | 0.26 | 22,550 | $1.62 | $226 | 139x |
 | nanonets-ocr2-3b | 0.21 | 18,317 | $1.62 | $183 | 113x |
 | qwen25vl3b-base | 0.18 | 15,898 | $1.62 | $159 | 98x |
 | qwen25vl3b-lora | 0.10 | 8,899 | $1.62 | $89 | 55x |
@@ -105,6 +111,7 @@ Assumes one 450 W 4090 at $0.15/kWh (~$1.62/day); Azure Layout OCR at $0.01/page
 | e05_models_b | ok | 30.0 |
 | e06_models_c | ok | 8.7 |
 | e07_prompt_variants | ok | 9.9 |
+| e08_concurrency | ok | 42.9 |
 
 ## 9. Conclusions
 
