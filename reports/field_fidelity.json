@@ -1,0 +1,857 @@
+{
+ "chandra-2": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.8609,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.8498,
+    "precision": 0.893,
+    "f1": 0.8709,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.8729,
+    "precision": 0.8985,
+    "f1": 0.8855,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.8806,
+    "precision": 0.5514,
+    "f1": 0.6782,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.8122,
+    "precision": 0.7983,
+    "f1": 0.8052,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.8519,
+    "precision": 0.8,
+    "f1": 0.8251,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   }
+  }
+ },
+ "deepseek-ocr": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.6207,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.5919,
+    "precision": 0.1978,
+    "f1": 0.2965,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.5571,
+    "precision": 0.1846,
+    "f1": 0.2773,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.7441,
+    "precision": 0.2205,
+    "f1": 0.3402,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.5022,
+    "precision": 0.6647,
+    "f1": 0.5721,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.5903,
+    "precision": 0.1964,
+    "f1": 0.2947,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   }
+  }
+ },
+ "dots-mocr-c1": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.8342,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.8379,
+    "precision": 0.9571,
+    "f1": 0.8936,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.8014,
+    "precision": 0.9557,
+    "f1": 0.8718,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.8785,
+    "precision": 0.6919,
+    "f1": 0.7741,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.8253,
+    "precision": 0.5745,
+    "f1": 0.6774,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.7931,
+    "precision": 0.5634,
+    "f1": 0.6588,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   }
+  }
+ },
+ "dots-mocr-c16": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.8375,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.8468,
+    "precision": 0.9597,
+    "f1": 0.8997,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.8043,
+    "precision": 0.9591,
+    "f1": 0.8749,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.8763,
+    "precision": 0.685,
+    "f1": 0.7689,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.8253,
+    "precision": 0.5745,
+    "f1": 0.6774,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.7972,
+    "precision": 0.5598,
+    "f1": 0.6577,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   }
+  }
+ },
+ "dots-mocr-c4": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.8363,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.8409,
+    "precision": 0.9573,
+    "f1": 0.8953,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.8043,
+    "precision": 0.9559,
+    "f1": 0.8735,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.8785,
+    "precision": 0.6924,
+    "f1": 0.7744,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.8253,
+    "precision": 0.5745,
+    "f1": 0.6774,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.7972,
+    "precision": 0.5622,
+    "f1": 0.6594,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   }
+  }
+ },
+ "dots-mocr-promptocr": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.8348,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.8389,
+    "precision": 0.9279,
+    "f1": 0.8812,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.8,
+    "precision": 0.9556,
+    "f1": 0.8709,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.8795,
+    "precision": 0.4459,
+    "f1": 0.5918,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.8122,
+    "precision": 0.62,
+    "f1": 0.7032,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.8012,
+    "precision": 0.936,
+    "f1": 0.8634,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   }
+  }
+ },
+ "dots-mocr": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.8339,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.8379,
+    "precision": 0.9485,
+    "f1": 0.8898,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.8057,
+    "precision": 0.9576,
+    "f1": 0.8751,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.8753,
+    "precision": 0.687,
+    "f1": 0.7698,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.8079,
+    "precision": 0.5692,
+    "f1": 0.6679,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.7992,
+    "precision": 0.5581,
+    "f1": 0.6572,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   }
+  }
+ },
+ "dots-ocr": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.8333,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.837,
+    "precision": 0.6321,
+    "f1": 0.7202,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.8,
+    "precision": 0.7724,
+    "f1": 0.786,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.8827,
+    "precision": 0.4132,
+    "f1": 0.5629,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.7642,
+    "precision": 0.2961,
+    "f1": 0.4268,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.8114,
+    "precision": 0.5457,
+    "f1": 0.6525,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   }
+  }
+ },
+ "granite-docling": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.298,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.2816,
+    "precision": 0.2311,
+    "f1": 0.2539,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.46,
+    "precision": 0.534,
+    "f1": 0.4942,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.1109,
+    "precision": 0.0155,
+    "f1": 0.0273,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.3668,
+    "precision": 0.2561,
+    "f1": 0.3016,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.426,
+    "precision": 0.4595,
+    "f1": 0.4421,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   }
+  }
+ },
+ "nanonets-ocr2-3b": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.0,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.0,
+    "precision": null,
+    "f1": 0.0,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.0,
+    "precision": null,
+    "f1": 0.0,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.0,
+    "precision": null,
+    "f1": 0.0,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.0,
+    "precision": null,
+    "f1": 0.0,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.0,
+    "precision": null,
+    "f1": 0.0,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   }
+  }
+ },
+ "olmocr-2": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.8013,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.8123,
+    "precision": 0.8379,
+    "f1": 0.8249,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.7214,
+    "precision": 0.9439,
+    "f1": 0.8178,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.8945,
+    "precision": 0.7399,
+    "f1": 0.8098,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.7424,
+    "precision": 0.8586,
+    "f1": 0.7963,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.7424,
+    "precision": 0.9127,
+    "f1": 0.8188,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": 0.0,
+    "f1": 0.0,
+    "n_ref": 0
+   }
+  }
+ },
+ "paddleocr-vl-pipeline": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.7026,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.6858,
+    "precision": 0.7931,
+    "f1": 0.7356,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.58,
+    "precision": 0.9291,
+    "f1": 0.7142,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.8497,
+    "precision": 0.9614,
+    "f1": 0.9021,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.6376,
+    "precision": 0.6636,
+    "f1": 0.6503,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.6613,
+    "precision": 0.9106,
+    "f1": 0.7662,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   }
+  }
+ },
+ "paddleocr-vl-promptb": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.7304,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.7125,
+    "precision": 0.2823,
+    "f1": 0.4044,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.78,
+    "precision": 0.4313,
+    "f1": 0.5554,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.7271,
+    "precision": 0.7225,
+    "f1": 0.7248,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.6769,
+    "precision": 0.6352,
+    "f1": 0.6554,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.7282,
+    "precision": 0.4204,
+    "f1": 0.533,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": 0.0,
+    "f1": 0.0,
+    "n_ref": 0
+   }
+  }
+ },
+ "paddleocr-vl": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.7542,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.7134,
+    "precision": 0.351,
+    "f1": 0.4705,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.8057,
+    "precision": 0.3672,
+    "f1": 0.5045,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.774,
+    "precision": 0.7356,
+    "f1": 0.7543,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.7031,
+    "precision": 0.6414,
+    "f1": 0.6708,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.7505,
+    "precision": 0.3803,
+    "f1": 0.5048,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": 0.0,
+    "f1": 0.0,
+    "n_ref": 0
+   }
+  }
+ },
+ "qwen25vl3b-base": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.769,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.7569,
+    "precision": 0.8616,
+    "f1": 0.8059,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.7443,
+    "precision": 0.8003,
+    "f1": 0.7713,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.8401,
+    "precision": 0.9152,
+    "f1": 0.876,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.6594,
+    "precision": 0.719,
+    "f1": 0.6879,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.7444,
+    "precision": 0.8013,
+    "f1": 0.7718,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": 0.0,
+    "f1": 0.0,
+    "n_ref": 0
+   }
+  }
+ },
+ "qwen25vl3b-lora": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.7705,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.7658,
+    "precision": 0.6607,
+    "f1": 0.7094,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.7257,
+    "precision": 0.8141,
+    "f1": 0.7674,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.8582,
+    "precision": 0.7168,
+    "f1": 0.7812,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.7031,
+    "precision": 0.694,
+    "f1": 0.6985,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.7079,
+    "precision": 0.7166,
+    "f1": 0.7122,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   }
+  }
+ },
+ "qwen25vl7b": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.8348,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.833,
+    "precision": 0.9483,
+    "f1": 0.8869,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.8243,
+    "precision": 0.9633,
+    "f1": 0.8884,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.8454,
+    "precision": 0.9694,
+    "f1": 0.9032,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.786,
+    "precision": 0.9278,
+    "f1": 0.8511,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.856,
+    "precision": 0.9254,
+    "f1": 0.8894,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   }
+  }
+ },
+ "teacher-labels": {
+  "n_docs": 0,
+  "overall_fields": {
+   "recall": null,
+   "n_ref": 0
+  },
+  "by_type": {
+   "dates": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   },
+   "ids_5to8": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   },
+   "decimals": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   },
+   "codes": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   },
+   "phones": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   }
+  }
+ },
+ "tesseract": {
+  "n_docs": 328,
+  "overall_fields": {
+   "recall": 0.5472,
+   "n_ref": 3372
+  },
+  "by_type": {
+   "dates": {
+    "recall": 0.582,
+    "precision": 0.916,
+    "f1": 0.7118,
+    "n_ref": 1012
+   },
+   "ids_5to8": {
+    "recall": 0.5229,
+    "precision": 0.8133,
+    "f1": 0.6365,
+    "n_ref": 700
+   },
+   "decimals": {
+    "recall": 0.5661,
+    "precision": 0.9499,
+    "f1": 0.7094,
+    "n_ref": 938
+   },
+   "codes": {
+    "recall": 0.4891,
+    "precision": 0.3446,
+    "f1": 0.4043,
+    "n_ref": 229
+   },
+   "phones": {
+    "recall": 0.501,
+    "precision": 0.9321,
+    "f1": 0.6517,
+    "n_ref": 493
+   },
+   "mrn_prefix": {
+    "recall": NaN,
+    "precision": null,
+    "f1": NaN,
+    "n_ref": 0
+   }
+  }
+ }
+}
