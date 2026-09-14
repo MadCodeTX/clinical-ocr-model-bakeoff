@@ -249,6 +249,19 @@ def report_distill(sums):
             lora["per_subset"].get("rotated", {}).get("mean_cer", 0)
         notes.append(f"LoRA on synthetic degraded docs: overall CER {base['mean_cer']:.3f} -> "
                      f"{lora['mean_cer']:.3f} ({d:+.3f}); handwriting {dhw:+.3f}; rotated {drot:+.3f}")
+    if tlor:
+        dt = base["mean_cer"] - tlor["mean_cer"]
+        notes.append(f"Teacher labels (olmOCR-2 output, no ground truth needed): "
+                     f"{base['mean_cer']:.3f} -> {tlor['mean_cer']:.3f} ({dt:+.3f})")
+        if lora:
+            # The practical question: can you skip hand-labelling entirely?
+            gap = lora["mean_cer"] - tlor["mean_cer"]
+            verdict = ("teacher labels match or beat exact ground truth, so unlabeled "
+                       "scans are enough to specialise a cheap student"
+                       if gap >= -0.005 else
+                       f"exact labels still lead by {-gap:.3f} CER, so teacher labels "
+                       f"trade some accuracy for not needing ground truth")
+            notes.append(f"Teacher vs exact-GT labels: {gap:+.3f} CER — {verdict}.")
     return md, notes
 
 
@@ -278,7 +291,10 @@ def main():
     status = load_status()
     meta = load_json(os.path.join(ROOT, "models.json"), {})
     ff = load_json(os.path.join(REPORTS, "field_fidelity.json"))
-    teacher = load_json(os.path.join(ROOT, "results", "teacher-labels", "summary.json"))
+    # Prefer the full 800-doc minting run -- those are the labels the teacher
+    # student was actually trained on; the 200-doc run was the pilot.
+    teacher = (load_json(os.path.join(ROOT, "results", "teacher-labels-full", "summary.json"))
+               or load_json(os.path.join(ROOT, "results", "teacher-labels", "summary.json")))
     router_md, router_notes = report_router()
     distill_md, distill_notes = report_distill(sums)
 
@@ -373,7 +389,7 @@ def main():
     if teacher:
         L.append(f"- **Teacher labels**: olmOCR-2 output matches exact ground truth at "
                  f"CER {teacher['label_noise_cer_vs_exact_gt']:.3f} (median "
-                 f"{teacher['median']:.4f}) on 200 synthetic degraded clinical docs — "
+                 f"{teacher['median']:.4f}) on {teacher['n']} synthetic degraded clinical docs — "
                  f"cheap to mint training labels for unlabeled scans.")
     L.append("")
 
@@ -472,8 +488,12 @@ def main():
              "3. **Routing is the real cost lever**: a classifier over cheap image + "
              "transcript features catches the failures, so you pay Layout prices on a small "
              "slice instead of every page.\n"
-             "4. **Distillation is viable**: see section 6 — domain synthetic data moves the "
-             "cheap student on exactly the subsets that were failing.\n"
+             "4. **Distil from a teacher, not from ground truth**: see section 6 — labels "
+             "minted by running olmOCR-2 over unlabeled scans beat hand-exact labels "
+             "(CER 0.254 vs 0.278; base 0.292). Exact labels are flat text and regress "
+             "`tables` (0.080 -> 0.164); the teacher emits markdown, so table structure "
+             "survives (0.092). This removes ground truth from the critical path: pointing "
+             "the teacher at an unlabeled scan archive is enough.\n"
              "5. **Field-level fidelity, not CER, should gate production**: see section 3.\n")
     L.append("\n## Appendix: reproduce\n")
     L.append("```bash\n"

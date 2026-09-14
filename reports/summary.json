@@ -540,6 +540,42 @@
    "pages_per_sec": 0.184,
    "avg_latency_s": 5.45
   },
+  "qwen25vl3b-lora-teacher": {
+   "model": "qwen25vl3b-lora-teacher",
+   "n_docs": 328,
+   "n_errors": 0,
+   "mean_cer": 0.2536,
+   "median_cer": 0.0918,
+   "per_subset": {
+    "handwriting": {
+     "mean_cer": 0.2148,
+     "n": 56
+    },
+    "mixed": {
+     "mean_cer": 0.8201,
+     "n": 48
+    },
+    "normal": {
+     "mean_cer": 0.0404,
+     "n": 56
+    },
+    "poor": {
+     "mean_cer": 0.0652,
+     "n": 56
+    },
+    "rotated": {
+     "mean_cer": 0.3701,
+     "n": 56
+    },
+    "tables": {
+     "mean_cer": 0.0919,
+     "n": 56
+    }
+   },
+   "wall_time_s": 2996.7,
+   "pages_per_sec": 0.109,
+   "avg_latency_s": 9.14
+  },
   "qwen25vl3b-lora": {
    "model": "qwen25vl3b-lora",
    "n_docs": 328,
@@ -1308,13 +1344,13 @@
  },
  "teacher": {
   "teacher": "olmOCR-2-7B",
-  "n": 200,
-  "label_noise_cer_vs_exact_gt": 0.0603,
-  "median": 0.0007,
-  "printed_cer": 0.0595,
-  "handwriting_font_cer": 0.062,
-  "wall_time_s": 236.0,
-  "pages_per_sec": 0.848
+  "n": 800,
+  "label_noise_cer_vs_exact_gt": 0.0621,
+  "median": 0.0016,
+  "printed_cer": 0.0561,
+  "handwriting_font_cer": 0.0742,
+  "wall_time_s": 925.1,
+  "pages_per_sec": 0.865
  },
  "field_fidelity": {
   "chandra-2": {
@@ -1993,47 +2029,47 @@
    }
   },
   "qwen25vl3b-lora-teacher": {
-   "n_docs": 235,
+   "n_docs": 328,
    "overall_fields": {
-    "recall": 0.7552,
-    "n_ref": 2459
+    "recall": 0.7312,
+    "n_ref": 3650
    },
    "by_type": {
     "dates": {
-     "recall": 0.7546,
-     "precision": 0.8536,
-     "f1": 0.8011,
-     "n_ref": 595
+     "recall": 0.7394,
+     "precision": 0.8647,
+     "f1": 0.7972,
+     "n_ref": 994
     },
     "ids_5to8": {
-     "recall": 0.7162,
-     "precision": 0.8548,
-     "f1": 0.7794,
-     "n_ref": 592
+     "recall": 0.6757,
+     "precision": 0.6479,
+     "f1": 0.6615,
+     "n_ref": 700
     },
     "decimals": {
-     "recall": 0.8841,
-     "precision": 0.9535,
-     "f1": 0.9175,
-     "n_ref": 371
+     "recall": 0.8254,
+     "precision": 0.9536,
+     "f1": 0.8849,
+     "n_ref": 922
     },
     "codes": {
-     "recall": 0.7474,
-     "precision": 0.8239,
-     "f1": 0.7838,
-     "n_ref": 194
+     "recall": 0.6856,
+     "precision": 0.7889,
+     "f1": 0.7336,
+     "n_ref": 229
     },
     "phones": {
-     "recall": 0.7706,
-     "precision": 0.8442,
-     "f1": 0.8058,
-     "n_ref": 436
+     "recall": 0.7241,
+     "precision": 0.5426,
+     "f1": 0.6203,
+     "n_ref": 493
     },
     "mrn_labeled": {
-     "recall": 0.6458,
-     "precision": 0.8537,
-     "f1": 0.7353,
-     "n_ref": 271
+     "recall": 0.5962,
+     "precision": 0.823,
+     "f1": 0.6914,
+     "n_ref": 312
     }
    }
   },

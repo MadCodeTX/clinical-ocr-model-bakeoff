@@ -2,7 +2,7 @@
 
 Open-weights OCR / document-VLM evaluation on **real-artifact clinical scanned documents**, plus a routing study and a distillation experiment. All data is public or synthetic (no PHI).
 
-_Generated 2026-09-14T17:43Z from `make_report.py`; 23 scored models, 14 experiment runs._
+_Generated 2026-09-14T18:26Z from `make_report.py`; 24 scored models, 14 experiment runs._
 
 ## TL;DR
 
@@ -11,7 +11,9 @@ _Generated 2026-09-14T17:43Z from `make_report.py`; 23 scored models, 14 experim
 - **Incumbent Tesseract**: mean CER 0.474, median 0.444 — the gap is worst on the degraded artifacts that dominate inbound faxes.
 - **Router**: escalating only 20% of pages to Layout-class OCR reaches CER 0.209 at $0.00198/page (80% cheaper than escalating everything).
 - **Distillation**: LoRA on synthetic degraded docs: overall CER 0.292 -> 0.278 (+0.014); handwriting +0.110; rotated +0.053
-- **Teacher labels**: olmOCR-2 output matches exact ground truth at CER 0.060 (median 0.0007) on 200 synthetic degraded clinical docs — cheap to mint training labels for unlabeled scans.
+- **Distillation**: Teacher labels (olmOCR-2 output, no ground truth needed): 0.292 -> 0.254 (+0.038)
+- **Distillation**: Teacher vs exact-GT labels: +0.025 CER — teacher labels match or beat exact ground truth, so unlabeled scans are enough to specialise a cheap student.
+- **Teacher labels**: olmOCR-2 output matches exact ground truth at CER 0.062 (median 0.0016) on 800 synthetic degraded clinical docs — cheap to mint training labels for unlabeled scans.
 
 ## 1. Setup
 
@@ -40,6 +42,7 @@ _Generated 2026-09-14T17:43Z from `make_report.py`; 23 scored models, 14 experim
 | dots-mocr-c1 | ? | ? | 0.2209 | 0.0754 | 0.26 | 0.085 | 0.120 | 0.091 | 0.244 | 0.059 | 0.811 |
 | dots-mocr-c16 | ? | ? | 0.2210 | 0.0747 | 0.77 | 0.086 | 0.124 | 0.086 | 0.246 | 0.058 | 0.810 |
 | dots-mocr-promptocr | ? | ? | 0.2213 | 0.0675 | 0.65 | 0.082 | 0.119 | 0.088 | 0.244 | 0.045 | 0.837 |
+| qwen25vl3b-lora-teacher | 3B + LoRA (37M) | Apache-2.0 | 0.2536 | 0.0918 | 0.11 | 0.040 | 0.215 | 0.065 | 0.370 | 0.092 | 0.820 |
 | dots-ocr | 3B | MIT | 0.2613 | 0.0761 | 0.61 | 0.051 | 0.165 | 0.083 | 0.314 | 0.061 | 0.999 |
 | qwen25vl3b-lora | 3B + LoRA (37M) | Apache-2.0 | 0.2783 | 0.1003 | 0.10 | 0.039 | 0.215 | 0.046 | 0.383 | 0.164 | 0.914 |
 | qwen25vl3b-base | 3B | Apache-2.0 | 0.2919 | 0.0616 | 0.18 | 0.036 | 0.325 | 0.047 | 0.436 | 0.080 | 0.916 |
@@ -78,9 +81,9 @@ _Generated 2026-09-14T17:43Z from `make_report.py`; 23 scored models, 14 experim
 | olmocr-2 | 0.785 | 0.812 | 0.721 | 0.886 | 0.742 | 0.742 | 0.644 |
 | qwen25vl3b-lora | 0.762 | 0.765 | 0.726 | 0.857 | 0.703 | 0.708 | 0.689 |
 | qwen25vl3b-base | 0.760 | 0.755 | 0.744 | 0.840 | 0.659 | 0.744 | 0.673 |
-| qwen25vl3b-lora-teacher ⚠️ *(partial, 235/328)* | 0.755 | 0.755 | 0.716 | 0.884 | 0.747 | 0.771 | 0.646 |
 | paddleocr-vl | 0.754 | 0.715 | 0.806 | 0.775 | 0.703 | 0.750 | 0.737 |
 | paddleocr-vl-promptb | 0.733 | 0.714 | 0.780 | 0.729 | 0.677 | 0.728 | 0.747 |
+| qwen25vl3b-lora-teacher | 0.731 | 0.739 | 0.676 | 0.825 | 0.686 | 0.724 | 0.596 |
 | paddleocr-vl-pipeline | 0.676 | 0.683 | 0.580 | 0.849 | 0.638 | 0.661 | 0.413 |
 | deepseek-ocr | 0.606 | 0.588 | 0.557 | 0.742 | 0.502 | 0.590 | 0.471 |
 | tesseract | 0.538 | 0.577 | 0.523 | 0.561 | 0.489 | 0.501 | 0.481 |
@@ -109,6 +112,7 @@ _Generated 2026-09-14T17:43Z from `make_report.py`; 23 scored models, 14 experim
 | dots-mocr-c1 | 0.26 | 22,550 | $1.62 | $226 | 139x |
 | nanonets-ocr2-3b | 0.21 | 18,317 | $1.62 | $183 | 113x |
 | qwen25vl3b-base | 0.18 | 15,898 | $1.62 | $159 | 98x |
+| qwen25vl3b-lora-teacher | 0.11 | 9,418 | $1.62 | $94 | 58x |
 | qwen25vl3b-lora | 0.10 | 8,899 | $1.62 | $89 | 55x |
 
 Assumes one 450 W 4090 at $0.15/kWh (~$1.62/day); Azure Layout OCR at $0.01/page. Self-hosting is 3–4 orders of magnitude cheaper per page *before* counting GPU amortisation.*
@@ -152,8 +156,11 @@ Top predictive features: `pred_len` 0.66, `skewness` 0.07, `height` 0.05, `ink` 
 |---|---|---|---|---|---|---|---|---|
 | base Qwen2.5-VL-3B | 0.2919 | 0.0616 | 0.036 | 0.325 | 0.047 | 0.436 | 0.080 | 0.916 |
 | + LoRA (exact GT labels) | 0.2783 | 0.1003 | 0.039 | 0.215 | 0.046 | 0.383 | 0.164 | 0.914 |
+| + LoRA (teacher labels) | 0.2536 | 0.0918 | 0.040 | 0.215 | 0.065 | 0.370 | 0.092 | 0.820 |
 
 - LoRA on synthetic degraded docs: overall CER 0.292 -> 0.278 (+0.014); handwriting +0.110; rotated +0.053
+- Teacher labels (olmOCR-2 output, no ground truth needed): 0.292 -> 0.254 (+0.038)
+- Teacher vs exact-GT labels: +0.025 CER — teacher labels match or beat exact ground truth, so unlabeled scans are enough to specialise a cheap student.
 
 ![distillation](distill_delta.png)
 
@@ -161,7 +168,7 @@ Top predictive features: `pred_len` 0.66, `skewness` 0.07, `height` 0.05, `ink` 
 
 | teacher | docs | CER vs exact GT | median | printed text | handwriting font | pages/s |
 |---|---|---|---|---|---|---|
-| olmOCR-2-7B | 200 | 0.0603 | 0.0007 | 0.0595 | 0.0620 | 0.85 |
+| olmOCR-2-7B | 800 | 0.0621 | 0.0016 | 0.0561 | 0.0742 | 0.86 |
 
 ## 8. Run log
 
@@ -187,7 +194,7 @@ Top predictive features: `pred_len` 0.66, `skewness` 0.07, `height` 0.05, `ink` 
 1. **Replace Tesseract for degraded scans.** Every VLM tested beats it on the artifacts that dominate inbound faxes; the median-doc gap is ~6x.
 2. **`dots-mocr` (3B, MIT) is the best default**: accuracy equal to the 8B olmOCR-2 at much higher throughput and a permissive licence.
 3. **Routing is the real cost lever**: a classifier over cheap image + transcript features catches the failures, so you pay Layout prices on a small slice instead of every page.
-4. **Distillation is viable**: see section 6 — domain synthetic data moves the cheap student on exactly the subsets that were failing.
+4. **Distil from a teacher, not from ground truth**: see section 6 — labels minted by running olmOCR-2 over unlabeled scans beat hand-exact labels (CER 0.254 vs 0.278; base 0.292). Exact labels are flat text and regress `tables` (0.080 -> 0.164); the teacher emits markdown, so table structure survives (0.092). This removes ground truth from the critical path: pointing the teacher at an unlabeled scan archive is enough.
 5. **Field-level fidelity, not CER, should gate production**: see section 3.
 
 

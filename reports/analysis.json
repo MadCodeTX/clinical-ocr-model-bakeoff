@@ -286,6 +286,25 @@
    "t16": 0.4957
   },
   {
+   "model": "qwen25vl3b-lora-teacher",
+   "t1": 0.1414,
+   "t2": 0.3715,
+   "t3": 0.2532,
+   "t4": 0.2329,
+   "t5": 0.2237,
+   "t6": 0.1905,
+   "t7": 0.2781,
+   "t8": 0.2004,
+   "t9": 0.2778,
+   "t10": 0.1887,
+   "t11": 0.2039,
+   "t12": 0.3028,
+   "t13": 0.1948,
+   "t14": 0.2385,
+   "t15": 0.4673,
+   "t16": 0.5795
+  },
+  {
    "model": "qwen25vl3b-lora",
    "t1": 0.1616,
    "t2": 0.4109,
@@ -448,6 +467,13 @@
    "repetition": 3,
    "suspected_truncation": 233,
    "median_len_ratio": 0.987
+  },
+  "qwen25vl3b-lora-teacher": {
+   "n": 328,
+   "empty": 0,
+   "repetition": 4,
+   "suspected_truncation": 216,
+   "median_len_ratio": 0.991
   },
   "qwen25vl3b-lora": {
    "n": 328,
