@@ -1,0 +1,36 @@
+{
+ "model": "qwen25vl3b-lora-q38-hires",
+ "n_docs": 328,
+ "n_errors": 10,
+ "mean_cer": 0.2542,
+ "median_cer": 0.0499,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.0931,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 0.9387,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.029,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.0775,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.3887,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.0961,
+   "n": 56
+  }
+ },
+ "wall_time_s": 475.3,
+ "pages_per_sec": 0.69,
+ "avg_latency_s": 11.11
+}

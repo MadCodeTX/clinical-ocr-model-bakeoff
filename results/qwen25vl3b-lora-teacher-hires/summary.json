@@ -1,0 +1,36 @@
+{
+ "model": "qwen25vl3b-lora-teacher-hires",
+ "n_docs": 328,
+ "n_errors": 10,
+ "mean_cer": 0.2582,
+ "median_cer": 0.0616,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.0958,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 1.0207,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.0355,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.0847,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.3447,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.0769,
+   "n": 56
+  }
+ },
+ "wall_time_s": 489.9,
+ "pages_per_sec": 0.67,
+ "avg_latency_s": 11.57
+}
