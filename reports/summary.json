@@ -1,5 +1,41 @@
 {
  "models": {
+  "chandra-2": {
+   "model": "chandra-2",
+   "n_docs": 328,
+   "n_errors": 10,
+   "mean_cer": 0.8641,
+   "median_cer": 0.7134,
+   "per_subset": {
+    "handwriting": {
+     "mean_cer": 0.8966,
+     "n": 56
+    },
+    "mixed": {
+     "mean_cer": 1.2888,
+     "n": 48
+    },
+    "normal": {
+     "mean_cer": 0.8259,
+     "n": 56
+    },
+    "poor": {
+     "mean_cer": 0.8389,
+     "n": 56
+    },
+    "rotated": {
+     "mean_cer": 0.7702,
+     "n": 56
+    },
+    "tables": {
+     "mean_cer": 0.6249,
+     "n": 56
+    }
+   },
+   "wall_time_s": 818.3,
+   "pages_per_sec": 0.401,
+   "avg_latency_s": 19.58
+  },
   "dots-mocr": {
    "model": "dots-mocr",
    "n_docs": 328,
@@ -107,6 +143,42 @@
    "wall_time_s": 294.3,
    "pages_per_sec": 1.115,
    "avg_latency_s": 7.01
+  },
+  "nanonets-ocr2-3b": {
+   "model": "nanonets-ocr2-3b",
+   "n_docs": 328,
+   "n_errors": 10,
+   "mean_cer": 1.801,
+   "median_cer": 2.0,
+   "per_subset": {
+    "handwriting": {
+     "mean_cer": 1.5502,
+     "n": 56
+    },
+    "mixed": {
+     "mean_cer": 1.9163,
+     "n": 48
+    },
+    "normal": {
+     "mean_cer": 1.7859,
+     "n": 56
+    },
+    "poor": {
+     "mean_cer": 1.8501,
+     "n": 56
+    },
+    "rotated": {
+     "mean_cer": 1.7439,
+     "n": 56
+    },
+    "tables": {
+     "mean_cer": 1.9761,
+     "n": 56
+    }
+   },
+   "wall_time_s": 1548.1,
+   "pages_per_sec": 0.212,
+   "avg_latency_s": 37.23
   },
   "olmocr-2": {
    "model": "olmocr-2",
@@ -387,6 +459,10 @@
   "e04_models_a": {
    "rc": 0,
    "seconds": 982.0
+  },
+  "e05_models_b": {
+   "rc": 0,
+   "seconds": 1800.0
   }
  },
  "teacher": {

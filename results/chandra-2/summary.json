@@ -1,0 +1,36 @@
+{
+ "model": "chandra-2",
+ "n_docs": 328,
+ "n_errors": 10,
+ "mean_cer": 0.8641,
+ "median_cer": 0.7134,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.8966,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 1.2888,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.8259,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.8389,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.7702,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.6249,
+   "n": 56
+  }
+ },
+ "wall_time_s": 818.3,
+ "pages_per_sec": 0.401,
+ "avg_latency_s": 19.58
+}

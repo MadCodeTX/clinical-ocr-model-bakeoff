@@ -1,0 +1,36 @@
+{
+ "model": "nanonets-ocr2-3b",
+ "n_docs": 328,
+ "n_errors": 10,
+ "mean_cer": 1.801,
+ "median_cer": 2.0,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 1.5502,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 1.9163,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 1.7859,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 1.8501,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 1.7439,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 1.9761,
+   "n": 56
+  }
+ },
+ "wall_time_s": 1548.1,
+ "pages_per_sec": 0.212,
+ "avg_latency_s": 37.23
+}

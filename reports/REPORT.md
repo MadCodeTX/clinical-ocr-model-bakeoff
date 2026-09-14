@@ -2,7 +2,7 @@
 
 Open-weights OCR / document-VLM evaluation on **real-artifact clinical scanned documents**, plus a routing study and a distillation experiment. All data is public or synthetic (no PHI).
 
-_Generated 2026-09-14T05:41Z from `make_report.py`; 11 scored models, 4 experiment runs._
+_Generated 2026-09-14T06:11Z from `make_report.py`; 13 scored models, 5 experiment runs._
 
 ## TL;DR
 
@@ -41,7 +41,9 @@ _Generated 2026-09-14T05:41Z from `make_report.py`; 11 scored models, 4 experime
 | paddleocr-vl | 0.9B | Apache-2.0 | 0.4298 | 0.1005 | 1.70 | 0.071 | 0.502 | 0.164 | 0.502 | 0.183 | 1.278 |
 | tesseract | n/a | Apache-2.0 | 0.4744 | 0.4440 | 1.41 | 0.081 | 0.533 | 0.531 | 0.665 | 0.237 | 0.853 |
 | paddleocr-vl-pipeline | 0.9B + PP-DocLayoutV2 | Apache-2.0 | 0.8235 | 0.4455 | 0.27 | 0.453 | 0.304 | 0.409 | 0.521 | 2.000 | 1.326 |
+| chandra-2 | 5B | OpenRAIL-M (research/personal/<$2M only) | 0.8641 | 0.7134 | 0.40 | 0.826 | 0.897 | 0.839 | 0.770 | 0.625 | 1.289 |
 | granite-docling | 0.26B | Apache-2.0 | 0.8665 | 0.8710 | 1.11 | 0.261 | 1.460 | 0.503 | 1.422 | 0.503 | 1.081 |
+| nanonets-ocr2-3b | 3B | Apache-2.0 | 1.8010 | 2.0000 | 0.21 | 1.786 | 1.550 | 1.850 | 1.744 | 1.976 | 1.916 |
 | teacher-labels | ? | ? | nan | nan | 0.85 | nan | nan | nan | nan | nan | nan |
 
 ![leaderboard](cer_leaderboard.png)
@@ -61,7 +63,9 @@ _Generated 2026-09-14T05:41Z from `make_report.py`; 11 scored models, 4 experime
 | dots-ocr | 0.61 | 52,445 | $1.62 | $524 | 324x |
 | qwen25vl7b | 0.54 | 46,483 | $1.62 | $465 | 287x |
 | olmocr-2 | 0.48 | 41,213 | $1.62 | $412 | 254x |
+| chandra-2 | 0.40 | 34,646 | $1.62 | $346 | 214x |
 | paddleocr-vl-pipeline | 0.27 | 23,414 | $1.62 | $234 | 145x |
+| nanonets-ocr2-3b | 0.21 | 18,317 | $1.62 | $183 | 113x |
 | qwen25vl3b-base | 0.18 | 15,898 | $1.62 | $159 | 98x |
 | qwen25vl3b-lora | 0.10 | 8,899 | $1.62 | $89 | 55x |
 
@@ -92,6 +96,7 @@ Assumes one 450 W 4090 at $0.15/kWh (~$1.62/day); Azure Layout OCR at $0.01/page
 | e02_train_lora | ok | ? |
 | e03_eval_students | ok | 53.5 |
 | e04_models_a | ok | 16.4 |
+| e05_models_b | ok | 30.0 |
 
 ## 9. Conclusions
 
