@@ -2,7 +2,7 @@
 
 Open-weights OCR / document-VLM evaluation on **real-artifact clinical scanned documents**, plus a routing study and a distillation experiment. All data is public or synthetic (no PHI).
 
-_Generated 2026-09-14T03:52Z from `make_report.py`; 6 scored models, 0 experiment runs._
+_Generated 2026-09-14T04:30Z from `make_report.py`; 7 scored models, 1 experiment runs._
 
 ## TL;DR
 
@@ -35,6 +35,7 @@ _Generated 2026-09-14T03:52Z from `make_report.py`; 6 scored models, 0 experimen
 | dots-mocr | 3B | MIT | 0.2126 | 0.0747 | 0.67 | 0.085 | 0.126 | 0.085 | 0.241 | 0.058 | 0.759 |
 | paddleocr-vl | 0.9B | Apache-2.0 | 0.4298 | 0.1005 | 1.70 | 0.071 | 0.502 | 0.164 | 0.502 | 0.183 | 1.278 |
 | tesseract | n/a | Apache-2.0 | 0.4744 | 0.4440 | 1.41 | 0.081 | 0.533 | 0.531 | 0.665 | 0.237 | 0.853 |
+| paddleocr-vl-pipeline | 0.9B + PP-DocLayoutV2 | Apache-2.0 | 0.8235 | 0.4455 | 0.27 | 0.453 | 0.304 | 0.409 | 0.521 | 2.000 | 1.326 |
 | granite-docling | 0.26B | Apache-2.0 | 0.8665 | 0.8710 | 1.11 | 0.261 | 1.460 | 0.503 | 1.422 | 0.503 | 1.081 |
 | teacher-labels | ? | ? | nan | nan | 0.85 | nan | nan | nan | nan | nan | nan |
 
@@ -53,6 +54,7 @@ _Generated 2026-09-14T03:52Z from `make_report.py`; 6 scored models, 0 experimen
 | teacher-labels | 0.85 | 73,267 | $1.62 | $733 | 452x |
 | dots-mocr | 0.67 | 57,542 | $1.62 | $575 | 355x |
 | olmocr-2 | 0.48 | 41,213 | $1.62 | $412 | 254x |
+| paddleocr-vl-pipeline | 0.27 | 23,414 | $1.62 | $234 | 145x |
 
 Assumes one 450 W 4090 at $0.15/kWh (~$1.62/day); Azure Layout OCR at $0.01/page. Self-hosting is 3–4 orders of magnitude cheaper per page *before* counting GPU amortisation.*
 
@@ -63,6 +65,10 @@ Assumes one 450 W 4090 at $0.15/kWh (~$1.62/day); Azure Layout OCR at $0.01/page
 | olmOCR-2-7B | 200 | 0.0603 | 0.0007 | 0.0595 | 0.0620 | 0.85 |
 
 ## 8. Run log
+
+| experiment | exit | minutes |
+|---|---|---|
+| e01_paddle_pipeline | ok | 21.6 |
 
 ## 9. Conclusions
 

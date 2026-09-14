@@ -20,8 +20,8 @@
   "paddleocr-vl-pipeline": {
     "params": "0.9B + PP-DocLayoutV2",
     "license": "Apache-2.0",
-    "prompt": "full pipeline (layout + orientation + unwarp)",
-    "notes": "per-region VLM calls via vLLM server"
+    "prompt": "pipeline: layout -> per-region VLM recognition",
+    "notes": "orientation-classify sub-model crashes CPU CV worker on ~30% of scans (disabled)"
   },
   "dots-mocr": {
     "params": "3B",

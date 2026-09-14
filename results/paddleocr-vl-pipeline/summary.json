@@ -1,0 +1,36 @@
+{
+ "model": "paddleocr-vl-pipeline",
+ "n_docs": 328,
+ "n_errors": 0,
+ "mean_cer": 0.8235,
+ "median_cer": 0.4455,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.3039,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 1.3258,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.4527,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.409,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.5211,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 2.0,
+   "n": 56
+  }
+ },
+ "wall_time_s": 1212.3,
+ "pages_per_sec": 0.271,
+ "avg_latency_s": 3.7
+}

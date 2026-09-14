@@ -9,7 +9,7 @@ docker rm -f "$CTR" >/dev/null 2>&1 || true
 docker run -d --name "$CTR" --gpus "\"device=$GPU\"" \
   -v "$HF_CACHE":/root/.cache/huggingface -p "$PORT":8000 --ipc=host \
   vllm/vllm-openai:v0.27.1 \
-  --model "$HF_ID" --served-model-name ocr --trust-remote-code \
+  --model "$HF_ID" --served-model-name ocr ${EXTRA_SERVED:-} --trust-remote-code \
   --max-model-len 8192 --gpu-memory-utilization 0.90 > /dev/null
 echo "waiting for $NAME on GPU$GPU:8000->$PORT"
 for i in $(seq 1 120); do

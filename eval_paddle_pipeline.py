@@ -41,6 +41,21 @@ def build_pipeline(server, use_orient, use_unwarp):
                            vl_rec_server_url=server, device="cpu")
 
 
+def prep_image(src, tmpdir, i, max_side=1600):
+    """Normalise to RGB PNG with a bounded long side. The paddle 'cv' worker
+    throws std::exception on some JPEGs / odd geometries; feeding it a clean
+    RGB PNG (and capping size) removes that failure mode."""
+    from PIL import Image
+    im = Image.open(src).convert("RGB")
+    w, h = im.size
+    if max(w, h) > max_side:
+        s = max_side / max(w, h)
+        im = im.resize((int(w * s), int(h * s)), Image.LANCZOS)
+    path = os.path.join(tmpdir, f"prep_{i}.png")
+    im.save(path)
+    return path
+
+
 def extract_text(res, tmpdir, i):
     """Try several APIs to get markdown/text out of a PaddleOCR result."""
     for path in (os.path.join(tmpdir, f"o{i}.md"), tmpdir):
@@ -73,6 +88,7 @@ def main():
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--no-orient", action="store_true")
     ap.add_argument("--no-unwarp", action="store_true")
+    ap.add_argument("--no-preprocess", action="store_true")
     args = ap.parse_args()
 
     with open(os.path.join(args.data, "eval.jsonl")) as f:
@@ -93,7 +109,8 @@ def main():
             t = time.time()
             text, err = "", None
             try:
-                out = pipeline.predict(img)
+                src = img if args.no_preprocess else prep_image(img, tmpdir, i)
+                out = pipeline.predict(src)
                 parts = []
                 for j, res in enumerate(out):
                     parts.append(extract_text(res, tmpdir, j))
