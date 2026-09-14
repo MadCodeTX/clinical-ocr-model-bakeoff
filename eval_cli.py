@@ -41,7 +41,7 @@ def cer(ref: str, hyp: str) -> float:
     return min(d / len(ref), 2.0)
 
 
-def predict_one(endpoint, model, prompt, max_tokens, item):
+def predict_one(endpoint, model, prompt, max_tokens, item, repetition_penalty=None):
     with open(item["image"], "rb") as f:
         b64 = base64.b64encode(f.read()).decode()
     payload = {
@@ -57,6 +57,11 @@ def predict_one(endpoint, model, prompt, max_tokens, item):
         "max_tokens": max_tokens,
         "temperature": 0.0,
     }
+    # Greedy decoding on a page the model cannot read degenerates into a loop
+    # (" D. D. D. D. ..."), which pins CER at the 2.0 cap. vLLM accepts
+    # repetition_penalty as an OpenAI-API extension.
+    if repetition_penalty:
+        payload["repetition_penalty"] = repetition_penalty
     req = urllib.request.Request(
         endpoint.rstrip("/") + "/v1/chat/completions",
         data=json.dumps(payload).encode(),
@@ -90,6 +95,8 @@ def main():
     ap.add_argument("--out", required=True)
     ap.add_argument("--concurrency", type=int, default=8)
     ap.add_argument("--max-tokens", type=int, default=4096)
+    ap.add_argument("--repetition-penalty", type=float, default=None,
+                    help="e.g. 1.05; suppresses runaway repetition on unreadable pages")
     args = ap.parse_args()
 
     with open(os.path.join(args.data, "eval.jsonl")) as f:
@@ -103,7 +110,8 @@ def main():
     done = 0
     with open(preds_path, "w") as out_f, ThreadPoolExecutor(args.concurrency) as ex:
         futures = {ex.submit(predict_one, args.endpoint, args.model,
-                             args.prompt, args.max_tokens, it): it for it in items}
+                             args.prompt, args.max_tokens, it,
+                             args.repetition_penalty): it for it in items}
         for fut in futures:
             pass
         for fut, it in futures.items():

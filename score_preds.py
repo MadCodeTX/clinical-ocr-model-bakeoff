@@ -41,6 +41,14 @@ def main():
             lat.append(r["latency_s"])
 
     cers = [d["cer"] for d in per_doc]
+    # A page the model cannot read can send it into a repetition loop, which
+    # pins that document at the CER cap of 2.0. Which pages do that varies
+    # between identical runs (continuous batching is not deterministic), and
+    # those few documents dominate the mean: two runs of the same adapter at
+    # the same config gave mean CER 0.2844 and 0.3072 while their medians were
+    # 0.0944 and 0.0954. Report the stable statistics alongside the mean.
+    runaway = [c for c in cers if c >= 2.0]
+    kept = [c for c in cers if c < 2.0]
     wall = args.wall or (sum(lat) if lat else 1)
     summary = {
         "model": args.name or os.path.basename(args.out.rstrip("/")),
@@ -48,6 +56,8 @@ def main():
         "n_errors": n_err,
         "mean_cer": round(sum(cers) / len(cers), 4),
         "median_cer": round(sorted(cers)[len(cers) // 2], 4),
+        "n_runaway": len(runaway),
+        "mean_cer_excl_runaway": round(sum(kept) / len(kept), 4) if kept else None,
         "per_subset": {s: {"mean_cer": round(sum(v) / len(v), 4), "n": len(v)}
                        for s, v in sorted(per_subset.items())},
         "wall_time_s": round(wall, 1),

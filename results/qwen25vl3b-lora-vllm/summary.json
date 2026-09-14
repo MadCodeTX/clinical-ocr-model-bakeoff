@@ -32,5 +32,7 @@
  },
  "wall_time_s": 462.2,
  "pages_per_sec": 0.71,
- "avg_latency_s": 10.7
+ "avg_latency_s": 10.7,
+ "n_runaway": 15,
+ "mean_cer_excl_runaway": 0.1634
 }

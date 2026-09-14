@@ -1,0 +1,38 @@
+{
+ "model": "qwen25vl7b-reppen",
+ "n_docs": 328,
+ "n_errors": 10,
+ "mean_cer": 0.2105,
+ "median_cer": 0.0513,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.1004,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 0.787,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.0297,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.0763,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.2816,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.0707,
+   "n": 56
+  }
+ },
+ "wall_time_s": 637.1,
+ "pages_per_sec": 0.515,
+ "avg_latency_s": 14.65,
+ "n_runaway": 8,
+ "mean_cer_excl_runaway": 0.1658
+}
