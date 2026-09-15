@@ -1,0 +1,10 @@
+{
+ "teacher": "qwen38-27b",
+ "n": 4800,
+ "label_noise_cer_vs_exact_gt": 0.3956,
+ "median": 0.2807,
+ "printed_cer": 0.3488,
+ "handwriting_font_cer": 0.5005,
+ "wall_time_s": 10338.1,
+ "pages_per_sec": 0.464
+}
