@@ -1,0 +1,25 @@
+{
+ "model": "layout-dots-ocr",
+ "n_docs": 328,
+ "json_parse_rate": 0.966,
+ "elements_total": 6788,
+ "elements_with_bbox": 6788,
+ "bbox_rate": 1.0,
+ "tables": 242,
+ "tables_with_html": 242,
+ "text_cer_median": 0.0211,
+ "text_cer_mean": 0.1356,
+ "checked_mark_recall": 0.696,
+ "x_mark_recall": 0.0,
+ "categories": {
+  "Text": 4451,
+  "Section-header": 882,
+  "Picture": 374,
+  "List-item": 323,
+  "Page-header": 250,
+  "Table": 242,
+  "Page-footer": 163,
+  "Caption": 72,
+  "Title": 31
+ }
+}

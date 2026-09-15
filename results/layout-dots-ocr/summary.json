@@ -1,0 +1,39 @@
+{
+ "model": "layout-dots-ocr",
+ "shot": "zero",
+ "n_docs": 328,
+ "n_errors": 0,
+ "mean_cer": 1.0642,
+ "median_cer": 0.9698,
+ "n_runaway": 43,
+ "mean_cer_excl_runaway": 0.923,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 1.1578,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 1.3056,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 1.0819,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 1.0583,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 1.076,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.74,
+   "n": 56
+  }
+ },
+ "wall_time_s": 927.5,
+ "pages_per_sec": 0.354,
+ "avg_latency_s": 16.53
+}
