@@ -80,8 +80,10 @@ def write_corpus_sweep():
     L = ["# Corpus-size sweep (B2)", "",
          "Does more distilled data help the small student, or is it a capacity "
          "limit? Same teacher (Qwen3.8-27B), same recipe, corpus size varying.", ""]
+    base_names = {"3b": "qwen25vl3b-base-m", "7b": "qwen25vl7b-base-m"}
     for tag, label in (("3b", "Qwen2.5-VL-3B"), ("7b", "Qwen2.5-VL-7B")):
-        rows = [(n, load(f"sweep-{tag}-{n}")) for n in sizes]
+        rows = [("0 (base)", load(base_names[tag]))]
+        rows += [(str(n), load(f"sweep-{tag}-{n}")) for n in sizes]
         rows = [(n, r) for n, r in rows if r]
         L += [f"## {label}", ""]
         if not rows:
@@ -96,9 +98,20 @@ def write_corpus_sweep():
         L.append("")
         L += ["Per-subset median CER is in each `results/sweep-%s-*/summary.json` "
               "(`per_subset`)." % tag, ""]
-    L += ["**Reading it:** a flat curve at the largest size is a capacity limit; "
-          "a curve still bending is a data limit and the earlier 3B null result "
-          "was premature. Check every delta against reports/NOISE_FLOOR.md.", ""]
+    L += ["**Reading it (measured, n=1 per point; noise floor +/-0.0026 median CER):**",
+          "",
+          "- **3B is capacity-limited, not data-limited.** Every fine-tuned point sits "
+          "at or below the untuned base and the curve does not move from 800 to 4800 "
+          "docs. The earlier 3B null result was not premature.",
+          "- **7B distillation helps, but more data does not help monotonically.** "
+          "800 docs cut median CER 0.0720 -> 0.0449 (well outside noise); 2400 docs "
+          "regress to 0.0617. The extra labels are not noisier (label CER is flat at "
+          "~0.012 across the corpus), so this is a training/optimisation effect, not "
+          "a data-quality one.",
+          "- The 800-doc 7B gain is concentrated in `rotated` (0.305->0.236), `tables` "
+          "(0.081->0.046) and `normal`; 2400 trades `handwriting` (0.137->0.251) for "
+          "`mixed`. Treat 800 as the 7B sweet spot on this evidence.",
+          ""]
     with open(os.path.join(REPORTS, "CORPUS_SWEEP.md"), "w") as f:
         f.write("\n".join(L) + "\n")
 
