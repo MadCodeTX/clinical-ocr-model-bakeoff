@@ -1,0 +1,39 @@
+{
+ "model": "oneshot-qwen25vl7b-hetero",
+ "shot": "hetero",
+ "n_docs": 328,
+ "n_errors": 6,
+ "mean_cer": 0.2335,
+ "median_cer": 0.0513,
+ "n_runaway": 11,
+ "mean_cer_excl_runaway": 0.1722,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.123,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 0.9023,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.0413,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.0635,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.2947,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.0718,
+   "n": 56
+  }
+ },
+ "wall_time_s": 1065.1,
+ "pages_per_sec": 0.308,
+ "avg_latency_s": 25.01
+}

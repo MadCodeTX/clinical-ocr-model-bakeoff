@@ -4,7 +4,11 @@ Does more distilled data help the small student, or is it a capacity limit? Same
 
 ## Qwen2.5-VL-3B
 
-_no runs found_
+| corpus docs | median CER | mean CER | excl-runaway | runaways | wall s |
+|---|---|---|---|---|---|
+| 800 | 0.2265 | 0.4701 | 0.2814 | 36 | 445.0 |
+
+Per-subset median CER is in each `results/sweep-3b-*/summary.json` (`per_subset`).
 
 ## Qwen2.5-VL-7B
 

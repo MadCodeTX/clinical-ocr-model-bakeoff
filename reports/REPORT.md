@@ -2,7 +2,7 @@
 
 Open-weights OCR / document-VLM evaluation on **real-artifact clinical scanned documents**, plus a routing study and a distillation experiment. All data is public or synthetic (no PHI).
 
-_Generated 2026-09-15T06:13Z from `make_report.py`; 34 scored models, 14 experiment runs._
+_Generated 2026-09-15T06:49Z from `make_report.py`; 34 scored models, 14 experiment runs._
 
 ## TL;DR
 

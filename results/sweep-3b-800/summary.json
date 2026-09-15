@@ -1,0 +1,39 @@
+{
+ "model": "sweep-3b-800",
+ "shot": "zero",
+ "n_docs": 328,
+ "n_errors": 0,
+ "mean_cer": 0.4701,
+ "median_cer": 0.2265,
+ "n_runaway": 36,
+ "mean_cer_excl_runaway": 0.2814,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.3825,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 1.2904,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.1502,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.1636,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.6381,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.3128,
+   "n": 56
+  }
+ },
+ "wall_time_s": 445.0,
+ "pages_per_sec": 0.737,
+ "avg_latency_s": 10.26
+}
