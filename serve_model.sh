@@ -15,6 +15,7 @@ docker run -d --name "$CTR" --gpus "\"device=$GPU\"" \
   vllm/vllm-openai:v0.27.1 \
   --model "$HF_ID" --served-model-name ocr ${EXTRA_SERVED:-} --trust-remote-code \
   --max-model-len "${MAX_LEN:-8192}" --tensor-parallel-size "$TP" \
+  --max-num-seqs "${MAX_NUM_SEQS:-64}" \
   --gpu-memory-utilization "${GPU_MEM:-0.90}" > /dev/null
 echo "waiting for $NAME on GPU(s) $GPU (TP=$TP) :8000->$PORT"
 for i in $(seq 1 120); do

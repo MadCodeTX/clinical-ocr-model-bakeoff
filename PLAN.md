@@ -1,8 +1,10 @@
-# CANE OCR Model Bake-off (bigbox, Sept 2026)
+# Clinical OCR model bake-off (bigbox, Sept 2026)
 
-Goal: replace/augment Tesseract and avoid Azure Layout ($0.01/page) for Care
-Everywhere scanned-document parsing. Benchmark open-weights OCR VLMs of varying
-size on real-artifact clinical scans, measure quality + throughput on 2x4090.
+Goal: assess open-weights OCR / document VLMs as a lower-cost alternative to
+commercial layout-OCR for scanned clinical documents. Benchmark open-weights
+OCR VLMs of varying size on real-artifact clinical scans, measure quality +
+throughput on 2x4090. (Review notes and programme context are kept offline --
+this repo is results and tooling only.)
 
 ## Test data
 **ClinOCR-Bench** (MIT license) — 328 eval docs (test split) across 6 artifact

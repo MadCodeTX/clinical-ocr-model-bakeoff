@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Field-level fidelity: do clinically load-bearing tokens survive OCR?
 
-CER treats all characters equally, but for Care Everywhere extraction the things
+CER treats all characters equally, but for downstream clinical field extraction the things
 that break downstream logic are identifiers and values: dates, MRNs, accession
 codes, lab decimals, phone numbers. This computes set-based recall/precision of
 those token categories per model.

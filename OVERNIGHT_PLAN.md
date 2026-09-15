@@ -137,7 +137,7 @@ Cost: ~25 min CPU. This is the input to the corpus-size sweep.
 - **Size:** 1651 PDF pages, 10 document types, 5 layouts, 5 languages
 - **Has:** blur / watermark / colourful-background attribute tags → sliceable like our subsets
 - **Licence:** Apache-2.0, **research only, not for commercial use** — fine for
-  benchmarking, must be flagged if results inform an Epic decision
+  benchmarking, must be flagged if results inform a commercial decision
 - **GT:** JSON block-level + markdown conversion tools → CER-compatible
 - **Source:** `opendatalab/OmniDocBench` on HuggingFace
 
