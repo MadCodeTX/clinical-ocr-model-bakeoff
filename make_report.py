@@ -39,9 +39,14 @@ def load_summaries():
     """
     out = {}
     for p in sorted(glob.glob(os.path.join(ROOT, "results", "*", "summary.json"))):
+        name = os.path.basename(os.path.dirname(p))
+        # Repeats and sweeps are studies described in their own reports, not
+        # models on the leaderboard.
+        if name.startswith(("noise-", "sweep-", "oneshot-", "omnidoc-")):
+            continue
         s = load_json(p)
         if s and s.get("mean_cer") is not None:
-            out[os.path.basename(os.path.dirname(p))] = s
+            out[name] = s
     return out
 
 

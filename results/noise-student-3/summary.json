@@ -1,0 +1,39 @@
+{
+ "model": "noise-student-3",
+ "shot": "zero",
+ "n_docs": 328,
+ "n_errors": 0,
+ "mean_cer": 0.2938,
+ "median_cer": 0.0962,
+ "n_runaway": 22,
+ "mean_cer_excl_runaway": 0.1711,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.2923,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 0.9214,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.0375,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.0445,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.3923,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.1644,
+   "n": 56
+  }
+ },
+ "wall_time_s": 384.8,
+ "pages_per_sec": 0.852,
+ "avg_latency_s": 8.82
+}

@@ -31,43 +31,71 @@ def main():
     ap.add_argument("--n", type=int, default=200)
     ap.add_argument("--concurrency", type=int, default=8)
     ap.add_argument("--max-tokens", type=int, default=4096)
+    ap.add_argument("--resume", action="store_true",
+                    help="keep an existing predictions.jsonl and skip done ids")
     args = ap.parse_args()
 
     rows = [json.loads(l) for l in open(args.data)][:args.n]
-    items = []
+    all_items = []
     for r in rows:
         img = r["image"]
         if not os.path.exists(img):  # labels use path relative to data/
             img = os.path.join(ROOT, "data", r["image"])
-        items.append({"doc_id": r["id"], "subset": "synth", "image": img,
-                      "ground_truth": r["text"], "handwriting": r["handwriting"]})
+        all_items.append({"doc_id": r["id"], "subset": "synth", "image": img,
+                          "ground_truth": r["text"], "handwriting": r["handwriting"]})
 
     os.makedirs(args.out, exist_ok=True)
+    preds_path = os.path.join(args.out, "predictions.jsonl")
+
+    # Minting 4800 labels is a ~3h job that a time budget can interrupt; keep
+    # whatever is already on disk and only evaluate the missing documents.
+    done_ids = set()
+    if args.resume and os.path.exists(preds_path):
+        with open(preds_path) as fh:
+            for line in fh:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    done_ids.add(json.loads(line)["doc_id"])
+                except (json.JSONDecodeError, KeyError):
+                    pass
+    items = [it for it in all_items if it["doc_id"] not in done_ids]
+    if done_ids:
+        print(f"resume: {len(done_ids)} already minted, {len(items)} remaining")
+
     t0 = time.time()
     preds = []
-    with ThreadPoolExecutor(args.concurrency) as ex:
+    mode = "a" if done_ids else "w"
+    with open(preds_path, mode) as f, ThreadPoolExecutor(args.concurrency) as ex:
         futs = [ex.submit(predict_one, args.endpoint, args.model, args.prompt,
                           args.max_tokens, it) for it in items]
-        for i, f in enumerate(futs):
-            preds.append(f.result())
+        for i, fu in enumerate(futs):
+            r = fu.result()
+            preds.append(r)
+            f.write(json.dumps(r) + "\n")
+            f.flush()
             if (i + 1) % 25 == 0:
                 print(f"  {i+1}/{len(items)}", flush=True)
     wall = time.time() - t0
 
-    gt = {it["doc_id"]: it for it in items}
+    # score the whole file against every known ground truth, not just this slice
+    gt = {it["doc_id"]: it for it in all_items}
     cers, hw_cers, print_cers = [], [], []
-    with open(os.path.join(args.out, "predictions.jsonl"), "w") as f:
-        for p in preds:
-            it = gt[p["doc_id"]]
+    with open(preds_path) as f:
+        for line in f:
+            p = json.loads(line)
+            it = gt.get(p["doc_id"])
+            if it is None:
+                continue
             c = cer(normalize(it["ground_truth"]), normalize(p["prediction"]))
             p["gt_cer"] = round(c, 4)
-            f.write(json.dumps(p) + "\n")
             cers.append(c)
             (hw_cers if it["handwriting"] else print_cers).append(c)
 
     summary = {
         "teacher": args.teacher_name or args.model,
-        "n": len(preds),
+        "n": len(cers),
         "label_noise_cer_vs_exact_gt": round(sum(cers) / len(cers), 4),
         "median": round(sorted(cers)[len(cers) // 2], 4),
         "printed_cer": round(sum(print_cers) / max(len(print_cers), 1), 4),

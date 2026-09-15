@@ -2,11 +2,11 @@
 
 Open-weights OCR / document-VLM evaluation on **real-artifact clinical scanned documents**, plus a routing study and a distillation experiment. All data is public or synthetic (no PHI).
 
-_Generated 2026-09-14T19:08Z from `make_report.py`; 19 scored models, 14 experiment runs._
+_Generated 2026-09-15T02:53Z from `make_report.py`; 34 scored models, 14 experiment runs._
 
 ## TL;DR
 
-- **Best accuracy: `qwen25vl7b`** (mean CER 0.199, median 0.051).
+- **Best accuracy: `qwen38-27b`** (mean CER 0.106, median 0.022).
 - **Best value: `dots-mocr` (3B, MIT)** — CER 0.213 vs olmOCR-2's 0.208 at 1.4x the throughput.
 - **Incumbent Tesseract**: mean CER 0.474, median 0.444 — the gap is worst on the degraded artifacts that dominate inbound faxes.
 - **Router**: escalating only 20% of pages to Layout-class OCR reaches CER 0.209 at $0.00198/page (80% cheaper than escalating everything).
@@ -36,17 +36,32 @@ _Generated 2026-09-14T19:08Z from `make_report.py`; 19 scored models, 14 experim
 
 | model | params | license | mean CER | median CER | pages/s | normal | handwriting | poor | rotated | tables | mixed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
+| qwen38-27b | 27B (FP8) | UNVERIFIED — confirm before any deployment decision | 0.1059 | 0.0224 | 0.26 | 0.022 | 0.046 | 0.025 | 0.034 | 0.071 | 0.492 |
+| qwen25vl7b-lora-q38-hires | ? | ? | 0.1976 | 0.0375 | 0.46 | 0.025 | 0.064 | 0.067 | 0.241 | 0.061 | 0.816 |
 | qwen25vl7b | 7B | Apache-2.0 | 0.1994 | 0.0513 | 0.54 | 0.026 | 0.103 | 0.076 | 0.265 | 0.071 | 0.732 |
 | olmocr-2 | 8B | Apache-2.0 | 0.2076 | 0.0796 | 0.48 | 0.067 | 0.103 | 0.112 | 0.196 | 0.081 | 0.767 |
+| qwen25vl7b-reppen | ? | ? | 0.2105 | 0.0513 | 0.52 | 0.030 | 0.100 | 0.076 | 0.282 | 0.071 | 0.787 |
+| qwen25vl7b-base-m | ? | ? | 0.2112 | 0.0720 | 0.75 | 0.037 | 0.135 | 0.035 | 0.305 | 0.081 | 0.751 |
 | dots-mocr | 3B | MIT | 0.2126 | 0.0747 | 0.67 | 0.085 | 0.126 | 0.085 | 0.241 | 0.058 | 0.759 |
 | dots-mocr-c4 | ? | ? | 0.2161 | 0.0746 | 0.53 | 0.084 | 0.116 | 0.086 | 0.246 | 0.058 | 0.788 |
 | dots-mocr-c1 | ? | ? | 0.2209 | 0.0754 | 0.26 | 0.085 | 0.120 | 0.091 | 0.244 | 0.059 | 0.811 |
 | dots-mocr-c16 | ? | ? | 0.2210 | 0.0747 | 0.77 | 0.086 | 0.124 | 0.086 | 0.246 | 0.058 | 0.810 |
 | dots-mocr-promptocr | ? | ? | 0.2213 | 0.0675 | 0.65 | 0.082 | 0.119 | 0.088 | 0.244 | 0.045 | 0.837 |
+| qwen25vl7b-lora-q38-m | ? | ? | 0.2345 | 0.0464 | 0.61 | 0.022 | 0.187 | 0.032 | 0.308 | 0.064 | 0.886 |
+| qwen25vl3b-base-hires | ? | ? | 0.2461 | 0.0609 | 0.81 | 0.037 | 0.166 | 0.076 | 0.297 | 0.123 | 0.867 |
+| qwen25vl3b-lora-vllm | ? | ? | 0.2474 | 0.0596 | 0.71 | 0.033 | 0.089 | 0.077 | 0.350 | 0.103 | 0.930 |
 | qwen25vl3b-lora-teacher | 3B + LoRA (37M) | Apache-2.0 | 0.2536 | 0.0918 | 0.11 | 0.040 | 0.215 | 0.065 | 0.370 | 0.092 | 0.820 |
+| qwen25vl3b-lora-q38-hires | ? | ? | 0.2542 | 0.0499 | 0.69 | 0.029 | 0.093 | 0.077 | 0.389 | 0.096 | 0.939 |
+| qwen25vl3b-lora-teacher-hires | ? | ? | 0.2582 | 0.0616 | 0.67 | 0.035 | 0.096 | 0.085 | 0.345 | 0.077 | 1.021 |
 | dots-ocr | 3B | MIT | 0.2613 | 0.0761 | 0.61 | 0.051 | 0.165 | 0.083 | 0.314 | 0.061 | 0.999 |
+| qwen25vl3b-lora-olmocr-m | ? | ? | 0.2639 | 0.0918 | 1.01 | 0.040 | 0.178 | 0.066 | 0.379 | 0.083 | 0.933 |
+| qwen25vl3b-lora-hires | ? | ? | 0.2720 | 0.0592 | 0.65 | 0.031 | 0.092 | 0.081 | 0.407 | 0.109 | 1.017 |
 | qwen25vl3b-lora | 3B + LoRA (37M) | Apache-2.0 | 0.2783 | 0.1003 | 0.10 | 0.039 | 0.215 | 0.046 | 0.383 | 0.164 | 0.914 |
+| qwen25vl3b-lora-vllm-matched | ? | ? | 0.2844 | 0.0944 | 0.90 | 0.037 | 0.291 | 0.044 | 0.392 | 0.164 | 0.859 |
+| qwen25vl3b-lora-q38-m | ? | ? | 0.2912 | 0.0669 | 0.90 | 0.029 | 0.236 | 0.048 | 0.374 | 0.094 | 1.079 |
 | qwen25vl3b-base | 3B | Apache-2.0 | 0.2919 | 0.0616 | 0.18 | 0.036 | 0.325 | 0.047 | 0.436 | 0.080 | 0.916 |
+| qwen25vl3b-base-m | ? | ? | 0.2969 | 0.0649 | 1.06 | 0.037 | 0.317 | 0.048 | 0.447 | 0.079 | 0.947 |
+| qwen25vl3b-lora-gt-m | ? | ? | 0.3072 | 0.0954 | 0.81 | 0.039 | 0.231 | 0.046 | 0.421 | 0.171 | 1.038 |
 | paddleocr-vl | 0.9B | Apache-2.0 | 0.4298 | 0.1005 | 1.70 | 0.071 | 0.502 | 0.164 | 0.502 | 0.183 | 1.278 |
 | paddleocr-vl-promptb | ? | ? | 0.4453 | 0.0949 | 1.69 | 0.066 | 0.418 | 0.167 | 0.588 | 0.184 | 1.385 |
 | tesseract | n/a | Apache-2.0 | 0.4744 | 0.4440 | 1.41 | 0.081 | 0.533 | 0.531 | 0.665 | 0.237 | 0.853 |
@@ -68,18 +83,33 @@ _Generated 2026-09-14T19:08Z from `make_report.py`; 19 scored models, 14 experim
 
 | model | all fields | dates | ids 5–8d | decimals | codes | phones | labeled MRN |
 |---|---|---|---|---|---|---|---|
+| qwen38-27b | 0.910 | 0.908 | 0.920 | 0.926 | 0.847 | 0.905 | 0.897 |
 | chandra-2 | 0.859 | 0.850 | 0.873 | 0.881 | 0.812 | 0.858 | 0.830 |
+| qwen25vl7b-lora-q38-hires | 0.846 | 0.839 | 0.836 | 0.887 | 0.790 | 0.852 | 0.798 |
 | dots-mocr-c16 | 0.831 | 0.845 | 0.804 | 0.876 | 0.825 | 0.797 | 0.766 |
 | dots-mocr-c4 | 0.829 | 0.841 | 0.804 | 0.876 | 0.825 | 0.797 | 0.763 |
+| qwen25vl7b-reppen | 0.828 | 0.845 | 0.819 | 0.838 | 0.777 | 0.856 | 0.760 |
 | qwen25vl7b | 0.828 | 0.831 | 0.824 | 0.844 | 0.786 | 0.856 | 0.769 |
 | dots-mocr-c1 | 0.827 | 0.838 | 0.801 | 0.876 | 0.825 | 0.793 | 0.763 |
 | dots-mocr | 0.827 | 0.838 | 0.806 | 0.873 | 0.808 | 0.799 | 0.766 |
 | dots-mocr-promptocr | 0.827 | 0.837 | 0.800 | 0.877 | 0.812 | 0.801 | 0.756 |
 | dots-ocr | 0.826 | 0.835 | 0.800 | 0.881 | 0.764 | 0.811 | 0.763 |
+| qwen25vl7b-lora-q38-m | 0.823 | 0.815 | 0.831 | 0.872 | 0.729 | 0.799 | 0.792 |
+| qwen25vl3b-lora-vllm | 0.812 | 0.813 | 0.793 | 0.868 | 0.677 | 0.826 | 0.766 |
+| qwen25vl7b-base-m | 0.806 | 0.811 | 0.803 | 0.862 | 0.712 | 0.771 | 0.756 |
+| qwen25vl3b-lora-hires | 0.805 | 0.808 | 0.783 | 0.856 | 0.699 | 0.811 | 0.766 |
+| qwen25vl3b-base-hires | 0.801 | 0.806 | 0.813 | 0.840 | 0.594 | 0.813 | 0.779 |
+| qwen25vl3b-lora-q38-hires | 0.801 | 0.806 | 0.790 | 0.846 | 0.642 | 0.832 | 0.747 |
 | olmocr-2 | 0.785 | 0.812 | 0.721 | 0.886 | 0.742 | 0.742 | 0.644 |
+| qwen25vl3b-lora-teacher-hires | 0.782 | 0.790 | 0.743 | 0.838 | 0.751 | 0.783 | 0.696 |
+| qwen25vl3b-base-m | 0.765 | 0.757 | 0.757 | 0.840 | 0.672 | 0.738 | 0.692 |
+| qwen25vl3b-lora-gt-m | 0.764 | 0.764 | 0.730 | 0.857 | 0.707 | 0.710 | 0.699 |
+| qwen25vl3b-lora-q38-m | 0.764 | 0.768 | 0.731 | 0.857 | 0.686 | 0.726 | 0.670 |
 | qwen25vl3b-lora | 0.762 | 0.765 | 0.726 | 0.857 | 0.703 | 0.708 | 0.689 |
+| qwen25vl3b-lora-vllm-matched | 0.760 | 0.763 | 0.726 | 0.859 | 0.677 | 0.706 | 0.689 |
 | qwen25vl3b-base | 0.760 | 0.755 | 0.744 | 0.840 | 0.659 | 0.744 | 0.673 |
 | paddleocr-vl | 0.754 | 0.715 | 0.806 | 0.775 | 0.703 | 0.750 | 0.737 |
+| qwen25vl3b-lora-olmocr-m | 0.734 | 0.740 | 0.669 | 0.842 | 0.690 | 0.724 | 0.590 |
 | paddleocr-vl-promptb | 0.733 | 0.714 | 0.780 | 0.729 | 0.677 | 0.728 | 0.747 |
 | qwen25vl3b-lora-teacher | 0.731 | 0.739 | 0.676 | 0.825 | 0.686 | 0.724 | 0.596 |
 | paddleocr-vl-pipeline | 0.676 | 0.683 | 0.580 | 0.849 | 0.638 | 0.661 | 0.413 |
@@ -95,16 +125,31 @@ _Generated 2026-09-14T19:08Z from `make_report.py`; 19 scored models, 14 experim
 | paddleocr-vl | 1.70 | 146,534 | $1.62 | $1,465 | 905x |
 | paddleocr-vl-promptb | 1.69 | 146,189 | $1.62 | $1,462 | 902x |
 | granite-docling | 1.11 | 96,336 | $1.62 | $963 | 595x |
+| qwen25vl3b-base-m | 1.06 | 91,757 | $1.62 | $918 | 566x |
+| qwen25vl3b-lora-olmocr-m | 1.01 | 87,178 | $1.62 | $872 | 538x |
+| qwen25vl3b-lora-q38-m | 0.90 | 77,846 | $1.62 | $778 | 481x |
+| qwen25vl3b-lora-vllm-matched | 0.90 | 77,674 | $1.62 | $777 | 479x |
 | deepseek-ocr | 0.88 | 76,118 | $1.62 | $761 | 470x |
+| qwen25vl3b-base-hires | 0.81 | 70,416 | $1.62 | $704 | 435x |
+| qwen25vl3b-lora-gt-m | 0.81 | 69,811 | $1.62 | $698 | 431x |
 | dots-mocr-c16 | 0.77 | 66,096 | $1.62 | $661 | 408x |
+| qwen25vl7b-base-m | 0.75 | 64,714 | $1.62 | $647 | 399x |
+| qwen25vl3b-lora-vllm | 0.71 | 61,344 | $1.62 | $613 | 379x |
+| qwen25vl3b-lora-q38-hires | 0.69 | 59,616 | $1.62 | $596 | 368x |
+| qwen25vl3b-lora-teacher-hires | 0.67 | 57,888 | $1.62 | $579 | 357x |
 | dots-mocr | 0.67 | 57,542 | $1.62 | $575 | 355x |
 | dots-mocr-promptocr | 0.65 | 56,246 | $1.62 | $562 | 347x |
+| qwen25vl3b-lora-hires | 0.65 | 56,246 | $1.62 | $562 | 347x |
+| qwen25vl7b-lora-q38-m | 0.61 | 52,531 | $1.62 | $525 | 324x |
 | dots-ocr | 0.61 | 52,445 | $1.62 | $524 | 324x |
 | qwen25vl7b | 0.54 | 46,483 | $1.62 | $465 | 287x |
 | dots-mocr-c4 | 0.53 | 45,965 | $1.62 | $460 | 284x |
+| qwen25vl7b-reppen | 0.52 | 44,496 | $1.62 | $445 | 275x |
 | olmocr-2 | 0.48 | 41,213 | $1.62 | $412 | 254x |
+| qwen25vl7b-lora-q38-hires | 0.46 | 39,917 | $1.62 | $399 | 246x |
 | chandra-2 | 0.40 | 34,646 | $1.62 | $346 | 214x |
 | paddleocr-vl-pipeline | 0.27 | 23,414 | $1.62 | $234 | 145x |
+| qwen38-27b | 0.26 | 22,810 | $1.62 | $228 | 141x |
 | dots-mocr-c1 | 0.26 | 22,550 | $1.62 | $226 | 139x |
 | nanonets-ocr2-3b | 0.21 | 18,317 | $1.62 | $183 | 113x |
 | qwen25vl3b-base | 0.18 | 15,898 | $1.62 | $159 | 98x |
