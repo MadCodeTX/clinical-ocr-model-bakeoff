@@ -1,0 +1,31 @@
+{
+ "model": "medmix-7b-new",
+ "shot": "zero",
+ "n_docs": 651,
+ "n_errors": 0,
+ "mean_cer": 0.1414,
+ "median_cer": 0.0821,
+ "n_runaway": 5,
+ "mean_cer_excl_runaway": 0.127,
+ "per_subset": {
+  "india-hist": {
+   "mean_cer": 0.5393,
+   "n": 46
+  },
+  "medform": {
+   "mean_cer": 0.0567,
+   "n": 5
+  },
+  "noisy-med": {
+   "mean_cer": 0.12,
+   "n": 400
+  },
+  "prescription": {
+   "mean_cer": 0.0948,
+   "n": 200
+  }
+ },
+ "wall_time_s": 947.9,
+ "pages_per_sec": 0.687,
+ "avg_latency_s": 11.19
+}

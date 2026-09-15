@@ -1,0 +1,31 @@
+{
+ "model": "medreal-qwen25vl7b-base",
+ "shot": "zero",
+ "n_docs": 651,
+ "n_errors": 0,
+ "mean_cer": 0.1635,
+ "median_cer": 0.0957,
+ "n_runaway": 4,
+ "mean_cer_excl_runaway": 0.1521,
+ "per_subset": {
+  "india-hist": {
+   "mean_cer": 0.5392,
+   "n": 46
+  },
+  "medform": {
+   "mean_cer": 0.0659,
+   "n": 5
+  },
+  "noisy-med": {
+   "mean_cer": 0.1353,
+   "n": 400
+  },
+  "prescription": {
+   "mean_cer": 0.1357,
+   "n": 200
+  }
+ },
+ "wall_time_s": 683.9,
+ "pages_per_sec": 0.952,
+ "avg_latency_s": 8.03
+}

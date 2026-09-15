@@ -73,7 +73,7 @@ fi
 docker logs "$CTR" 2>&1 | grep -iE "lora|adapter" | tail -20 > "logs/${NAME}-lora-load.log" || true
 
 .venv/bin/python3 eval_cli.py --endpoint "http://localhost:$PORT" --model student \
-  --name "$NAME" --prompt "$PROMPT" --out "results/$NAME" \
+  --name "$NAME" --prompt "$PROMPT" --data "${DATA:-data/clinocr}" --out "results/$NAME" \
   --concurrency "${CONCURRENCY:-8}" --max-tokens "${MAX_TOKENS:-4096}" \
   ${REP_PENALTY:+--repetition-penalty "$REP_PENALTY"}
 

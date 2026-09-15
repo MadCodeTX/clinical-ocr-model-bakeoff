@@ -174,13 +174,52 @@ def write_omnidoc():
         f.write("\n".join(L) + "\n")
 
 
+def write_medreal():
+    lab = load("medreal-deepseek") or {}
+    L = ["# Real medical scans (medreal)", "",
+         "Public medical-document scans assembled from HuggingFace datasets and "
+         "labelled with a vision LLM (DeepSeek-v4.1-flash) using the same prompt as "
+         "training. Sources: noisy-med (400 patient statements), prescription (200), "
+         "india-hist (46 real 1878 scans), medform (5).", ""]
+    if lab:
+        L += [f"Labels: {lab.get('n')} pages, {lab.get('n_errors')} errors, "
+              f"${lab.get('cost_per_page')}/page (${lab.get('total_cost_usd')} total).", ""]
+    L += ["**Caveat:** the new-set ground truth *is* the DeepSeek label, so a "
+          "student distilled on it scores well there partly by construction. The "
+          "old set (human-audited ClinOCR-Bench GT) is the honest test.", ""]
+
+    def row(name, label):
+        s = load(name)
+        if not s:
+            return f"| {label} | -- | -- | -- | -- |"
+        return (f"| {label} | {fmt(s.get('median_cer'))} | {fmt(s.get('mean_cer'))} "
+                f"| {fmt(s.get('mean_cer_excl_runaway'))} | {s.get('n_runaway')} |")
+
+    L += ["## Old set — ClinOCR-Bench (independent GT, 328 docs)", "",
+          "| model | median CER | mean CER | excl-runaway | runaways |",
+          "|---|---|---|---|---|",
+          row("qwen25vl7b-base-m", "7B base"),
+          row("sweep-7b-800", "7B, trained on old synthetic 800"),
+          row("medmix-7b-old", "7B, trained on old 800 + new real"),
+          "", "## New set — medreal (DeepSeek GT, ~651 pages)", "",
+          "| model | median CER | mean CER | excl-runaway | runaways |",
+          "|---|---|---|---|---|",
+          row("medreal-qwen25vl7b-base", "7B base"),
+          row("medreal-dots-mocr", "dots.mocr"),
+          row("medmix-7b-new", "7B, trained on old 800 + new real"),
+          ""]
+    with open(os.path.join(REPORTS, "MEDREAL.md"), "w") as f:
+        f.write("\n".join(L) + "\n")
+
+
 def main():
     os.makedirs(REPORTS, exist_ok=True)
     write_noise_floor()
     write_corpus_sweep()
     write_oneshot()
     write_omnidoc()
-    print("wrote NOISE_FLOOR.md CORPUS_SWEEP.md ONESHOT.md OMNIDOC.md")
+    write_medreal()
+    print("wrote NOISE_FLOOR.md CORPUS_SWEEP.md ONESHOT.md OMNIDOC.md MEDREAL.md")
 
 
 if __name__ == "__main__":
