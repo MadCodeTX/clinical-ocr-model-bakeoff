@@ -12,8 +12,28 @@ Usage:
 import argparse
 import json
 import os
+import re
 
 ROOT = os.path.dirname(os.path.abspath(__file__))
+
+# Reasoning teachers (Qwen3.8) default to emitting a  thinking...<｜end▁of▁thinking｜> preamble
+# before the transcript. vLLM's reasoning handling often leaves only the closing
+# tag in the content, so strip everything up to and including the last closer.
+# Left in, the student learns to emit it too and label noise jumps from ~0.01
+# CER to ~0.40, so strip unless asked not to.
+REASONING_CLOSED = re.compile(r"<think\b[^>]*>.*?</think\s*>", re.DOTALL | re.IGNORECASE)
+REASONING_PREFIX = re.compile(r"^.*(?:</think\s*>|<｜end▁of▁thinking｜>)", re.DOTALL | re.IGNORECASE)
+REASONING_OPEN = re.compile(r"^.*?<think\b[^>]*>", re.DOTALL | re.IGNORECASE)
+
+
+def strip_reasoning(text):
+    text = REASONING_CLOSED.sub("", text)
+    # greedy .* removes everything up to the LAST closer (handles a bare
+    # '</think>' with no opening tag, which is what vLLM often returns)
+    text = REASONING_PREFIX.sub("", text)
+    if re.search(r"<think\b", text, re.IGNORECASE):
+        text = REASONING_OPEN.sub("", text)
+    return text.strip()
 
 
 def main():
@@ -25,6 +45,8 @@ def main():
     ap.add_argument("--min-chars", type=int, default=32,
                     help="drop transcripts shorter than this; a teacher that "
                          "returned almost nothing teaches the student to do the same")
+    ap.add_argument("--keep-reasoning", action="store_true",
+                    help="keep a teacher's  thinking...<｜end▁of▁thinking｜> preamble (default: strip it)")
     args = ap.parse_args()
 
     preds = {}
@@ -34,6 +56,7 @@ def main():
 
     rows = [json.loads(l) for l in open(args.labels)]
     kept = dropped_empty = dropped_short = dropped_error = 0
+    stripped = 0
 
     os.makedirs(os.path.dirname(os.path.abspath(args.out)), exist_ok=True)
     with open(args.out, "w") as f:
@@ -44,7 +67,11 @@ def main():
             if p.get("error"):
                 dropped_error += 1
                 continue
-            text = (p.get("prediction") or "").strip()
+            raw = (p.get("prediction") or "")
+            text = raw if args.keep_reasoning else strip_reasoning(raw)
+            if text != raw.strip():
+                stripped += 1
+            text = text.strip()
             if not text:
                 dropped_empty += 1
                 continue
@@ -57,6 +84,7 @@ def main():
 
     print(f"wrote {args.out}")
     print(f"  kept            {kept}")
+    print(f"  stripped reasoning {stripped}")
     print(f"  dropped empty   {dropped_empty}")
     print(f"  dropped short   {dropped_short}  (< {args.min_chars} chars)")
     print(f"  dropped errored {dropped_error}")
