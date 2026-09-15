@@ -1,0 +1,31 @@
+{
+ "model": "omnidoc-qwen38-27b",
+ "shot": "zero",
+ "n_docs": 1649,
+ "n_errors": 172,
+ "mean_cer": 0.8716,
+ "median_cer": 0.7368,
+ "n_runaway": 202,
+ "mean_cer_excl_runaway": 0.714,
+ "per_subset": {
+  "equation_hard": {
+   "mean_cer": 0.5662,
+   "n": 100
+  },
+  "layout_hard": {
+   "mean_cer": 1.1417,
+   "n": 99
+  },
+  "table_hard": {
+   "mean_cer": 0.769,
+   "n": 97
+  },
+  "v1.5": {
+   "mean_cer": 0.8817,
+   "n": 1353
+  }
+ },
+ "wall_time_s": 7792.9,
+ "pages_per_sec": 0.212,
+ "avg_latency_s": 37.79
+}

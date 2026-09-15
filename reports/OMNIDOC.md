@@ -4,5 +4,7 @@ The ClinOCR-Bench ranking re-measured on 1651 real PDF pages (OmniDocBench, Apac
 
 **Caveat:** OmniDocBench is saturated and its rigid metrics penalise semantically-correct formatting, so compare the *ranking* across models, not the absolute CER against reports/REPORT.md.
 
-_no runs found_
+| model | median CER | mean CER | excl-runaway | runaways | n docs |
+|---|---|---|---|---|---|
+| qwen38-27b | 0.7368 | 0.8716 | 0.7140 | 202 | 1649 |
 
