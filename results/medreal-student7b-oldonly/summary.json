@@ -1,0 +1,31 @@
+{
+ "model": "medreal-student7b-oldonly",
+ "shot": "zero",
+ "n_docs": 651,
+ "n_errors": 0,
+ "mean_cer": 0.1732,
+ "median_cer": 0.1194,
+ "n_runaway": 5,
+ "mean_cer_excl_runaway": 0.159,
+ "per_subset": {
+  "india-hist": {
+   "mean_cer": 0.5706,
+   "n": 46
+  },
+  "medform": {
+   "mean_cer": 0.069,
+   "n": 5
+  },
+  "noisy-med": {
+   "mean_cer": 0.1381,
+   "n": 400
+  },
+  "prescription": {
+   "mean_cer": 0.1545,
+   "n": 200
+  }
+ },
+ "wall_time_s": 708.6,
+ "pages_per_sec": 0.919,
+ "avg_latency_s": 8.39
+}

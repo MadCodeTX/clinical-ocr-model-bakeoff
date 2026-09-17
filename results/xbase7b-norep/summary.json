@@ -1,0 +1,39 @@
+{
+ "model": "xbase7b-norep",
+ "shot": "zero",
+ "n_docs": 328,
+ "n_errors": 10,
+ "mean_cer": 0.2137,
+ "median_cer": 0.0554,
+ "n_runaway": 9,
+ "mean_cer_excl_runaway": 0.1633,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.1148,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 0.7836,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.0335,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.0764,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.278,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.0773,
+   "n": 56
+  }
+ },
+ "wall_time_s": 639.6,
+ "pages_per_sec": 0.513,
+ "avg_latency_s": 14.87
+}

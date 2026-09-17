@@ -186,28 +186,50 @@ def write_medreal():
               f"${lab.get('cost_per_page')}/page (${lab.get('total_cost_usd')} total).", ""]
     L += ["**Caveat:** the new-set ground truth *is* the DeepSeek label, so a "
           "student distilled on it scores well there partly by construction. The "
-          "old set (human-audited ClinOCR-Bench GT) is the honest test.", ""]
+          "old set (human-audited ClinOCR-Bench GT) is the honest test of accuracy; "
+          "the new-set column mostly measures agreement with DeepSeek on real scans.", ""]
 
-    def row(name, label):
-        s = load(name)
-        if not s:
-            return f"| {label} | -- | -- | -- | -- |"
-        return (f"| {label} | {fmt(s.get('median_cer'))} | {fmt(s.get('mean_cer'))} "
-                f"| {fmt(s.get('mean_cer_excl_runaway'))} | {s.get('n_runaway')} |")
+    PAIRS = [
+        ("Tesseract v5 (incumbent)", "tesseract"),
+        ("granite-docling (0.26B)", "granite-docling"),
+        ("PaddleOCR-VL (0.9B)", "paddleocr-vl"),
+        ("dots.mocr (3B)", "dots-mocr"),
+        ("dots.ocr (3B)", "dots-ocr"),
+        ("olmOCR-2 (8B)", "olmocr-2"),
+        ("Qwen2.5-VL-3B", "qwen25vl3b-base"),
+        ("Qwen2.5-VL-7B", "qwen25vl7b"),
+        ("Chandra OCR 2 (5B)", "chandra-2"),
+        ("DeepSeek-OCR (3B MoE)", "deepseek-ocr"),
+        ("Nanonets-OCR2 (3B)", "nanonets-ocr2-3b"),
+        ("Qwen3.8-27B (TP=2)", "qwen38-27b"),
+    ]
 
-    L += ["## Old set — ClinOCR-Bench (independent GT, 328 docs)", "",
-          "| model | median CER | mean CER | excl-runaway | runaways |",
-          "|---|---|---|---|---|",
-          row("qwen25vl7b-base-m", "7B base"),
-          row("sweep-7b-800", "7B, trained on old synthetic 800"),
-          row("medmix-7b-old", "7B, trained on old 800 + new real"),
-          "", "## New set — medreal (DeepSeek GT, ~651 pages)", "",
-          "| model | median CER | mean CER | excl-runaway | runaways |",
-          "|---|---|---|---|---|",
-          row("medreal-qwen25vl7b-base", "7B base"),
-          row("medreal-dots-mocr", "dots.mocr"),
-          row("medmix-7b-new", "7B, trained on old 800 + new real"),
-          ""]
+    def cell(s, key):
+        return fmt(s.get(key)) if s else "--"
+
+    L += ["## Every model, old vs new (median CER, lower is better)", "",
+          "| model | old ClinOCR median | old mean | new medreal median | new mean | new runaways |",
+          "|---|---|---|---|---|---|"]
+    for label, name in PAIRS:
+        o = load(name)
+        n = load("medreal-" + name)
+        L.append(f"| {label} | {cell(o,'median_cer')} | {cell(o,'mean_cer')} "
+                 f"| {cell(n,'median_cer')} | {cell(n,'mean_cer')} "
+                 f"| {n.get('n_runaway') if n else '--'} |")
+    L.append("")
+
+    L += ["## Distilled students (7B)", "",
+          "| model | old ClinOCR median | new medreal median |",
+          "|---|---|---|"]
+    for label, old_name, new_name in [
+        ("7B base (matched res)", "qwen25vl7b-base-m", "medreal-qwen25vl7b-base"),
+        ("7B, old synthetic 800 only", "sweep-7b-800", "medreal-student7b-oldonly"),
+        ("7B, old 800 + new real", "medmix-7b-old", "medmix-7b-new"),
+    ]:
+        o, n = load(old_name), load(new_name)
+        L.append(f"| {label} | {cell(o,'median_cer')} | {cell(n,'median_cer')} |")
+    L.append("")
+
     with open(os.path.join(REPORTS, "MEDREAL.md"), "w") as f:
         f.write("\n".join(L) + "\n")
 

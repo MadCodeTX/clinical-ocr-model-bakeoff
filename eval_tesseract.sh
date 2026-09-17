@@ -3,9 +3,9 @@
 set -euo pipefail
 cd "$(dirname "$0")"
 
-OUT=results/tesseract
+OUT=${OUT:-results/tesseract}
 mkdir -p "$OUT"
-python3 - "$OUT" <<'EOF'
+.venv/bin/python3 - "$OUT" <<'EOF'
 import json, os, subprocess, sys, time
 
 sys.path.insert(0, ".")
@@ -13,7 +13,8 @@ from eval_cli import normalize, cer  # reuse scoring
 
 out_dir = sys.argv[1]
 root = os.getcwd()
-items = [json.loads(l) for l in open("data/clinocr/eval.jsonl")]
+data_path = os.path.join(os.environ.get("DATA", "data/clinocr"), "eval.jsonl")
+items = [json.loads(l) for l in open(data_path)]
 t0 = time.time()
 rows = []
 for i, it in enumerate(items):

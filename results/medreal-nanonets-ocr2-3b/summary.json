@@ -1,0 +1,31 @@
+{
+ "model": "medreal-nanonets-ocr2-3b",
+ "shot": "zero",
+ "n_docs": 651,
+ "n_errors": 0,
+ "mean_cer": 1.9672,
+ "median_cer": 2.0,
+ "n_runaway": 621,
+ "mean_cer_excl_runaway": 1.2891,
+ "per_subset": {
+  "india-hist": {
+   "mean_cer": 1.6123,
+   "n": 46
+  },
+  "medform": {
+   "mean_cer": 2.0,
+   "n": 5
+  },
+  "noisy-med": {
+   "mean_cer": 1.9913,
+   "n": 400
+  },
+  "prescription": {
+   "mean_cer": 2.0,
+   "n": 200
+  }
+ },
+ "wall_time_s": 3241.7,
+ "pages_per_sec": 0.201,
+ "avg_latency_s": 39.55
+}

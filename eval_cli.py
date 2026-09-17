@@ -94,7 +94,7 @@ def build_messages(item, prompt, shot, exemplars, base):
 
 
 def predict_one(endpoint, model, prompt, max_tokens, item, repetition_penalty=None,
-                shot="zero", exemplars=None, base=None):
+                shot="zero", exemplars=None, base=None, no_repeat_ngram=None):
     payload = {
         "model": model,
         "messages": build_messages(item, prompt, shot, exemplars, base or "."),
@@ -106,6 +106,10 @@ def predict_one(endpoint, model, prompt, max_tokens, item, repetition_penalty=No
     # repetition_penalty as an OpenAI-API extension.
     if repetition_penalty:
         payload["repetition_penalty"] = repetition_penalty
+    # A blocked n-gram stops exact repetition loops (" D. D. D.") without
+    # penalising legitimately repeated tokens; vLLM/OpenAI extension.
+    if no_repeat_ngram:
+        payload["no_repeat_ngram_size"] = no_repeat_ngram
     req = urllib.request.Request(
         endpoint.rstrip("/") + "/v1/chat/completions",
         data=json.dumps(payload).encode(),
@@ -141,6 +145,8 @@ def main():
     ap.add_argument("--max-tokens", type=int, default=4096)
     ap.add_argument("--repetition-penalty", type=float, default=None,
                     help="e.g. 1.05; suppresses runaway repetition on unreadable pages")
+    ap.add_argument("--no-repeat-ngram-size", type=int, default=None,
+                    help="e.g. 6; blocks exact n-gram loops without penalising repeated tokens")
     ap.add_argument("--shot", choices=["zero", "homo", "hetero"], default="zero",
                     help="one-shot regime: prepend a homogeneous/heterogeneous exemplar")
     ap.add_argument("--exemplars", default=None,
@@ -190,7 +196,7 @@ def main():
         futures = {ex.submit(predict_one, args.endpoint, args.model,
                              args.prompt, args.max_tokens, it,
                              args.repetition_penalty, args.shot, exemplars,
-                             base): it for it in items}
+                             base, args.no_repeat_ngram_size): it for it in items}
         for fut, it in futures.items():
             res = fut.result()
             out_f.write(json.dumps(res) + "\n")

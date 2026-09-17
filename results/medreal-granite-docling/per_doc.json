@@ -1,0 +1,3908 @@
+[
+ {
+  "doc_id": "noisy-med_0000",
+  "subset": "noisy-med",
+  "cer": 0.3619,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0001",
+  "subset": "noisy-med",
+  "cer": 0.3526,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0002",
+  "subset": "noisy-med",
+  "cer": 0.4839,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0003",
+  "subset": "noisy-med",
+  "cer": 0.3249,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0004",
+  "subset": "noisy-med",
+  "cer": 0.448,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0005",
+  "subset": "noisy-med",
+  "cer": 0.3014,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0006",
+  "subset": "noisy-med",
+  "cer": 0.7644,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0007",
+  "subset": "noisy-med",
+  "cer": 0.0751,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0008",
+  "subset": "noisy-med",
+  "cer": 0.2691,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0009",
+  "subset": "noisy-med",
+  "cer": 0.2659,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0010",
+  "subset": "noisy-med",
+  "cer": 0.2433,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0011",
+  "subset": "noisy-med",
+  "cer": 0.4009,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0012",
+  "subset": "noisy-med",
+  "cer": 0.2889,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0013",
+  "subset": "noisy-med",
+  "cer": 0.3293,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0014",
+  "subset": "noisy-med",
+  "cer": 0.3457,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0015",
+  "subset": "noisy-med",
+  "cer": 0.2818,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0016",
+  "subset": "noisy-med",
+  "cer": 0.1899,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0017",
+  "subset": "noisy-med",
+  "cer": 0.1138,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0018",
+  "subset": "noisy-med",
+  "cer": 0.1172,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0019",
+  "subset": "noisy-med",
+  "cer": 0.1869,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0020",
+  "subset": "noisy-med",
+  "cer": 0.4111,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0021",
+  "subset": "noisy-med",
+  "cer": 0.2163,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0022",
+  "subset": "noisy-med",
+  "cer": 0.301,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0023",
+  "subset": "noisy-med",
+  "cer": 0.1217,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0024",
+  "subset": "noisy-med",
+  "cer": 0.3258,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0025",
+  "subset": "noisy-med",
+  "cer": 0.3034,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0026",
+  "subset": "noisy-med",
+  "cer": 0.3106,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0027",
+  "subset": "noisy-med",
+  "cer": 0.455,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0028",
+  "subset": "noisy-med",
+  "cer": 0.3704,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0029",
+  "subset": "noisy-med",
+  "cer": 0.2211,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0030",
+  "subset": "noisy-med",
+  "cer": 0.3664,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0031",
+  "subset": "noisy-med",
+  "cer": 0.2924,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0032",
+  "subset": "noisy-med",
+  "cer": 0.2145,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0033",
+  "subset": "noisy-med",
+  "cer": 0.1221,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0034",
+  "subset": "noisy-med",
+  "cer": 0.2096,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0035",
+  "subset": "noisy-med",
+  "cer": 0.3738,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0036",
+  "subset": "noisy-med",
+  "cer": 0.2965,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0037",
+  "subset": "noisy-med",
+  "cer": 0.2809,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0038",
+  "subset": "noisy-med",
+  "cer": 0.313,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0039",
+  "subset": "noisy-med",
+  "cer": 0.1753,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0040",
+  "subset": "noisy-med",
+  "cer": 0.1858,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0041",
+  "subset": "noisy-med",
+  "cer": 0.2074,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0042",
+  "subset": "noisy-med",
+  "cer": 0.1643,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0043",
+  "subset": "noisy-med",
+  "cer": 0.3739,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0044",
+  "subset": "noisy-med",
+  "cer": 2.0,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0045",
+  "subset": "noisy-med",
+  "cer": 0.2674,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0046",
+  "subset": "noisy-med",
+  "cer": 0.3182,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0047",
+  "subset": "noisy-med",
+  "cer": 0.172,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0048",
+  "subset": "noisy-med",
+  "cer": 0.2981,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0049",
+  "subset": "noisy-med",
+  "cer": 0.2368,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0050",
+  "subset": "noisy-med",
+  "cer": 0.3168,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0051",
+  "subset": "noisy-med",
+  "cer": 0.2074,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0052",
+  "subset": "noisy-med",
+  "cer": 0.2737,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0053",
+  "subset": "noisy-med",
+  "cer": 0.4051,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0054",
+  "subset": "noisy-med",
+  "cer": 0.1157,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0055",
+  "subset": "noisy-med",
+  "cer": 0.294,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0056",
+  "subset": "noisy-med",
+  "cer": 0.1189,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0057",
+  "subset": "noisy-med",
+  "cer": 0.39,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0058",
+  "subset": "noisy-med",
+  "cer": 0.3835,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0059",
+  "subset": "noisy-med",
+  "cer": 0.3408,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0060",
+  "subset": "noisy-med",
+  "cer": 0.2784,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0061",
+  "subset": "noisy-med",
+  "cer": 0.1294,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0062",
+  "subset": "noisy-med",
+  "cer": 0.2949,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0063",
+  "subset": "noisy-med",
+  "cer": 0.3497,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0064",
+  "subset": "noisy-med",
+  "cer": 0.3589,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0065",
+  "subset": "noisy-med",
+  "cer": 0.3694,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0066",
+  "subset": "noisy-med",
+  "cer": 0.1214,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0067",
+  "subset": "noisy-med",
+  "cer": 0.3601,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0068",
+  "subset": "noisy-med",
+  "cer": 0.1893,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0069",
+  "subset": "noisy-med",
+  "cer": 0.3173,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0070",
+  "subset": "noisy-med",
+  "cer": 0.1151,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0071",
+  "subset": "noisy-med",
+  "cer": 0.1145,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0072",
+  "subset": "noisy-med",
+  "cer": 0.2602,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0073",
+  "subset": "noisy-med",
+  "cer": 0.3048,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0074",
+  "subset": "noisy-med",
+  "cer": 0.3641,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0075",
+  "subset": "noisy-med",
+  "cer": 0.3456,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0076",
+  "subset": "noisy-med",
+  "cer": 0.198,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0077",
+  "subset": "noisy-med",
+  "cer": 0.1769,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0078",
+  "subset": "noisy-med",
+  "cer": 0.3787,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0079",
+  "subset": "noisy-med",
+  "cer": 2.0,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0080",
+  "subset": "noisy-med",
+  "cer": 0.3311,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0081",
+  "subset": "noisy-med",
+  "cer": 0.3817,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0082",
+  "subset": "noisy-med",
+  "cer": 0.3559,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0083",
+  "subset": "noisy-med",
+  "cer": 0.3329,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0084",
+  "subset": "noisy-med",
+  "cer": 0.1144,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0085",
+  "subset": "noisy-med",
+  "cer": 0.3407,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0086",
+  "subset": "noisy-med",
+  "cer": 0.1788,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0087",
+  "subset": "noisy-med",
+  "cer": 0.218,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0088",
+  "subset": "noisy-med",
+  "cer": 0.354,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0089",
+  "subset": "noisy-med",
+  "cer": 0.4003,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0090",
+  "subset": "noisy-med",
+  "cer": 0.1882,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0091",
+  "subset": "noisy-med",
+  "cer": 0.1942,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0092",
+  "subset": "noisy-med",
+  "cer": 0.3905,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0093",
+  "subset": "noisy-med",
+  "cer": 0.4771,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0094",
+  "subset": "noisy-med",
+  "cer": 0.2074,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0095",
+  "subset": "noisy-med",
+  "cer": 0.8822,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0096",
+  "subset": "noisy-med",
+  "cer": 0.4446,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0097",
+  "subset": "noisy-med",
+  "cer": 0.1191,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0098",
+  "subset": "noisy-med",
+  "cer": 0.1331,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0099",
+  "subset": "noisy-med",
+  "cer": 0.1818,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0100",
+  "subset": "noisy-med",
+  "cer": 0.1852,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0101",
+  "subset": "noisy-med",
+  "cer": 0.2819,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0102",
+  "subset": "noisy-med",
+  "cer": 2.0,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0103",
+  "subset": "noisy-med",
+  "cer": 0.3359,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0104",
+  "subset": "noisy-med",
+  "cer": 0.3416,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0105",
+  "subset": "noisy-med",
+  "cer": 0.3661,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0106",
+  "subset": "noisy-med",
+  "cer": 0.4012,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0107",
+  "subset": "noisy-med",
+  "cer": 0.3552,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0108",
+  "subset": "noisy-med",
+  "cer": 0.3748,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0109",
+  "subset": "noisy-med",
+  "cer": 0.1794,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0110",
+  "subset": "noisy-med",
+  "cer": 0.4365,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0111",
+  "subset": "noisy-med",
+  "cer": 0.1731,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0112",
+  "subset": "noisy-med",
+  "cer": 0.4075,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0113",
+  "subset": "noisy-med",
+  "cer": 0.4422,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0114",
+  "subset": "noisy-med",
+  "cer": 0.1667,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0115",
+  "subset": "noisy-med",
+  "cer": 0.2809,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0116",
+  "subset": "noisy-med",
+  "cer": 0.2009,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0117",
+  "subset": "noisy-med",
+  "cer": 0.2938,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0118",
+  "subset": "noisy-med",
+  "cer": 0.2124,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0119",
+  "subset": "noisy-med",
+  "cer": 0.1418,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0120",
+  "subset": "noisy-med",
+  "cer": 0.3202,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0121",
+  "subset": "noisy-med",
+  "cer": 0.1722,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0122",
+  "subset": "noisy-med",
+  "cer": 0.1179,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0123",
+  "subset": "noisy-med",
+  "cer": 0.2677,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0124",
+  "subset": "noisy-med",
+  "cer": 0.5338,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0125",
+  "subset": "noisy-med",
+  "cer": 0.2296,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0126",
+  "subset": "noisy-med",
+  "cer": 0.1988,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0127",
+  "subset": "noisy-med",
+  "cer": 0.9277,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0128",
+  "subset": "noisy-med",
+  "cer": 0.3259,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0129",
+  "subset": "noisy-med",
+  "cer": 0.2745,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0130",
+  "subset": "noisy-med",
+  "cer": 0.366,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0131",
+  "subset": "noisy-med",
+  "cer": 0.3134,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0132",
+  "subset": "noisy-med",
+  "cer": 0.3341,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0133",
+  "subset": "noisy-med",
+  "cer": 0.3371,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0134",
+  "subset": "noisy-med",
+  "cer": 0.3183,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0135",
+  "subset": "noisy-med",
+  "cer": 0.3155,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0136",
+  "subset": "noisy-med",
+  "cer": 0.3756,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0137",
+  "subset": "noisy-med",
+  "cer": 0.3225,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0138",
+  "subset": "noisy-med",
+  "cer": 0.3108,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0139",
+  "subset": "noisy-med",
+  "cer": 0.3896,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0140",
+  "subset": "noisy-med",
+  "cer": 0.1901,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0141",
+  "subset": "noisy-med",
+  "cer": 0.1797,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0142",
+  "subset": "noisy-med",
+  "cer": 0.1877,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0143",
+  "subset": "noisy-med",
+  "cer": 0.3381,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0144",
+  "subset": "noisy-med",
+  "cer": 0.4738,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0145",
+  "subset": "noisy-med",
+  "cer": 0.5072,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0146",
+  "subset": "noisy-med",
+  "cer": 0.1189,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0147",
+  "subset": "noisy-med",
+  "cer": 0.3182,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0148",
+  "subset": "noisy-med",
+  "cer": 0.2025,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0149",
+  "subset": "noisy-med",
+  "cer": 0.3742,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0150",
+  "subset": "noisy-med",
+  "cer": 0.1843,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0151",
+  "subset": "noisy-med",
+  "cer": 2.0,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0152",
+  "subset": "noisy-med",
+  "cer": 0.1778,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0153",
+  "subset": "noisy-med",
+  "cer": 0.4247,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0154",
+  "subset": "noisy-med",
+  "cer": 0.2933,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0155",
+  "subset": "noisy-med",
+  "cer": 0.3519,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0156",
+  "subset": "noisy-med",
+  "cer": 0.1296,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0157",
+  "subset": "noisy-med",
+  "cer": 0.2607,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0158",
+  "subset": "noisy-med",
+  "cer": 0.2945,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0159",
+  "subset": "noisy-med",
+  "cer": 0.273,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0160",
+  "subset": "noisy-med",
+  "cer": 0.3724,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0161",
+  "subset": "noisy-med",
+  "cer": 0.1256,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0162",
+  "subset": "noisy-med",
+  "cer": 0.2759,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0163",
+  "subset": "noisy-med",
+  "cer": 0.3302,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0164",
+  "subset": "noisy-med",
+  "cer": 0.1443,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0165",
+  "subset": "noisy-med",
+  "cer": 0.3736,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0166",
+  "subset": "noisy-med",
+  "cer": 0.3933,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0167",
+  "subset": "noisy-med",
+  "cer": 0.1857,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0168",
+  "subset": "noisy-med",
+  "cer": 0.3974,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0169",
+  "subset": "noisy-med",
+  "cer": 0.1854,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0170",
+  "subset": "noisy-med",
+  "cer": 0.3613,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0171",
+  "subset": "noisy-med",
+  "cer": 0.4948,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0172",
+  "subset": "noisy-med",
+  "cer": 0.1167,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0173",
+  "subset": "noisy-med",
+  "cer": 0.1951,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0174",
+  "subset": "noisy-med",
+  "cer": 0.4848,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0175",
+  "subset": "noisy-med",
+  "cer": 0.1636,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0176",
+  "subset": "noisy-med",
+  "cer": 0.3826,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0177",
+  "subset": "noisy-med",
+  "cer": 0.1158,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0178",
+  "subset": "noisy-med",
+  "cer": 0.4063,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0179",
+  "subset": "noisy-med",
+  "cer": 0.4066,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0180",
+  "subset": "noisy-med",
+  "cer": 0.3546,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0181",
+  "subset": "noisy-med",
+  "cer": 0.3393,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0182",
+  "subset": "noisy-med",
+  "cer": 0.2828,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0183",
+  "subset": "noisy-med",
+  "cer": 0.1822,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0184",
+  "subset": "noisy-med",
+  "cer": 0.1793,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0185",
+  "subset": "noisy-med",
+  "cer": 0.4719,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0186",
+  "subset": "noisy-med",
+  "cer": 0.3978,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0187",
+  "subset": "noisy-med",
+  "cer": 0.3955,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0188",
+  "subset": "noisy-med",
+  "cer": 0.4018,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0189",
+  "subset": "noisy-med",
+  "cer": 0.2883,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0190",
+  "subset": "noisy-med",
+  "cer": 0.4859,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0191",
+  "subset": "noisy-med",
+  "cer": 0.3871,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0192",
+  "subset": "noisy-med",
+  "cer": 0.3873,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0193",
+  "subset": "noisy-med",
+  "cer": 0.3525,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0194",
+  "subset": "noisy-med",
+  "cer": 0.3338,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0195",
+  "subset": "noisy-med",
+  "cer": 0.4078,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0196",
+  "subset": "noisy-med",
+  "cer": 0.8482,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0197",
+  "subset": "noisy-med",
+  "cer": 0.2095,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0198",
+  "subset": "noisy-med",
+  "cer": 0.4518,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0199",
+  "subset": "noisy-med",
+  "cer": 0.2714,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0200",
+  "subset": "noisy-med",
+  "cer": 0.1833,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0201",
+  "subset": "noisy-med",
+  "cer": 0.1753,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0202",
+  "subset": "noisy-med",
+  "cer": 0.4696,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0203",
+  "subset": "noisy-med",
+  "cer": 0.4783,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0204",
+  "subset": "noisy-med",
+  "cer": 0.3712,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0205",
+  "subset": "noisy-med",
+  "cer": 0.2997,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0206",
+  "subset": "noisy-med",
+  "cer": 0.3779,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0207",
+  "subset": "noisy-med",
+  "cer": 0.171,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0208",
+  "subset": "noisy-med",
+  "cer": 0.1748,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0209",
+  "subset": "noisy-med",
+  "cer": 0.3283,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0210",
+  "subset": "noisy-med",
+  "cer": 0.3344,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0211",
+  "subset": "noisy-med",
+  "cer": 0.2802,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0212",
+  "subset": "noisy-med",
+  "cer": 0.2275,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0213",
+  "subset": "noisy-med",
+  "cer": 0.1877,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0214",
+  "subset": "noisy-med",
+  "cer": 0.1778,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0215",
+  "subset": "noisy-med",
+  "cer": 0.1715,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0216",
+  "subset": "noisy-med",
+  "cer": 0.2206,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0217",
+  "subset": "noisy-med",
+  "cer": 0.1906,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0218",
+  "subset": "noisy-med",
+  "cer": 0.4734,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0219",
+  "subset": "noisy-med",
+  "cer": 0.2917,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0220",
+  "subset": "noisy-med",
+  "cer": 0.3677,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0221",
+  "subset": "noisy-med",
+  "cer": 0.285,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0222",
+  "subset": "noisy-med",
+  "cer": 0.3137,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0223",
+  "subset": "noisy-med",
+  "cer": 0.307,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0224",
+  "subset": "noisy-med",
+  "cer": 0.3814,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0225",
+  "subset": "noisy-med",
+  "cer": 0.1931,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0226",
+  "subset": "noisy-med",
+  "cer": 0.2375,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0227",
+  "subset": "noisy-med",
+  "cer": 0.2189,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0228",
+  "subset": "noisy-med",
+  "cer": 0.3868,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0229",
+  "subset": "noisy-med",
+  "cer": 0.1212,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0230",
+  "subset": "noisy-med",
+  "cer": 0.195,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0231",
+  "subset": "noisy-med",
+  "cer": 0.1899,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0232",
+  "subset": "noisy-med",
+  "cer": 0.4259,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0233",
+  "subset": "noisy-med",
+  "cer": 0.2478,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0234",
+  "subset": "noisy-med",
+  "cer": 0.3692,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0235",
+  "subset": "noisy-med",
+  "cer": 0.3202,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0236",
+  "subset": "noisy-med",
+  "cer": 0.2955,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0237",
+  "subset": "noisy-med",
+  "cer": 0.3468,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0238",
+  "subset": "noisy-med",
+  "cer": 0.3904,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0239",
+  "subset": "noisy-med",
+  "cer": 0.3029,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0240",
+  "subset": "noisy-med",
+  "cer": 0.3695,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0241",
+  "subset": "noisy-med",
+  "cer": 0.2746,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0242",
+  "subset": "noisy-med",
+  "cer": 0.2826,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0243",
+  "subset": "noisy-med",
+  "cer": 0.4066,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0244",
+  "subset": "noisy-med",
+  "cer": 0.3346,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0245",
+  "subset": "noisy-med",
+  "cer": 0.2015,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0246",
+  "subset": "noisy-med",
+  "cer": 0.2785,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0247",
+  "subset": "noisy-med",
+  "cer": 0.1729,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0248",
+  "subset": "noisy-med",
+  "cer": 0.2171,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0249",
+  "subset": "noisy-med",
+  "cer": 0.5,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0250",
+  "subset": "noisy-med",
+  "cer": 0.3613,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0251",
+  "subset": "noisy-med",
+  "cer": 0.3675,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0252",
+  "subset": "noisy-med",
+  "cer": 0.321,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0253",
+  "subset": "noisy-med",
+  "cer": 0.1143,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0254",
+  "subset": "noisy-med",
+  "cer": 0.2974,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0255",
+  "subset": "noisy-med",
+  "cer": 0.268,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0256",
+  "subset": "noisy-med",
+  "cer": 0.1355,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0257",
+  "subset": "noisy-med",
+  "cer": 0.3005,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0258",
+  "subset": "noisy-med",
+  "cer": 0.2865,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0259",
+  "subset": "noisy-med",
+  "cer": 0.4602,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0260",
+  "subset": "noisy-med",
+  "cer": 0.1254,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0261",
+  "subset": "noisy-med",
+  "cer": 0.1374,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0262",
+  "subset": "noisy-med",
+  "cer": 0.3363,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0263",
+  "subset": "noisy-med",
+  "cer": 0.2168,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0264",
+  "subset": "noisy-med",
+  "cer": 0.4822,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0265",
+  "subset": "noisy-med",
+  "cer": 0.3975,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0266",
+  "subset": "noisy-med",
+  "cer": 0.2857,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0267",
+  "subset": "noisy-med",
+  "cer": 0.1188,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0268",
+  "subset": "noisy-med",
+  "cer": 0.3922,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0269",
+  "subset": "noisy-med",
+  "cer": 0.3183,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0270",
+  "subset": "noisy-med",
+  "cer": 0.2953,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0271",
+  "subset": "noisy-med",
+  "cer": 0.2997,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0272",
+  "subset": "noisy-med",
+  "cer": 0.3422,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0273",
+  "subset": "noisy-med",
+  "cer": 0.3411,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0274",
+  "subset": "noisy-med",
+  "cer": 0.3732,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0275",
+  "subset": "noisy-med",
+  "cer": 0.3314,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0276",
+  "subset": "noisy-med",
+  "cer": 0.2975,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0277",
+  "subset": "noisy-med",
+  "cer": 0.3274,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0278",
+  "subset": "noisy-med",
+  "cer": 0.2789,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0279",
+  "subset": "noisy-med",
+  "cer": 0.1932,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0280",
+  "subset": "noisy-med",
+  "cer": 0.9388,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0281",
+  "subset": "noisy-med",
+  "cer": 0.2916,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0282",
+  "subset": "noisy-med",
+  "cer": 0.432,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0283",
+  "subset": "noisy-med",
+  "cer": 0.1872,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0284",
+  "subset": "noisy-med",
+  "cer": 0.1164,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0285",
+  "subset": "noisy-med",
+  "cer": 0.2691,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0286",
+  "subset": "noisy-med",
+  "cer": 0.3176,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0287",
+  "subset": "noisy-med",
+  "cer": 0.1786,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0288",
+  "subset": "noisy-med",
+  "cer": 0.1136,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0289",
+  "subset": "noisy-med",
+  "cer": 0.2899,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0290",
+  "subset": "noisy-med",
+  "cer": 0.3382,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0291",
+  "subset": "noisy-med",
+  "cer": 0.474,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0292",
+  "subset": "noisy-med",
+  "cer": 0.4357,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0293",
+  "subset": "noisy-med",
+  "cer": 0.2108,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0294",
+  "subset": "noisy-med",
+  "cer": 0.1239,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0295",
+  "subset": "noisy-med",
+  "cer": 0.1323,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0296",
+  "subset": "noisy-med",
+  "cer": 1.4985,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0297",
+  "subset": "noisy-med",
+  "cer": 0.3129,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0298",
+  "subset": "noisy-med",
+  "cer": 0.2741,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0299",
+  "subset": "noisy-med",
+  "cer": 0.2412,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0300",
+  "subset": "noisy-med",
+  "cer": 0.4491,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0301",
+  "subset": "noisy-med",
+  "cer": 0.1925,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0302",
+  "subset": "noisy-med",
+  "cer": 0.3144,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0303",
+  "subset": "noisy-med",
+  "cer": 0.3901,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0304",
+  "subset": "noisy-med",
+  "cer": 0.2269,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0305",
+  "subset": "noisy-med",
+  "cer": 0.3057,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0306",
+  "subset": "noisy-med",
+  "cer": 0.3703,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0307",
+  "subset": "noisy-med",
+  "cer": 0.2255,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0308",
+  "subset": "noisy-med",
+  "cer": 0.4003,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0309",
+  "subset": "noisy-med",
+  "cer": 0.2967,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0310",
+  "subset": "noisy-med",
+  "cer": 0.3606,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0311",
+  "subset": "noisy-med",
+  "cer": 0.3807,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0312",
+  "subset": "noisy-med",
+  "cer": 0.178,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0313",
+  "subset": "noisy-med",
+  "cer": 0.3275,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0314",
+  "subset": "noisy-med",
+  "cer": 0.3732,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0315",
+  "subset": "noisy-med",
+  "cer": 0.1838,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0316",
+  "subset": "noisy-med",
+  "cer": 0.3827,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0317",
+  "subset": "noisy-med",
+  "cer": 0.371,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0318",
+  "subset": "noisy-med",
+  "cer": 0.2977,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0319",
+  "subset": "noisy-med",
+  "cer": 0.5122,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0320",
+  "subset": "noisy-med",
+  "cer": 0.2003,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0321",
+  "subset": "noisy-med",
+  "cer": 0.1886,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0322",
+  "subset": "noisy-med",
+  "cer": 0.217,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0323",
+  "subset": "noisy-med",
+  "cer": 0.2319,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0324",
+  "subset": "noisy-med",
+  "cer": 0.29,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0325",
+  "subset": "noisy-med",
+  "cer": 0.1221,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0326",
+  "subset": "noisy-med",
+  "cer": 0.3422,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0327",
+  "subset": "noisy-med",
+  "cer": 0.3077,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0328",
+  "subset": "noisy-med",
+  "cer": 0.2092,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0329",
+  "subset": "noisy-med",
+  "cer": 0.1216,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0330",
+  "subset": "noisy-med",
+  "cer": 0.376,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0331",
+  "subset": "noisy-med",
+  "cer": 0.324,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0332",
+  "subset": "noisy-med",
+  "cer": 0.1885,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0333",
+  "subset": "noisy-med",
+  "cer": 0.1702,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0334",
+  "subset": "noisy-med",
+  "cer": 0.348,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0335",
+  "subset": "noisy-med",
+  "cer": 0.1649,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0336",
+  "subset": "noisy-med",
+  "cer": 0.1384,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0337",
+  "subset": "noisy-med",
+  "cer": 0.3752,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0338",
+  "subset": "noisy-med",
+  "cer": 0.3277,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0339",
+  "subset": "noisy-med",
+  "cer": 0.2416,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0340",
+  "subset": "noisy-med",
+  "cer": 0.187,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0341",
+  "subset": "noisy-med",
+  "cer": 0.1984,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0342",
+  "subset": "noisy-med",
+  "cer": 0.3487,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0343",
+  "subset": "noisy-med",
+  "cer": 0.3509,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0344",
+  "subset": "noisy-med",
+  "cer": 0.2626,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0345",
+  "subset": "noisy-med",
+  "cer": 0.4548,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0346",
+  "subset": "noisy-med",
+  "cer": 0.1826,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0347",
+  "subset": "noisy-med",
+  "cer": 0.2694,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0348",
+  "subset": "noisy-med",
+  "cer": 0.3493,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0349",
+  "subset": "noisy-med",
+  "cer": 0.3904,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0350",
+  "subset": "noisy-med",
+  "cer": 0.3108,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0351",
+  "subset": "noisy-med",
+  "cer": 0.1855,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0352",
+  "subset": "noisy-med",
+  "cer": 1.4266,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0353",
+  "subset": "noisy-med",
+  "cer": 0.3949,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0354",
+  "subset": "noisy-med",
+  "cer": 0.3345,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0355",
+  "subset": "noisy-med",
+  "cer": 0.3123,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0356",
+  "subset": "noisy-med",
+  "cer": 0.2786,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0357",
+  "subset": "noisy-med",
+  "cer": 0.208,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0358",
+  "subset": "noisy-med",
+  "cer": 0.3026,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0359",
+  "subset": "noisy-med",
+  "cer": 0.2589,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0360",
+  "subset": "noisy-med",
+  "cer": 0.33,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0361",
+  "subset": "noisy-med",
+  "cer": 0.1975,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0362",
+  "subset": "noisy-med",
+  "cer": 0.3641,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0363",
+  "subset": "noisy-med",
+  "cer": 0.3341,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0364",
+  "subset": "noisy-med",
+  "cer": 0.2926,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0365",
+  "subset": "noisy-med",
+  "cer": 0.2204,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0366",
+  "subset": "noisy-med",
+  "cer": 0.3185,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0367",
+  "subset": "noisy-med",
+  "cer": 0.4813,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0368",
+  "subset": "noisy-med",
+  "cer": 0.2993,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0369",
+  "subset": "noisy-med",
+  "cer": 0.1828,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0370",
+  "subset": "noisy-med",
+  "cer": 0.3487,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0371",
+  "subset": "noisy-med",
+  "cer": 0.2897,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0372",
+  "subset": "noisy-med",
+  "cer": 0.3124,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0373",
+  "subset": "noisy-med",
+  "cer": 0.3452,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0374",
+  "subset": "noisy-med",
+  "cer": 0.3325,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0375",
+  "subset": "noisy-med",
+  "cer": 0.3738,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0376",
+  "subset": "noisy-med",
+  "cer": 0.2941,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0377",
+  "subset": "noisy-med",
+  "cer": 0.3098,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0378",
+  "subset": "noisy-med",
+  "cer": 0.4121,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0379",
+  "subset": "noisy-med",
+  "cer": 0.3828,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0380",
+  "subset": "noisy-med",
+  "cer": 0.208,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0381",
+  "subset": "noisy-med",
+  "cer": 0.3479,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0382",
+  "subset": "noisy-med",
+  "cer": 0.3457,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0383",
+  "subset": "noisy-med",
+  "cer": 0.4483,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0384",
+  "subset": "noisy-med",
+  "cer": 0.3668,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0385",
+  "subset": "noisy-med",
+  "cer": 0.2078,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0386",
+  "subset": "noisy-med",
+  "cer": 0.2997,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0387",
+  "subset": "noisy-med",
+  "cer": 0.2153,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0388",
+  "subset": "noisy-med",
+  "cer": 0.3405,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0389",
+  "subset": "noisy-med",
+  "cer": 0.3545,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0390",
+  "subset": "noisy-med",
+  "cer": 0.3227,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0391",
+  "subset": "noisy-med",
+  "cer": 0.3959,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0392",
+  "subset": "noisy-med",
+  "cer": 0.3871,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0393",
+  "subset": "noisy-med",
+  "cer": 0.4087,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0394",
+  "subset": "noisy-med",
+  "cer": 0.3904,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0395",
+  "subset": "noisy-med",
+  "cer": 0.4698,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0396",
+  "subset": "noisy-med",
+  "cer": 0.1182,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0397",
+  "subset": "noisy-med",
+  "cer": 0.2801,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0398",
+  "subset": "noisy-med",
+  "cer": 0.1761,
+  "error": null
+ },
+ {
+  "doc_id": "noisy-med_0399",
+  "subset": "noisy-med",
+  "cer": 0.3135,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0000",
+  "subset": "prescription",
+  "cer": 0.1507,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0001",
+  "subset": "prescription",
+  "cer": 0.3447,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0002",
+  "subset": "prescription",
+  "cer": 0.3068,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0003",
+  "subset": "prescription",
+  "cer": 0.2646,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0004",
+  "subset": "prescription",
+  "cer": 0.2202,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0005",
+  "subset": "prescription",
+  "cer": 0.5787,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0006",
+  "subset": "prescription",
+  "cer": 0.524,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0007",
+  "subset": "prescription",
+  "cer": 0.391,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0008",
+  "subset": "prescription",
+  "cer": 0.1714,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0009",
+  "subset": "prescription",
+  "cer": 0.3994,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0010",
+  "subset": "prescription",
+  "cer": 0.1341,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0011",
+  "subset": "prescription",
+  "cer": 0.3832,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0012",
+  "subset": "prescription",
+  "cer": 0.2146,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0013",
+  "subset": "prescription",
+  "cer": 0.3309,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0014",
+  "subset": "prescription",
+  "cer": 0.983,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0015",
+  "subset": "prescription",
+  "cer": 0.4048,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0016",
+  "subset": "prescription",
+  "cer": 0.1702,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0017",
+  "subset": "prescription",
+  "cer": 0.2097,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0018",
+  "subset": "prescription",
+  "cer": 0.5084,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0019",
+  "subset": "prescription",
+  "cer": 0.1135,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0020",
+  "subset": "prescription",
+  "cer": 0.5904,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0021",
+  "subset": "prescription",
+  "cer": 0.6194,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0022",
+  "subset": "prescription",
+  "cer": 0.4342,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0023",
+  "subset": "prescription",
+  "cer": 0.4092,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0024",
+  "subset": "prescription",
+  "cer": 0.4048,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0025",
+  "subset": "prescription",
+  "cer": 0.3007,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0026",
+  "subset": "prescription",
+  "cer": 0.3383,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0027",
+  "subset": "prescription",
+  "cer": 0.5283,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0028",
+  "subset": "prescription",
+  "cer": 0.3826,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0029",
+  "subset": "prescription",
+  "cer": 0.114,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0030",
+  "subset": "prescription",
+  "cer": 0.2878,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0031",
+  "subset": "prescription",
+  "cer": 0.5317,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0032",
+  "subset": "prescription",
+  "cer": 0.4419,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0033",
+  "subset": "prescription",
+  "cer": 0.0643,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0034",
+  "subset": "prescription",
+  "cer": 0.4106,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0035",
+  "subset": "prescription",
+  "cer": 0.1734,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0036",
+  "subset": "prescription",
+  "cer": 0.4114,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0037",
+  "subset": "prescription",
+  "cer": 0.9854,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0038",
+  "subset": "prescription",
+  "cer": 0.3105,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0039",
+  "subset": "prescription",
+  "cer": 0.2187,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0040",
+  "subset": "prescription",
+  "cer": 0.3423,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0041",
+  "subset": "prescription",
+  "cer": 0.3073,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0042",
+  "subset": "prescription",
+  "cer": 0.3977,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0043",
+  "subset": "prescription",
+  "cer": 0.2213,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0044",
+  "subset": "prescription",
+  "cer": 0.4185,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0045",
+  "subset": "prescription",
+  "cer": 0.6127,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0046",
+  "subset": "prescription",
+  "cer": 0.2479,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0047",
+  "subset": "prescription",
+  "cer": 0.1438,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0048",
+  "subset": "prescription",
+  "cer": 0.2886,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0049",
+  "subset": "prescription",
+  "cer": 0.1312,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0050",
+  "subset": "prescription",
+  "cer": 0.135,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0051",
+  "subset": "prescription",
+  "cer": 0.9835,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0052",
+  "subset": "prescription",
+  "cer": 0.3117,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0053",
+  "subset": "prescription",
+  "cer": 0.3963,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0054",
+  "subset": "prescription",
+  "cer": 0.4328,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0055",
+  "subset": "prescription",
+  "cer": 0.3867,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0056",
+  "subset": "prescription",
+  "cer": 0.1518,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0057",
+  "subset": "prescription",
+  "cer": 0.4078,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0058",
+  "subset": "prescription",
+  "cer": 0.1068,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0059",
+  "subset": "prescription",
+  "cer": 0.1109,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0060",
+  "subset": "prescription",
+  "cer": 0.405,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0061",
+  "subset": "prescription",
+  "cer": 0.1714,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0062",
+  "subset": "prescription",
+  "cer": 0.1543,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0063",
+  "subset": "prescription",
+  "cer": 0.1057,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0064",
+  "subset": "prescription",
+  "cer": 0.4259,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0065",
+  "subset": "prescription",
+  "cer": 0.2991,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0066",
+  "subset": "prescription",
+  "cer": 0.4092,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0067",
+  "subset": "prescription",
+  "cer": 2.0,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0068",
+  "subset": "prescription",
+  "cer": 0.423,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0069",
+  "subset": "prescription",
+  "cer": 0.9831,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0070",
+  "subset": "prescription",
+  "cer": 0.3011,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0071",
+  "subset": "prescription",
+  "cer": 0.3011,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0072",
+  "subset": "prescription",
+  "cer": 0.3082,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0073",
+  "subset": "prescription",
+  "cer": 0.4078,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0074",
+  "subset": "prescription",
+  "cer": 0.9862,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0075",
+  "subset": "prescription",
+  "cer": 0.3228,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0076",
+  "subset": "prescription",
+  "cer": 0.2785,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0077",
+  "subset": "prescription",
+  "cer": 0.5107,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0078",
+  "subset": "prescription",
+  "cer": 0.2838,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0079",
+  "subset": "prescription",
+  "cer": 0.1632,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0080",
+  "subset": "prescription",
+  "cer": 0.1488,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0081",
+  "subset": "prescription",
+  "cer": 0.4206,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0082",
+  "subset": "prescription",
+  "cer": 0.1714,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0083",
+  "subset": "prescription",
+  "cer": 0.2179,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0084",
+  "subset": "prescription",
+  "cer": 0.1197,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0085",
+  "subset": "prescription",
+  "cer": 0.1641,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0086",
+  "subset": "prescription",
+  "cer": 0.4371,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0087",
+  "subset": "prescription",
+  "cer": 0.4048,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0088",
+  "subset": "prescription",
+  "cer": 0.405,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0089",
+  "subset": "prescription",
+  "cer": 0.1488,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0090",
+  "subset": "prescription",
+  "cer": 0.305,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0091",
+  "subset": "prescription",
+  "cer": 0.3069,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0092",
+  "subset": "prescription",
+  "cer": 0.1153,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0093",
+  "subset": "prescription",
+  "cer": 0.1631,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0094",
+  "subset": "prescription",
+  "cer": 0.2219,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0095",
+  "subset": "prescription",
+  "cer": 0.4042,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0096",
+  "subset": "prescription",
+  "cer": 0.101,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0097",
+  "subset": "prescription",
+  "cer": 0.1312,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0098",
+  "subset": "prescription",
+  "cer": 0.9847,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0099",
+  "subset": "prescription",
+  "cer": 0.375,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0100",
+  "subset": "prescription",
+  "cer": 0.1516,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0101",
+  "subset": "prescription",
+  "cer": 0.3376,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0102",
+  "subset": "prescription",
+  "cer": 0.6977,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0103",
+  "subset": "prescription",
+  "cer": 0.5419,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0104",
+  "subset": "prescription",
+  "cer": 0.3156,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0105",
+  "subset": "prescription",
+  "cer": 0.3413,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0106",
+  "subset": "prescription",
+  "cer": 0.3011,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0107",
+  "subset": "prescription",
+  "cer": 0.3935,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0108",
+  "subset": "prescription",
+  "cer": 0.1469,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0109",
+  "subset": "prescription",
+  "cer": 0.4887,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0110",
+  "subset": "prescription",
+  "cer": 0.4683,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0111",
+  "subset": "prescription",
+  "cer": 0.9869,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0112",
+  "subset": "prescription",
+  "cer": 0.1325,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0113",
+  "subset": "prescription",
+  "cer": 0.4885,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0114",
+  "subset": "prescription",
+  "cer": 0.3963,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0115",
+  "subset": "prescription",
+  "cer": 0.524,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0116",
+  "subset": "prescription",
+  "cer": 0.2127,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0117",
+  "subset": "prescription",
+  "cer": 0.2125,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0118",
+  "subset": "prescription",
+  "cer": 0.3845,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0119",
+  "subset": "prescription",
+  "cer": 0.1702,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0120",
+  "subset": "prescription",
+  "cer": 0.4356,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0121",
+  "subset": "prescription",
+  "cer": 0.1403,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0122",
+  "subset": "prescription",
+  "cer": 0.3117,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0123",
+  "subset": "prescription",
+  "cer": 0.4072,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0124",
+  "subset": "prescription",
+  "cer": 0.6943,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0125",
+  "subset": "prescription",
+  "cer": 0.3841,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0126",
+  "subset": "prescription",
+  "cer": 0.3977,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0127",
+  "subset": "prescription",
+  "cer": 0.0996,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0128",
+  "subset": "prescription",
+  "cer": 0.3447,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0129",
+  "subset": "prescription",
+  "cer": 0.1286,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0130",
+  "subset": "prescription",
+  "cer": 0.3064,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0131",
+  "subset": "prescription",
+  "cer": 0.3156,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0132",
+  "subset": "prescription",
+  "cer": 0.2889,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0133",
+  "subset": "prescription",
+  "cer": 0.1488,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0134",
+  "subset": "prescription",
+  "cer": 0.373,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0135",
+  "subset": "prescription",
+  "cer": 0.1153,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0136",
+  "subset": "prescription",
+  "cer": 0.3963,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0137",
+  "subset": "prescription",
+  "cer": 0.6685,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0138",
+  "subset": "prescription",
+  "cer": 0.9883,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0139",
+  "subset": "prescription",
+  "cer": 0.1714,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0140",
+  "subset": "prescription",
+  "cer": 0.3785,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0141",
+  "subset": "prescription",
+  "cer": 0.2291,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0142",
+  "subset": "prescription",
+  "cer": 0.3338,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0143",
+  "subset": "prescription",
+  "cer": 0.3991,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0144",
+  "subset": "prescription",
+  "cer": 0.1068,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0145",
+  "subset": "prescription",
+  "cer": 0.1633,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0146",
+  "subset": "prescription",
+  "cer": 0.3765,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0147",
+  "subset": "prescription",
+  "cer": 0.0942,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0148",
+  "subset": "prescription",
+  "cer": 0.0449,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0149",
+  "subset": "prescription",
+  "cer": 0.2116,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0150",
+  "subset": "prescription",
+  "cer": 0.1714,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0151",
+  "subset": "prescription",
+  "cer": 0.3274,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0152",
+  "subset": "prescription",
+  "cer": 0.1634,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0153",
+  "subset": "prescription",
+  "cer": 0.4048,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0154",
+  "subset": "prescription",
+  "cer": 0.3983,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0155",
+  "subset": "prescription",
+  "cer": 0.1196,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0156",
+  "subset": "prescription",
+  "cer": 0.9888,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0157",
+  "subset": "prescription",
+  "cer": 0.526,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0158",
+  "subset": "prescription",
+  "cer": 0.396,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0159",
+  "subset": "prescription",
+  "cer": 0.3007,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0160",
+  "subset": "prescription",
+  "cer": 0.9888,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0161",
+  "subset": "prescription",
+  "cer": 0.3223,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0162",
+  "subset": "prescription",
+  "cer": 0.1479,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0163",
+  "subset": "prescription",
+  "cer": 0.1458,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0164",
+  "subset": "prescription",
+  "cer": 0.5011,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0165",
+  "subset": "prescription",
+  "cer": 0.23,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0166",
+  "subset": "prescription",
+  "cer": 0.3867,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0167",
+  "subset": "prescription",
+  "cer": 0.9874,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0168",
+  "subset": "prescription",
+  "cer": 0.3136,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0169",
+  "subset": "prescription",
+  "cer": 0.1194,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0170",
+  "subset": "prescription",
+  "cer": 0.0794,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0171",
+  "subset": "prescription",
+  "cer": 0.4,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0172",
+  "subset": "prescription",
+  "cer": 0.3437,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0173",
+  "subset": "prescription",
+  "cer": 0.1416,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0174",
+  "subset": "prescription",
+  "cer": 0.9831,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0175",
+  "subset": "prescription",
+  "cer": 0.2872,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0176",
+  "subset": "prescription",
+  "cer": 0.2857,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0177",
+  "subset": "prescription",
+  "cer": 0.1399,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0178",
+  "subset": "prescription",
+  "cer": 0.4016,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0179",
+  "subset": "prescription",
+  "cer": 0.4064,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0180",
+  "subset": "prescription",
+  "cer": 0.6748,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0181",
+  "subset": "prescription",
+  "cer": 0.3309,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0182",
+  "subset": "prescription",
+  "cer": 0.3214,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0183",
+  "subset": "prescription",
+  "cer": 0.2886,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0184",
+  "subset": "prescription",
+  "cer": 0.2727,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0185",
+  "subset": "prescription",
+  "cer": 0.1361,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0186",
+  "subset": "prescription",
+  "cer": 0.1449,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0187",
+  "subset": "prescription",
+  "cer": 0.9885,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0188",
+  "subset": "prescription",
+  "cer": 0.5471,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0189",
+  "subset": "prescription",
+  "cer": 0.2934,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0190",
+  "subset": "prescription",
+  "cer": 0.5603,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0191",
+  "subset": "prescription",
+  "cer": 0.3748,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0192",
+  "subset": "prescription",
+  "cer": 0.5005,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0193",
+  "subset": "prescription",
+  "cer": 0.0904,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0194",
+  "subset": "prescription",
+  "cer": 0.3011,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0195",
+  "subset": "prescription",
+  "cer": 0.1729,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0196",
+  "subset": "prescription",
+  "cer": 0.1702,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0197",
+  "subset": "prescription",
+  "cer": 0.3117,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0198",
+  "subset": "prescription",
+  "cer": 0.2857,
+  "error": null
+ },
+ {
+  "doc_id": "prescription_0199",
+  "subset": "prescription",
+  "cer": 0.1364,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0000",
+  "subset": "india-hist",
+  "cer": 0.5563,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0001",
+  "subset": "india-hist",
+  "cer": 0.9389,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0002",
+  "subset": "india-hist",
+  "cer": 1.5783,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0003",
+  "subset": "india-hist",
+  "cer": 2.0,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0004",
+  "subset": "india-hist",
+  "cer": 1.0,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0005",
+  "subset": "india-hist",
+  "cer": 0.9011,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0006",
+  "subset": "india-hist",
+  "cer": 0.613,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0007",
+  "subset": "india-hist",
+  "cer": 1.871,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0008",
+  "subset": "india-hist",
+  "cer": 2.0,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0009",
+  "subset": "india-hist",
+  "cer": 0.5611,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0011",
+  "subset": "india-hist",
+  "cer": 0.911,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0012",
+  "subset": "india-hist",
+  "cer": 0.9225,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0013",
+  "subset": "india-hist",
+  "cer": 0.9602,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0014",
+  "subset": "india-hist",
+  "cer": 0.1713,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0015",
+  "subset": "india-hist",
+  "cer": 2.0,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0016",
+  "subset": "india-hist",
+  "cer": 0.0948,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0017",
+  "subset": "india-hist",
+  "cer": 0.0572,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0019",
+  "subset": "india-hist",
+  "cer": 0.9838,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0021",
+  "subset": "india-hist",
+  "cer": 1.0277,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0022",
+  "subset": "india-hist",
+  "cer": 2.0,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0023",
+  "subset": "india-hist",
+  "cer": 2.0,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0024",
+  "subset": "india-hist",
+  "cer": 0.217,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0025",
+  "subset": "india-hist",
+  "cer": 0.9988,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0026",
+  "subset": "india-hist",
+  "cer": 0.0379,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0027",
+  "subset": "india-hist",
+  "cer": 0.8135,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0028",
+  "subset": "india-hist",
+  "cer": 0.9738,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0029",
+  "subset": "india-hist",
+  "cer": 0.802,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0030",
+  "subset": "india-hist",
+  "cer": 0.871,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0031",
+  "subset": "india-hist",
+  "cer": 2.0,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0032",
+  "subset": "india-hist",
+  "cer": 0.0287,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0033",
+  "subset": "india-hist",
+  "cer": 0.3503,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0034",
+  "subset": "india-hist",
+  "cer": 2.0,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0035",
+  "subset": "india-hist",
+  "cer": 0.8888,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0036",
+  "subset": "india-hist",
+  "cer": 0.017,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0037",
+  "subset": "india-hist",
+  "cer": 0.7477,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0038",
+  "subset": "india-hist",
+  "cer": 0.8994,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0039",
+  "subset": "india-hist",
+  "cer": 0.9516,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0041",
+  "subset": "india-hist",
+  "cer": 0.9267,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0042",
+  "subset": "india-hist",
+  "cer": 0.8348,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0043",
+  "subset": "india-hist",
+  "cer": 0.9571,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0044",
+  "subset": "india-hist",
+  "cer": 0.903,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0045",
+  "subset": "india-hist",
+  "cer": 2.0,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0046",
+  "subset": "india-hist",
+  "cer": 1.125,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0047",
+  "subset": "india-hist",
+  "cer": 0.1259,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0048",
+  "subset": "india-hist",
+  "cer": 0.0112,
+  "error": null
+ },
+ {
+  "doc_id": "india-hist_0049",
+  "subset": "india-hist",
+  "cer": 0.3999,
+  "error": null
+ },
+ {
+  "doc_id": "medform_0000",
+  "subset": "medform",
+  "cer": 0.6588,
+  "error": null
+ },
+ {
+  "doc_id": "medform_0001",
+  "subset": "medform",
+  "cer": 0.7069,
+  "error": null
+ },
+ {
+  "doc_id": "medform_0002",
+  "subset": "medform",
+  "cer": 1.3439,
+  "error": null
+ },
+ {
+  "doc_id": "medform_0003",
+  "subset": "medform",
+  "cer": 1.0,
+  "error": null
+ },
+ {
+  "doc_id": "medform_0004",
+  "subset": "medform",
+  "cer": 1.1513,
+  "error": null
+ }
+]

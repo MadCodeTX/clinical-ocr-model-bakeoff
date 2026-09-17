@@ -1,0 +1,31 @@
+{
+ "model": "medreal-granite-docling",
+ "shot": "zero",
+ "n_docs": 651,
+ "n_errors": 0,
+ "mean_cer": 0.3817,
+ "median_cer": 0.3168,
+ "n_runaway": 13,
+ "mean_cer_excl_runaway": 0.3487,
+ "per_subset": {
+  "india-hist": {
+   "mean_cer": 0.9354,
+   "n": 46
+  },
+  "medform": {
+   "mean_cer": 0.9722,
+   "n": 5
+  },
+  "noisy-med": {
+   "mean_cer": 0.3221,
+   "n": 400
+  },
+  "prescription": {
+   "mean_cer": 0.3587,
+   "n": 200
+  }
+ },
+ "wall_time_s": 160.3,
+ "pages_per_sec": 4.061,
+ "avg_latency_s": 1.93
+}

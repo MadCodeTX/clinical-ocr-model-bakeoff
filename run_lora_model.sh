@@ -75,7 +75,8 @@ docker logs "$CTR" 2>&1 | grep -iE "lora|adapter" | tail -20 > "logs/${NAME}-lor
 .venv/bin/python3 eval_cli.py --endpoint "http://localhost:$PORT" --model student \
   --name "$NAME" --prompt "$PROMPT" --data "${DATA:-data/clinocr}" --out "results/$NAME" \
   --concurrency "${CONCURRENCY:-8}" --max-tokens "${MAX_TOKENS:-4096}" \
-  ${REP_PENALTY:+--repetition-penalty "$REP_PENALTY"}
+  ${REP_PENALTY:+--repetition-penalty "$REP_PENALTY"} \
+  ${NO_REPEAT_NGRAM:+--no-repeat-ngram-size "$NO_REPEAT_NGRAM"}
 
 docker logs "$CTR" > "results/$NAME/vllm.log" 2>&1 || true
 docker rm -f "$CTR" >/dev/null

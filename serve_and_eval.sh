@@ -21,7 +21,9 @@ bash serve_model.sh "$NAME" "$HF_ID" "$GPU" || { echo "serve failed"; exit 1; }
 .venv/bin/python3 eval_cli.py --endpoint "http://localhost:$PORT" --model ocr \
   --name "$NAME" --prompt "$PROMPT" --data "$DATA" --shot "$SHOT" \
   --out "results/$NAME" --concurrency "$CONC" \
-  --max-tokens "${MAX_TOKENS:-4096}" --resume
+  --max-tokens "${MAX_TOKENS:-4096}" \
+  ${NO_REPEAT_NGRAM:+--no-repeat-ngram-size "$NO_REPEAT_NGRAM"} \
+  --resume
 
 mkdir -p "results/$NAME"
 docker logs "$CTR" > "results/$NAME/vllm.log" 2>&1 || true

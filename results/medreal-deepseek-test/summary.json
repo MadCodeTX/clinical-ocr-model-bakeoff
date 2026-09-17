@@ -1,0 +1,9 @@
+{
+ "model": "deepseek/deepseek-v4.1-flash",
+ "n": 4,
+ "n_errors": 0,
+ "total_cost_usd": 0.0033,
+ "cost_per_page": 0.00082,
+ "median_chars": 829,
+ "wall_time_s": 3.9
+}

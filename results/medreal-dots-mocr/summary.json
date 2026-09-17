@@ -1,0 +1,31 @@
+{
+ "model": "medreal-dots-mocr",
+ "shot": "zero",
+ "n_docs": 651,
+ "n_errors": 0,
+ "mean_cer": 0.1985,
+ "median_cer": 0.1726,
+ "n_runaway": 2,
+ "mean_cer_excl_runaway": 0.193,
+ "per_subset": {
+  "india-hist": {
+   "mean_cer": 0.4427,
+   "n": 46
+  },
+  "medform": {
+   "mean_cer": 0.528,
+   "n": 5
+  },
+  "noisy-med": {
+   "mean_cer": 0.1538,
+   "n": 400
+  },
+  "prescription": {
+   "mean_cer": 0.2236,
+   "n": 200
+  }
+ },
+ "wall_time_s": 1054.0,
+ "pages_per_sec": 0.618,
+ "avg_latency_s": 12.83
+}
