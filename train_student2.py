@@ -193,7 +193,12 @@ def main():
         lora = LoraConfig(r=args.rank, lora_alpha=args.alpha, lora_dropout=args.dropout,
                           bias="none", target_modules=targets, task_type="CAUSAL_LM")
         model = get_peft_model(model, lora)
-    model.print_trainable_parameters()
+        model.print_trainable_parameters()
+    else:
+        n_train = sum(p.numel() for p in model.parameters() if p.requires_grad)
+        n_all = sum(p.numel() for p in model.parameters())
+        print(f"trainable params: {n_train:,} || all params: {n_all:,} "
+              f"|| trainable%: {100*n_train/n_all:.4f}")
 
     wanted = dict(
         output_dir=args.out + "-ckpt",
