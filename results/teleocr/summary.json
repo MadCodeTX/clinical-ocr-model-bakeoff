@@ -1,0 +1,39 @@
+{
+ "model": "teleocr",
+ "shot": "zero",
+ "n_docs": 328,
+ "n_errors": 12,
+ "mean_cer": 0.7082,
+ "median_cer": 0.4635,
+ "n_runaway": 50,
+ "mean_cer_excl_runaway": 0.4758,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.8665,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 1.1335,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.1102,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.5444,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.992,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.6632,
+   "n": 56
+  }
+ },
+ "wall_time_s": 310.6,
+ "pages_per_sec": 1.056,
+ "avg_latency_s": 18.47
+}

@@ -2,7 +2,7 @@
 
 Open-weights OCR / document-VLM evaluation on **real-artifact clinical scanned documents**, plus a routing study and a distillation experiment. All data is public or synthetic (no PHI).
 
-_Generated 2026-09-21T15:58Z from `make_report.py`; 76 scored models, 14 experiment runs._
+_Generated 2026-09-21T20:03Z from `make_report.py`; 77 scored models, 14 experiment runs._
 
 ## TL;DR
 
@@ -100,6 +100,7 @@ _Generated 2026-09-21T15:58Z from `make_report.py`; 76 scored models, 14 experim
 | paddleocr-vl-promptb | ? | ? | 0.4453 | 0.0949 | 1.69 | 0.066 | 0.418 | 0.167 | 0.588 | 0.184 | 1.385 |
 | tesseract | n/a | Apache-2.0 | 0.4744 | 0.4440 | 1.41 | 0.081 | 0.533 | 0.531 | 0.665 | 0.237 | 0.853 |
 | medreal-paddleocr-vl | ? | ? | 0.5879 | 0.2416 | 1.44 | nan | nan | nan | nan | nan | nan |
+| teleocr | ? | ? | 0.7082 | 0.4635 | 1.06 | 0.110 | 0.867 | 0.544 | 0.992 | 0.663 | 1.133 |
 | deepseek-ocr | 3B MoE | MIT | 0.7717 | 0.3007 | 0.88 | 0.153 | 0.765 | 0.053 | 1.835 | 0.447 | 1.477 |
 | paddleocr-vl-pipeline | 0.9B + PP-DocLayoutV2 | Apache-2.0 | 0.8235 | 0.4455 | 0.27 | 0.453 | 0.304 | 0.409 | 0.521 | 2.000 | 1.326 |
 | chandra-2 | 5B | OpenRAIL-M (research/personal/<$2M only) | 0.8641 | 0.7134 | 0.40 | 0.826 | 0.897 | 0.839 | 0.770 | 0.625 | 1.289 |
@@ -174,6 +175,7 @@ _Generated 2026-09-21T15:58Z from `make_report.py`; 76 scored models, 14 experim
 | jina-ocr-v1 | 1.29 | 111,370 | $1.62 | $1,114 | 687x |
 | granite-docling | 1.11 | 96,336 | $1.62 | $963 | 595x |
 | qwen25vl3b-base-m | 1.06 | 91,757 | $1.62 | $918 | 566x |
+| teleocr | 1.06 | 91,238 | $1.62 | $912 | 563x |
 | qwen25vl3b-lora-olmocr-m | 1.01 | 87,178 | $1.62 | $872 | 538x |
 | medreal-qwen25vl7b-base | 0.95 | 82,253 | $1.62 | $823 | 508x |
 | medreal-qwen25vl3b-base | 0.93 | 80,179 | $1.62 | $802 | 495x |
