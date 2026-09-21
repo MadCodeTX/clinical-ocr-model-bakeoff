@@ -1,0 +1,39 @@
+{
+ "model": "y-hires800-s2",
+ "shot": "zero",
+ "n_docs": 328,
+ "n_errors": 0,
+ "mean_cer": 0.1879,
+ "median_cer": 0.0348,
+ "n_runaway": 11,
+ "mean_cer_excl_runaway": 0.1251,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.0983,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 0.7917,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.0208,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.0279,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.2173,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.0579,
+   "n": 56
+  }
+ },
+ "wall_time_s": 598.8,
+ "pages_per_sec": 0.548,
+ "avg_latency_s": 13.46
+}

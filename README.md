@@ -22,6 +22,20 @@ analysis, routing study, distillation results, cost math, run log.
 | `router.py` | cheap→expensive escalation classifier |
 | `train_student.py` | QLoRA distillation of a 3B student on the synthetic corpus |
 
+## Pi integration
+
+The harness is driveable from a [pi](https://github.com/earendil-works/pi-coding-agent)
+session via the `ocr-bench` extension (tools `ocr_status`, `ocr_leaderboard`,
+`ocr_report`, `ocr_run`, `ocr_publish`) plus the `ocr-bench` skill. The
+extension is location-aware: on bigbox it uses `~/ocr-bench` directly; from any
+other machine (e.g. the Mac) it shells out over `ssh bigbox`.
+
+```bash
+bash pi-integration/install.sh   # -> ~/.pi/agent/extensions/ + ~/.pi/agent/skills/
+# then restart pi (or /reload) and ask for "ocr status"
+# CLI equivalent: .venv/bin/python3 pi_tools.py --help
+```
+
 ## Data
 
 * [`ClinOCR-Bench`](https://huggingface.co/datasets/Daniele0025/ClinOCR-Bench)

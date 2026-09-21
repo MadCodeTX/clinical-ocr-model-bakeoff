@@ -1,0 +1,39 @@
+{
+ "model": "x-7b2400-s1",
+ "shot": "zero",
+ "n_docs": 328,
+ "n_errors": 0,
+ "mean_cer": 0.1967,
+ "median_cer": 0.0532,
+ "n_runaway": 11,
+ "mean_cer_excl_runaway": 0.1341,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.1102,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 0.8212,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.0297,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.0289,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.2029,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.0767,
+   "n": 56
+  }
+ },
+ "wall_time_s": 519.8,
+ "pages_per_sec": 0.631,
+ "avg_latency_s": 11.76
+}

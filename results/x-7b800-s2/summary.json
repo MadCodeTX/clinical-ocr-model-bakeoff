@@ -1,0 +1,39 @@
+{
+ "model": "x-7b800-s2",
+ "shot": "zero",
+ "n_docs": 328,
+ "n_errors": 0,
+ "mean_cer": 0.2185,
+ "median_cer": 0.0477,
+ "n_runaway": 15,
+ "mean_cer_excl_runaway": 0.1331,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.2013,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 0.8343,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.0246,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.0317,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.2553,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.0518,
+   "n": 56
+  }
+ },
+ "wall_time_s": 560.7,
+ "pages_per_sec": 0.585,
+ "avg_latency_s": 12.69
+}

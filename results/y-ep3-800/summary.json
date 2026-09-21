@@ -1,0 +1,39 @@
+{
+ "model": "y-ep3-800",
+ "shot": "zero",
+ "n_docs": 328,
+ "n_errors": 0,
+ "mean_cer": 0.2195,
+ "median_cer": 0.0507,
+ "n_runaway": 16,
+ "mean_cer_excl_runaway": 0.1282,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.1413,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 0.9116,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.0284,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.0338,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.2413,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.0594,
+   "n": 56
+  }
+ },
+ "wall_time_s": 546.2,
+ "pages_per_sec": 0.601,
+ "avg_latency_s": 12.74
+}

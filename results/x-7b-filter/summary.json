@@ -1,0 +1,39 @@
+{
+ "model": "x-7b-filter",
+ "shot": "zero",
+ "n_docs": 328,
+ "n_errors": 0,
+ "mean_cer": 0.2292,
+ "median_cer": 0.0483,
+ "n_runaway": 14,
+ "mean_cer_excl_runaway": 0.1502,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.2216,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 0.811,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.028,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.0361,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.3129,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.0485,
+   "n": 56
+  }
+ },
+ "wall_time_s": 529.7,
+ "pages_per_sec": 0.619,
+ "avg_latency_s": 11.8
+}

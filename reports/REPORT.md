@@ -2,7 +2,7 @@
 
 Open-weights OCR / document-VLM evaluation on **real-artifact clinical scanned documents**, plus a routing study and a distillation experiment. All data is public or synthetic (no PHI).
 
-_Generated 2026-09-15T11:27Z from `make_report.py`; 34 scored models, 14 experiment runs._
+_Generated 2026-09-21T01:47Z from `make_report.py`; 74 scored models, 14 experiment runs._
 
 ## TL;DR
 
@@ -37,41 +37,81 @@ _Generated 2026-09-15T11:27Z from `make_report.py`; 34 scored models, 14 experim
 | model | params | license | mean CER | median CER | pages/s | normal | handwriting | poor | rotated | tables | mixed |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | qwen38-27b | 27B (FP8) | UNVERIFIED — confirm before any deployment decision | 0.1059 | 0.0224 | 0.26 | 0.022 | 0.046 | 0.025 | 0.034 | 0.071 | 0.492 |
+| medmix-7b-new | ? | ? | 0.1414 | 0.0821 | 0.69 | nan | nan | nan | nan | nan | nan |
+| medreal-qwen38-27b | ? | ? | 0.1448 | 0.0799 | 0.04 | nan | nan | nan | nan | nan | nan |
+| medreal-qwen25vl7b-base | ? | ? | 0.1635 | 0.0957 | 0.95 | nan | nan | nan | nan | nan | nan |
+| medreal-student7b-oldonly | ? | ? | 0.1732 | 0.1194 | 0.92 | nan | nan | nan | nan | nan | nan |
+| medreal-qwen25vl7b | ? | ? | 0.1782 | 0.1134 | 0.57 | nan | nan | nan | nan | nan | nan |
+| y-hires2400 | ? | ? | 0.1793 | 0.0355 | 0.58 | 0.022 | 0.135 | 0.030 | 0.183 | 0.056 | 0.728 |
+| y-hires800-s1 | ? | ? | 0.1800 | 0.0345 | 0.56 | 0.018 | 0.079 | 0.031 | 0.191 | 0.053 | 0.796 |
+| x-7b-hires | ? | ? | 0.1820 | 0.0421 | 0.55 | 0.024 | 0.109 | 0.030 | 0.152 | 0.061 | 0.806 |
+| y-hires4400-filter | ? | ? | 0.1823 | 0.0373 | 0.58 | 0.019 | 0.103 | 0.031 | 0.194 | 0.055 | 0.777 |
+| y-hires800-s2 | ? | ? | 0.1879 | 0.0348 | 0.55 | 0.021 | 0.098 | 0.028 | 0.217 | 0.058 | 0.792 |
+| y-hires800-s0 | ? | ? | 0.1960 | 0.0336 | 0.54 | 0.020 | 0.138 | 0.027 | 0.185 | 0.053 | 0.847 |
+| x-7b2400-s1 | ? | ? | 0.1967 | 0.0532 | 0.63 | 0.030 | 0.110 | 0.029 | 0.203 | 0.077 | 0.821 |
+| medmix-7b-old | ? | ? | 0.1971 | 0.0450 | 0.69 | 0.028 | 0.170 | 0.040 | 0.222 | 0.066 | 0.734 |
 | qwen25vl7b-lora-q38-hires | ? | ? | 0.1976 | 0.0375 | 0.46 | 0.025 | 0.064 | 0.067 | 0.241 | 0.061 | 0.816 |
+| medreal-dots-mocr | ? | ? | 0.1985 | 0.1726 | 0.62 | nan | nan | nan | nan | nan | nan |
 | qwen25vl7b | 7B | Apache-2.0 | 0.1994 | 0.0513 | 0.54 | 0.026 | 0.103 | 0.076 | 0.265 | 0.071 | 0.732 |
+| x-7b-rank64 | ? | ? | 0.1994 | 0.0468 | 0.62 | 0.033 | 0.122 | 0.031 | 0.208 | 0.070 | 0.821 |
+| x-7b2400-s0 | ? | ? | 0.1998 | 0.0541 | 0.64 | 0.029 | 0.146 | 0.031 | 0.222 | 0.054 | 0.802 |
+| x-7b4400-s0 | ? | ? | 0.2021 | 0.0579 | 0.65 | 0.032 | 0.140 | 0.030 | 0.225 | 0.073 | 0.799 |
 | olmocr-2 | 8B | Apache-2.0 | 0.2076 | 0.0796 | 0.48 | 0.067 | 0.103 | 0.112 | 0.196 | 0.081 | 0.767 |
+| x-7b800-s1 | ? | ? | 0.2089 | 0.0481 | 0.61 | 0.025 | 0.138 | 0.035 | 0.264 | 0.051 | 0.828 |
 | qwen25vl7b-reppen | ? | ? | 0.2105 | 0.0513 | 0.52 | 0.030 | 0.100 | 0.076 | 0.282 | 0.071 | 0.787 |
 | qwen25vl7b-base-m | ? | ? | 0.2112 | 0.0720 | 0.75 | 0.037 | 0.135 | 0.035 | 0.305 | 0.081 | 0.751 |
 | dots-mocr | 3B | MIT | 0.2126 | 0.0747 | 0.67 | 0.085 | 0.126 | 0.085 | 0.241 | 0.058 | 0.759 |
+| x-7b4400-s1 | ? | ? | 0.2127 | 0.0581 | 0.63 | 0.032 | 0.147 | 0.032 | 0.230 | 0.069 | 0.858 |
+| xbase7b-norep | ? | ? | 0.2137 | 0.0554 | 0.51 | 0.034 | 0.115 | 0.076 | 0.278 | 0.077 | 0.784 |
 | dots-mocr-c4 | ? | ? | 0.2161 | 0.0746 | 0.53 | 0.084 | 0.116 | 0.086 | 0.246 | 0.058 | 0.788 |
+| x7b800-norep | ? | ? | 0.2163 | 0.0449 | 0.60 | 0.026 | 0.198 | 0.033 | 0.279 | 0.047 | 0.797 |
+| x-7b800-s2 | ? | ? | 0.2185 | 0.0477 | 0.58 | 0.025 | 0.201 | 0.032 | 0.255 | 0.052 | 0.834 |
+| y-ep3-800 | ? | ? | 0.2195 | 0.0507 | 0.60 | 0.028 | 0.141 | 0.034 | 0.241 | 0.059 | 0.912 |
 | dots-mocr-c1 | ? | ? | 0.2209 | 0.0754 | 0.26 | 0.085 | 0.120 | 0.091 | 0.244 | 0.059 | 0.811 |
+| x-7b800-s0 | ? | ? | 0.2209 | 0.0433 | 0.58 | 0.023 | 0.166 | 0.030 | 0.214 | 0.052 | 0.944 |
 | dots-mocr-c16 | ? | ? | 0.2210 | 0.0747 | 0.77 | 0.086 | 0.124 | 0.086 | 0.246 | 0.058 | 0.810 |
 | dots-mocr-promptocr | ? | ? | 0.2213 | 0.0675 | 0.65 | 0.082 | 0.119 | 0.088 | 0.244 | 0.045 | 0.837 |
+| x-7b-filter | ? | ? | 0.2292 | 0.0483 | 0.62 | 0.028 | 0.222 | 0.036 | 0.313 | 0.049 | 0.811 |
+| medreal-qwen25vl3b-base | ? | ? | 0.2324 | 0.1961 | 0.93 | nan | nan | nan | nan | nan | nan |
 | qwen25vl7b-lora-q38-m | ? | ? | 0.2345 | 0.0464 | 0.61 | 0.022 | 0.187 | 0.032 | 0.308 | 0.064 | 0.886 |
 | qwen25vl3b-base-hires | ? | ? | 0.2461 | 0.0609 | 0.81 | 0.037 | 0.166 | 0.076 | 0.297 | 0.123 | 0.867 |
 | qwen25vl3b-lora-vllm | ? | ? | 0.2474 | 0.0596 | 0.71 | 0.033 | 0.089 | 0.077 | 0.350 | 0.103 | 0.930 |
+| x-7b-vision | ? | ? | 0.2524 | 0.0478 | 0.59 | 0.029 | 0.265 | 0.036 | 0.315 | 0.074 | 0.886 |
 | qwen25vl3b-lora-teacher | 3B + LoRA (37M) | Apache-2.0 | 0.2536 | 0.0918 | 0.11 | 0.040 | 0.215 | 0.065 | 0.370 | 0.092 | 0.820 |
 | qwen25vl3b-lora-q38-hires | ? | ? | 0.2542 | 0.0499 | 0.69 | 0.029 | 0.093 | 0.077 | 0.389 | 0.096 | 0.939 |
 | qwen25vl3b-lora-teacher-hires | ? | ? | 0.2582 | 0.0616 | 0.67 | 0.035 | 0.096 | 0.085 | 0.345 | 0.077 | 1.021 |
 | dots-ocr | 3B | MIT | 0.2613 | 0.0761 | 0.61 | 0.051 | 0.165 | 0.083 | 0.314 | 0.061 | 0.999 |
 | qwen25vl3b-lora-olmocr-m | ? | ? | 0.2639 | 0.0918 | 1.01 | 0.040 | 0.178 | 0.066 | 0.379 | 0.083 | 0.933 |
+| y-3b-hires800 | ? | ? | 0.2705 | 0.0462 | 0.81 | 0.031 | 0.191 | 0.034 | 0.383 | 0.070 | 1.022 |
 | qwen25vl3b-lora-hires | ? | ? | 0.2720 | 0.0592 | 0.65 | 0.031 | 0.092 | 0.081 | 0.407 | 0.109 | 1.017 |
+| medreal-olmocr-2 | ? | ? | 0.2755 | 0.2570 | 0.47 | nan | nan | nan | nan | nan | nan |
 | qwen25vl3b-lora | 3B + LoRA (37M) | Apache-2.0 | 0.2783 | 0.1003 | 0.10 | 0.039 | 0.215 | 0.046 | 0.383 | 0.164 | 0.914 |
 | qwen25vl3b-lora-vllm-matched | ? | ? | 0.2844 | 0.0944 | 0.90 | 0.037 | 0.291 | 0.044 | 0.392 | 0.164 | 0.859 |
 | qwen25vl3b-lora-q38-m | ? | ? | 0.2912 | 0.0669 | 0.90 | 0.029 | 0.236 | 0.048 | 0.374 | 0.094 | 1.079 |
 | qwen25vl3b-base | 3B | Apache-2.0 | 0.2919 | 0.0616 | 0.18 | 0.036 | 0.325 | 0.047 | 0.436 | 0.080 | 0.916 |
+| medreal-tesseract | ? | ? | 0.2958 | 0.2946 | 1.96 | nan | nan | nan | nan | nan | nan |
 | qwen25vl3b-base-m | ? | ? | 0.2969 | 0.0649 | 1.06 | 0.037 | 0.317 | 0.048 | 0.447 | 0.079 | 0.947 |
 | qwen25vl3b-lora-gt-m | ? | ? | 0.3072 | 0.0954 | 0.81 | 0.039 | 0.231 | 0.046 | 0.421 | 0.171 | 1.038 |
+| medreal-deepseek-ocr | ? | ? | 0.3767 | 0.3240 | 3.26 | nan | nan | nan | nan | nan | nan |
+| medreal-granite-docling | ? | ? | 0.3817 | 0.3168 | 4.06 | nan | nan | nan | nan | nan | nan |
 | paddleocr-vl | 0.9B | Apache-2.0 | 0.4298 | 0.1005 | 1.70 | 0.071 | 0.502 | 0.164 | 0.502 | 0.183 | 1.278 |
 | paddleocr-vl-promptb | ? | ? | 0.4453 | 0.0949 | 1.69 | 0.066 | 0.418 | 0.167 | 0.588 | 0.184 | 1.385 |
 | tesseract | n/a | Apache-2.0 | 0.4744 | 0.4440 | 1.41 | 0.081 | 0.533 | 0.531 | 0.665 | 0.237 | 0.853 |
+| medreal-paddleocr-vl | ? | ? | 0.5879 | 0.2416 | 1.44 | nan | nan | nan | nan | nan | nan |
 | deepseek-ocr | 3B MoE | MIT | 0.7717 | 0.3007 | 0.88 | 0.153 | 0.765 | 0.053 | 1.835 | 0.447 | 1.477 |
 | paddleocr-vl-pipeline | 0.9B + PP-DocLayoutV2 | Apache-2.0 | 0.8235 | 0.4455 | 0.27 | 0.453 | 0.304 | 0.409 | 0.521 | 2.000 | 1.326 |
 | chandra-2 | 5B | OpenRAIL-M (research/personal/<$2M only) | 0.8641 | 0.7134 | 0.40 | 0.826 | 0.897 | 0.839 | 0.770 | 0.625 | 1.289 |
 | granite-docling | 0.26B | Apache-2.0 | 0.8665 | 0.8710 | 1.11 | 0.261 | 1.460 | 0.503 | 1.422 | 0.503 | 1.081 |
+| medreal-chandra-2 | ? | ? | 0.9197 | 0.9256 | 0.50 | nan | nan | nan | nan | nan | nan |
+| y-3b-fullft-4400 | ? | ? | 1.0255 | 0.7522 | 0.43 | 0.366 | 1.295 | 1.027 | 1.425 | 0.726 | 1.363 |
+| layout-dots-ocr | ? | ? | 1.0642 | 0.9698 | 0.35 | 1.082 | 1.158 | 1.058 | 1.076 | 0.740 | 1.306 |
+| layout-dots-mocr | ? | ? | 1.0736 | 0.9771 | 0.37 | 1.074 | 1.140 | 1.129 | 1.090 | 0.810 | 1.218 |
+| y-3b-fullft-800 | ? | ? | 1.1169 | 0.7768 | 0.42 | 0.604 | 1.240 | 0.987 | 1.375 | 1.080 | 1.465 |
+| medreal-dots-ocr | ? | ? | 1.1386 | 2.0000 | 0.35 | nan | nan | nan | nan | nan | nan |
 | nanonets-ocr2-3b | 3B | Apache-2.0 | 1.8010 | 2.0000 | 0.21 | 1.786 | 1.550 | 1.850 | 1.744 | 1.976 | 1.916 |
+| medreal-nanonets-ocr2-3b | ? | ? | 1.9672 | 2.0000 | 0.20 | nan | nan | nan | nan | nan | nan |
 
-> ⚠️ **Not a model-quality result:** `nanonets-ocr2-3b` produced degenerate output (a single repeated character) on effectively every document. That is an integration failure in this harness — wrong chat template or processor config — not evidence about the model. Its row is listed for completeness; do not cite it as a score.
+> ⚠️ **Not a model-quality result:** `medreal-nanonets-ocr2-3b`, `nanonets-ocr2-3b` produced degenerate output (a single repeated character) on effectively every document. That is an integration failure in this harness — wrong chat template or processor config — not evidence about the model. Its row is listed for completeness; do not cite it as a score.
 
 ![leaderboard](cer_leaderboard.png)
 
@@ -122,39 +162,79 @@ _Generated 2026-09-15T11:27Z from `make_report.py`; 34 scored models, 14 experim
 
 | model | pages/s (1 GPU, c=8) | pages/day (1 GPU) | electricity/day | Azure Layout/day | saving |
 |---|---|---|---|---|---|
+| medreal-granite-docling | 4.06 | 350,870 | $1.62 | $3,509 | 2,166x |
+| medreal-deepseek-ocr | 3.26 | 281,491 | $1.62 | $2,815 | 1,738x |
+| medreal-tesseract | 1.96 | 169,085 | $1.62 | $1,691 | 1,044x |
 | paddleocr-vl | 1.70 | 146,534 | $1.62 | $1,465 | 905x |
 | paddleocr-vl-promptb | 1.69 | 146,189 | $1.62 | $1,462 | 902x |
+| medreal-paddleocr-vl | 1.44 | 124,243 | $1.62 | $1,242 | 767x |
 | granite-docling | 1.11 | 96,336 | $1.62 | $963 | 595x |
 | qwen25vl3b-base-m | 1.06 | 91,757 | $1.62 | $918 | 566x |
 | qwen25vl3b-lora-olmocr-m | 1.01 | 87,178 | $1.62 | $872 | 538x |
+| medreal-qwen25vl7b-base | 0.95 | 82,253 | $1.62 | $823 | 508x |
+| medreal-qwen25vl3b-base | 0.93 | 80,179 | $1.62 | $802 | 495x |
+| medreal-student7b-oldonly | 0.92 | 79,402 | $1.62 | $794 | 490x |
 | qwen25vl3b-lora-q38-m | 0.90 | 77,846 | $1.62 | $778 | 481x |
 | qwen25vl3b-lora-vllm-matched | 0.90 | 77,674 | $1.62 | $777 | 479x |
 | deepseek-ocr | 0.88 | 76,118 | $1.62 | $761 | 470x |
 | qwen25vl3b-base-hires | 0.81 | 70,416 | $1.62 | $704 | 435x |
 | qwen25vl3b-lora-gt-m | 0.81 | 69,811 | $1.62 | $698 | 431x |
+| y-3b-hires800 | 0.81 | 69,552 | $1.62 | $696 | 429x |
 | dots-mocr-c16 | 0.77 | 66,096 | $1.62 | $661 | 408x |
 | qwen25vl7b-base-m | 0.75 | 64,714 | $1.62 | $647 | 399x |
 | qwen25vl3b-lora-vllm | 0.71 | 61,344 | $1.62 | $613 | 379x |
+| medmix-7b-old | 0.69 | 59,702 | $1.62 | $597 | 369x |
 | qwen25vl3b-lora-q38-hires | 0.69 | 59,616 | $1.62 | $596 | 368x |
+| medmix-7b-new | 0.69 | 59,357 | $1.62 | $594 | 366x |
 | qwen25vl3b-lora-teacher-hires | 0.67 | 57,888 | $1.62 | $579 | 357x |
 | dots-mocr | 0.67 | 57,542 | $1.62 | $575 | 355x |
 | dots-mocr-promptocr | 0.65 | 56,246 | $1.62 | $562 | 347x |
 | qwen25vl3b-lora-hires | 0.65 | 56,246 | $1.62 | $562 | 347x |
+| x-7b4400-s0 | 0.65 | 56,160 | $1.62 | $562 | 347x |
+| x-7b2400-s0 | 0.64 | 54,950 | $1.62 | $550 | 339x |
+| x-7b2400-s1 | 0.63 | 54,518 | $1.62 | $545 | 337x |
+| x-7b4400-s1 | 0.63 | 54,518 | $1.62 | $545 | 337x |
+| x-7b-filter | 0.62 | 53,482 | $1.62 | $535 | 330x |
+| medreal-dots-mocr | 0.62 | 53,395 | $1.62 | $534 | 330x |
+| x-7b-rank64 | 0.62 | 53,222 | $1.62 | $532 | 329x |
+| x-7b800-s1 | 0.61 | 52,618 | $1.62 | $526 | 325x |
 | qwen25vl7b-lora-q38-m | 0.61 | 52,531 | $1.62 | $525 | 324x |
 | dots-ocr | 0.61 | 52,445 | $1.62 | $524 | 324x |
+| x7b800-norep | 0.60 | 51,926 | $1.62 | $519 | 321x |
+| y-ep3-800 | 0.60 | 51,926 | $1.62 | $519 | 321x |
+| x-7b-vision | 0.59 | 51,322 | $1.62 | $513 | 317x |
+| x-7b800-s0 | 0.58 | 50,544 | $1.62 | $505 | 312x |
+| x-7b800-s2 | 0.58 | 50,544 | $1.62 | $505 | 312x |
+| y-hires2400 | 0.58 | 50,285 | $1.62 | $503 | 310x |
+| y-hires4400-filter | 0.58 | 50,198 | $1.62 | $502 | 310x |
+| medreal-qwen25vl7b | 0.57 | 49,507 | $1.62 | $495 | 306x |
+| y-hires800-s1 | 0.56 | 48,384 | $1.62 | $484 | 299x |
+| x-7b-hires | 0.55 | 47,434 | $1.62 | $474 | 293x |
+| y-hires800-s2 | 0.55 | 47,347 | $1.62 | $473 | 292x |
+| y-hires800-s0 | 0.54 | 46,570 | $1.62 | $466 | 287x |
 | qwen25vl7b | 0.54 | 46,483 | $1.62 | $465 | 287x |
 | dots-mocr-c4 | 0.53 | 45,965 | $1.62 | $460 | 284x |
 | qwen25vl7b-reppen | 0.52 | 44,496 | $1.62 | $445 | 275x |
+| xbase7b-norep | 0.51 | 44,323 | $1.62 | $443 | 274x |
+| medreal-chandra-2 | 0.50 | 42,854 | $1.62 | $429 | 265x |
 | olmocr-2 | 0.48 | 41,213 | $1.62 | $412 | 254x |
+| medreal-olmocr-2 | 0.47 | 40,435 | $1.62 | $404 | 250x |
 | qwen25vl7b-lora-q38-hires | 0.46 | 39,917 | $1.62 | $399 | 246x |
+| y-3b-fullft-4400 | 0.43 | 37,584 | $1.62 | $376 | 232x |
+| y-3b-fullft-800 | 0.42 | 36,720 | $1.62 | $367 | 227x |
 | chandra-2 | 0.40 | 34,646 | $1.62 | $346 | 214x |
+| layout-dots-mocr | 0.37 | 31,882 | $1.62 | $319 | 197x |
+| layout-dots-ocr | 0.35 | 30,586 | $1.62 | $306 | 189x |
+| medreal-dots-ocr | 0.35 | 30,413 | $1.62 | $304 | 188x |
 | paddleocr-vl-pipeline | 0.27 | 23,414 | $1.62 | $234 | 145x |
 | qwen38-27b | 0.26 | 22,810 | $1.62 | $228 | 141x |
 | dots-mocr-c1 | 0.26 | 22,550 | $1.62 | $226 | 139x |
 | nanonets-ocr2-3b | 0.21 | 18,317 | $1.62 | $183 | 113x |
+| medreal-nanonets-ocr2-3b | 0.20 | 17,366 | $1.62 | $174 | 107x |
 | qwen25vl3b-base | 0.18 | 15,898 | $1.62 | $159 | 98x |
 | qwen25vl3b-lora-teacher | 0.11 | 9,418 | $1.62 | $94 | 58x |
 | qwen25vl3b-lora | 0.10 | 8,899 | $1.62 | $89 | 55x |
+| medreal-qwen38-27b | 0.04 | 3,542 | $1.62 | $35 | 22x |
 
 Assumes one 450 W 4090 at $0.15/kWh (~$1.62/day); Azure Layout OCR at $0.01/page. Self-hosting is 3–4 orders of magnitude cheaper per page *before* counting GPU amortisation.*
 
