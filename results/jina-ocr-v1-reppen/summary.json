@@ -1,0 +1,39 @@
+{
+ "model": "jina-ocr-v1-reppen",
+ "shot": "zero",
+ "n_docs": 328,
+ "n_errors": 0,
+ "mean_cer": 0.3543,
+ "median_cer": 0.1031,
+ "n_runaway": 32,
+ "mean_cer_excl_runaway": 0.1764,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.1619,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 1.1712,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.0461,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.0365,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.7247,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.1023,
+   "n": 56
+  }
+ },
+ "wall_time_s": 229.2,
+ "pages_per_sec": 1.431,
+ "avg_latency_s": 5.44
+}

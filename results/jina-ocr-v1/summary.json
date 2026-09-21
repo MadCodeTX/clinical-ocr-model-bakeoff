@@ -1,0 +1,39 @@
+{
+ "model": "jina-ocr-v1",
+ "shot": "zero",
+ "n_docs": 328,
+ "n_errors": 0,
+ "mean_cer": 0.3887,
+ "median_cer": 0.0975,
+ "n_runaway": 41,
+ "mean_cer_excl_runaway": 0.1585,
+ "per_subset": {
+  "handwriting": {
+   "mean_cer": 0.1901,
+   "n": 56
+  },
+  "mixed": {
+   "mean_cer": 1.2765,
+   "n": 48
+  },
+  "normal": {
+   "mean_cer": 0.0441,
+   "n": 56
+  },
+  "poor": {
+   "mean_cer": 0.036,
+   "n": 56
+  },
+  "rotated": {
+   "mean_cer": 0.8121,
+   "n": 56
+  },
+  "tables": {
+   "mean_cer": 0.1,
+   "n": 56
+  }
+ },
+ "wall_time_s": 254.4,
+ "pages_per_sec": 1.289,
+ "avg_latency_s": 6.01
+}

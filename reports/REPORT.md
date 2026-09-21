@@ -2,7 +2,7 @@
 
 Open-weights OCR / document-VLM evaluation on **real-artifact clinical scanned documents**, plus a routing study and a distillation experiment. All data is public or synthetic (no PHI).
 
-_Generated 2026-09-21T01:47Z from `make_report.py`; 74 scored models, 14 experiment runs._
+_Generated 2026-09-21T15:58Z from `make_report.py`; 76 scored models, 14 experiment runs._
 
 ## TL;DR
 
@@ -92,8 +92,10 @@ _Generated 2026-09-21T01:47Z from `make_report.py`; 74 scored models, 14 experim
 | medreal-tesseract | ? | ? | 0.2958 | 0.2946 | 1.96 | nan | nan | nan | nan | nan | nan |
 | qwen25vl3b-base-m | ? | ? | 0.2969 | 0.0649 | 1.06 | 0.037 | 0.317 | 0.048 | 0.447 | 0.079 | 0.947 |
 | qwen25vl3b-lora-gt-m | ? | ? | 0.3072 | 0.0954 | 0.81 | 0.039 | 0.231 | 0.046 | 0.421 | 0.171 | 1.038 |
+| jina-ocr-v1-reppen | ? | ? | 0.3543 | 0.1031 | 1.43 | 0.046 | 0.162 | 0.036 | 0.725 | 0.102 | 1.171 |
 | medreal-deepseek-ocr | ? | ? | 0.3767 | 0.3240 | 3.26 | nan | nan | nan | nan | nan | nan |
 | medreal-granite-docling | ? | ? | 0.3817 | 0.3168 | 4.06 | nan | nan | nan | nan | nan | nan |
+| jina-ocr-v1 | ? | ? | 0.3887 | 0.0975 | 1.29 | 0.044 | 0.190 | 0.036 | 0.812 | 0.100 | 1.276 |
 | paddleocr-vl | 0.9B | Apache-2.0 | 0.4298 | 0.1005 | 1.70 | 0.071 | 0.502 | 0.164 | 0.502 | 0.183 | 1.278 |
 | paddleocr-vl-promptb | ? | ? | 0.4453 | 0.0949 | 1.69 | 0.066 | 0.418 | 0.167 | 0.588 | 0.184 | 1.385 |
 | tesseract | n/a | Apache-2.0 | 0.4744 | 0.4440 | 1.41 | 0.081 | 0.533 | 0.531 | 0.665 | 0.237 | 0.853 |
@@ -168,6 +170,8 @@ _Generated 2026-09-21T01:47Z from `make_report.py`; 74 scored models, 14 experim
 | paddleocr-vl | 1.70 | 146,534 | $1.62 | $1,465 | 905x |
 | paddleocr-vl-promptb | 1.69 | 146,189 | $1.62 | $1,462 | 902x |
 | medreal-paddleocr-vl | 1.44 | 124,243 | $1.62 | $1,242 | 767x |
+| jina-ocr-v1-reppen | 1.43 | 123,638 | $1.62 | $1,236 | 763x |
+| jina-ocr-v1 | 1.29 | 111,370 | $1.62 | $1,114 | 687x |
 | granite-docling | 1.11 | 96,336 | $1.62 | $963 | 595x |
 | qwen25vl3b-base-m | 1.06 | 91,757 | $1.62 | $918 | 566x |
 | qwen25vl3b-lora-olmocr-m | 1.01 | 87,178 | $1.62 | $872 | 538x |
